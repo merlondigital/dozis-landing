@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 350" width="100%" height="100%">
+  <defs>
+    <!-- MASZK: A széleken (D, S) erősebben engedi a pezsgést, belül szinte teljesen blokkolja -->
+    <linearGradient id="comboGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="31%" stop-color="#ffffff" />
+      <stop offset="35%" stop-color="#111111" />
+      <stop offset="62%" stop-color="#111111" />
+      <stop offset="66%" stop-color="#ffffff" />
+      <stop offset="100%" stop-color="#ffffff" />
+    </linearGradient>
+
+    <radialGradient id="accentFade">
+      <stop offset="0%" stop-color="white" />
+      <stop offset="100%" stop-color="black" />
+    </radialGradient>
+
+    <mask id="sprayMask">
+      <rect width="100%" height="100%" fill="url(#comboGrad)" />
+      <circle cx="41%" cy="33%" r="6%" fill="url(#accentFade)" />
+    </mask>
+
+    <!-- ENYHÉBB PEZSGŐ EFFEKTUS -->
+    <filter id="mildFizz" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="6 3" result="blur" />
+      <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="3" result="noise">
+        <animate attributeName="baseFrequency" values="0.9 0.9; 0.92 0.91; 0.9 0.9" dur="60s" repeatCount="indefinite" />
+      </feTurbulence>
+      <feDisplacementMap in="blur" in2="noise" scale="16" xChannelSelector="R" yChannelSelector="G" result="spray" />
+      <feColorMatrix in="spray" type="matrix" values="
+        1 0 0 0 0
+        0 1 0 0 0
+        0 0 1 0 0
+        0 0 0 2.2 0" />
+    </filter>
+  </defs>
+
+  <g font-family="Montserrat, 'Arial', 'Poppins', sans-serif"
+     font-weight="800"
+     font-size="140"
+     letter-spacing="-6"
+     fill="#ffffff"
+     text-anchor="middle"
+     dominant-baseline="middle">
+
+    <!-- 1. Réteg: A finoman, kis kiterjedésben pezsgő textúra (maszkolva) -->
+    <text x="50%" y="55%" filter="url(#mildFizz)" mask="url(#sprayMask)">DÓZIS.</text>
+
+    <!-- 2. Réteg: A tökéletesen tiszta, éles felirat a tetején -->
+    <text x="50%" y="55%">DÓZIS.</text>
+  </g>
+</svg>
