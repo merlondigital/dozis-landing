@@ -20,7 +20,7 @@ export function AppHeader({ user }: AppHeaderProps) {
   };
 
   return (
-    <header className="border-b border-zinc-800 bg-dozis-navy">
+    <header className="border-b border-zinc-800 bg-dozis-navy relative z-10">
       <div className="container mx-auto px-4 h-16 flex items-center justify-between">
         <a href="/app" className="flex items-center gap-2">
           <img src="/images/globe-logo.png" alt="DÓZIS." className="h-8 w-8 rounded-full" />

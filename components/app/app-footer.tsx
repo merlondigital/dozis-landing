@@ -2,7 +2,7 @@ import Link from "next/link";
 
 export function AppFooter() {
   return (
-    <footer className="border-t border-zinc-800 bg-dozis-navy-deep py-6 px-4 mt-auto">
+    <footer className="border-t border-zinc-800 bg-dozis-navy-deep py-6 px-4 mt-auto relative z-10">
       <div className="container mx-auto flex flex-col items-center gap-2">
         <div className="flex items-center">
           <Link
