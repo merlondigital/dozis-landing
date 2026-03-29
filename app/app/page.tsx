@@ -1,28 +1,37 @@
 export const dynamic = "force-dynamic";
 
-import Link from "next/link";
 import { redirect } from "next/navigation";
+import Link from "next/link";
 import { format } from "date-fns";
 import { hu } from "date-fns/locale";
 import { Calendar, MapPin, ArrowRight, QrCode } from "lucide-react";
-import { requireProfile } from "@/src/lib/auth-utils";
+import { getSession } from "@/src/lib/auth-utils";
 import { getUpcomingEvents, getUserRegistration } from "@/src/lib/events/actions";
 import { getUserLoyalty } from "@/src/lib/checkin/queries";
 import { GenreBadge, parseGenreTags } from "@/components/events/genre-badge";
 import { LoyaltyCard } from "@/components/loyalty/loyalty-card";
 
 export default async function DashboardPage() {
-  const result = await requireProfile();
-  if (!result) redirect("/app/login");
-  if (result.needsProfile) redirect("/app/register");
+  const session = await getSession();
 
-  const { session } = result;
-  const user = session.user as { firstName?: string; name: string; id: string };
+  if (!session?.user) {
+    redirect("/app/login");
+  }
+
+  const user = session.user as {
+    firstName?: string;
+    name: string;
+    id: string;
+    profileCompleted?: boolean;
+  };
+
+  if (!user.profileCompleted) {
+    redirect("/app/register");
+  }
 
   const upcoming = await getUpcomingEvents();
   const nextEvent = upcoming[0] ?? null;
 
-  // Check if user is registered for the next event
   let isRegistered = false;
   if (nextEvent) {
     const reg = await getUserRegistration(nextEvent.id, user.id);
@@ -47,7 +56,6 @@ export default async function DashboardPage() {
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-        {/* Next event card */}
         {nextEvent ? (
           <Link
             href={`/app/events/${nextEvent.id}`}
@@ -100,14 +108,12 @@ export default async function DashboardPage() {
           </div>
         )}
 
-        {/* Loyalty program card */}
         <LoyaltyCard
           attendanceCount={loyalty?.attendanceCount ?? 0}
           nextIsFree={loyalty?.nextIsFree ?? false}
         />
       </div>
 
-      {/* Link to all events */}
       <Link
         href="/app/events"
         className="inline-flex items-center gap-2 text-dozis-amber hover:text-dozis-amber-light transition-colors text-sm font-medium"

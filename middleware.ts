@@ -15,13 +15,37 @@ export function middleware(request: NextRequest) {
     return NextResponse.next();
   }
 
-  // All /app/* routes require authentication
+  // /app/register is accessible with session (no profile check needed in middleware)
+  if (pathname === "/app/register") {
+    if (!sessionToken) {
+      return NextResponse.redirect(new URL("/app/login", request.url));
+    }
+    return NextResponse.next();
+  }
+
+  // All other /app/* routes require authentication
   if (pathname.startsWith("/app")) {
     if (!sessionToken) {
       const loginUrl = new URL("/app/login", request.url);
-      // Store original URL for redirect after login (per D-18)
       loginUrl.searchParams.set("callbackUrl", pathname);
       return NextResponse.redirect(loginUrl);
+    }
+
+    // Check session data cookie for profileCompleted
+    const sessionDataCookie =
+      request.cookies.get("better-auth.session_data") ||
+      request.cookies.get("__Secure-better-auth.session_data");
+
+    if (sessionDataCookie?.value) {
+      try {
+        const sessionData = JSON.parse(sessionDataCookie.value);
+        const profileCompleted = sessionData?.user?.profileCompleted;
+        if (profileCompleted === false || profileCompleted === 0) {
+          return NextResponse.redirect(new URL("/app/register", request.url));
+        }
+      } catch {
+        // Can't parse session data - let the page handle it
+      }
     }
   }
 
@@ -30,7 +54,6 @@ export function middleware(request: NextRequest) {
 
 export const config = {
   matcher: [
-    // Match all /app/* routes except static files
     "/app/:path*",
   ],
 };
