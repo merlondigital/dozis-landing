@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { format } from "date-fns";
 import { hu } from "date-fns/locale";
+import { ScanLine, Users, Pencil, Trash2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { deleteEvent } from "@/src/lib/events/actions";
 
@@ -33,9 +34,10 @@ export interface EventData {
 
 interface EventListProps {
   events: EventData[];
+  counts?: Record<string, { registered: number; checkedIn: number }>;
 }
 
-export function EventList({ events: initialEvents }: EventListProps) {
+export function EventList({ events: initialEvents, counts = {} }: EventListProps) {
   const router = useRouter();
   const [events, setEvents] = useState(initialEvents);
   const [deletingId, setDeletingId] = useState<string | null>(null);
@@ -89,6 +91,7 @@ export function EventList({ events: initialEvents }: EventListProps) {
           ? event.genreTags.split(",").map((g) => g.trim())
           : [];
         const isPast = event.date < new Date();
+        const eventCounts = counts[event.id];
 
         return (
           <div
@@ -130,20 +133,43 @@ export function EventList({ events: initialEvents }: EventListProps) {
                     ))}
                   </div>
                 )}
+
+                {/* Registration/check-in counts */}
+                {eventCounts && (
+                  <p className="text-xs text-muted-foreground mt-2">
+                    {eventCounts.registered} regisztralt, {eventCounts.checkedIn} becsekkolva
+                  </p>
+                )}
               </div>
 
-              <div className="flex items-center gap-2 shrink-0">
+              {/* Quick links + actions */}
+              <div className="flex items-center gap-2 shrink-0 flex-wrap justify-end">
+                <Link href={`/app/admin/events/${event.id}/scan`}>
+                  <Button variant="outline" size="sm" className="gap-1.5">
+                    <ScanLine className="size-3.5" />
+                    Szkenner
+                  </Button>
+                </Link>
+                <Link href={`/app/admin/events/${event.id}/guests`}>
+                  <Button variant="outline" size="sm" className="gap-1.5">
+                    <Users className="size-3.5" />
+                    Vendeglista
+                  </Button>
+                </Link>
                 <Link href={`/app/admin/events/${event.id}/edit`}>
-                  <Button variant="outline" size="sm">
+                  <Button variant="outline" size="sm" className="gap-1.5">
+                    <Pencil className="size-3.5" />
                     Szerkesztes
                   </Button>
                 </Link>
                 <Button
                   variant="destructive"
                   size="sm"
+                  className="gap-1.5"
                   onClick={() => handleDelete(event.id, event.name)}
                   disabled={isPending && deletingId === event.id}
                 >
+                  <Trash2 className="size-3.5" />
                   {isPending && deletingId === event.id
                     ? "Torles..."
                     : "Torles"}
