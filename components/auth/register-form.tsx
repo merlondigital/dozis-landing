@@ -92,7 +92,7 @@ export function RegisterForm() {
         return;
       }
 
-      router.push("/app");
+      router.push("/app/events");
     } catch {
       setSubmitError("Hiba történt a mentés során. Próbáld újra.");
     } finally {

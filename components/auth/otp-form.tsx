@@ -43,9 +43,8 @@ export function OtpForm({ email, onBack }: OtpFormProps) {
         }
 
         // Successful verification - redirect to app
-        const params = new URLSearchParams(window.location.search);
-        const callbackUrl = params.get("callbackUrl") || "/app";
-        router.push(callbackUrl);
+        // Always go to register first — it redirects to events if profile complete
+        router.push("/app/register");
       } catch {
         setError("Hiba történt. Próbáld újra.");
         setLoading(false);

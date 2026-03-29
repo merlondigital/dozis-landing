@@ -14,7 +14,7 @@ export default async function RegisterPage() {
 
   const profileCheck = await requireProfile();
   if (profileCheck && !profileCheck.needsProfile) {
-    redirect("/app");
+    redirect("/app/events");
   }
 
   return (
