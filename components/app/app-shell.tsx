@@ -1,6 +1,7 @@
 "use client";
 
 import { AppHeader } from "./app-header";
+import { AppFooter } from "./app-footer";
 
 interface AppShellProps {
   user: {
@@ -14,11 +15,12 @@ interface AppShellProps {
 
 export function AppShell({ user, children }: AppShellProps) {
   return (
-    <div className="min-h-screen bg-dozis-navy-deep">
+    <div className="min-h-screen bg-dozis-navy-deep flex flex-col">
       <AppHeader user={user} />
-      <main className="container mx-auto px-4 py-8 pb-24">
+      <main className="flex-1 container mx-auto px-4 py-8 pb-24">
         {children}
       </main>
+      <AppFooter />
     </div>
   );
 }
