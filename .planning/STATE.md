@@ -3,15 +3,15 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: executing
-stopped_at: Completed 02-02-PLAN.md
+stopped_at: Completed 03-01-PLAN.md
 last_updated: "2026-03-29T19:08:38.915Z"
 last_activity: 2026-03-29
 progress:
   total_phases: 4
   completed_phases: 2
   total_plans: 6
-  completed_plans: 6
-  percent: 67
+  completed_plans: 7
+  percent: 78
 ---
 
 # Project State
@@ -21,16 +21,16 @@ progress:
 See: .planning/PROJECT.md (updated 2026-03-29)
 
 **Core value:** A vendeg QR koddal igazolhatja jelenletet az eventen, es az 5. latogatasa ingyenes.
-**Current focus:** Phase 02 — events-registration
+**Current focus:** Phase 03 — checkin-loyalty
 
 ## Current Position
 
 Phase: 3
-Plan: Not started
-Status: Ready to execute
+Plan: 1 of 3
+Status: Executing
 Last activity: 2026-03-29
 
-Progress: [███████░░░] 67%
+Progress: [████████░░] 78%
 
 ## Performance Metrics
 
@@ -56,6 +56,7 @@ Progress: [███████░░░] 67%
 | Phase 01 P03 | 6min | 2 tasks | 19 files |
 | Phase 02-events-registration P01 | 4min | 2 tasks | 9 files |
 | Phase 02-events-registration P02 | 3min | 2 tasks | 9 files |
+| Phase 03-checkin-loyalty P01 | 4min | 2 tasks | 7 files |
 
 ## Accumulated Context
 
@@ -78,6 +79,8 @@ Recent decisions affecting current work:
 - [Phase 02]: Used crypto.subtle.verify() for timing-safe HMAC comparison instead of === string comparison
 - [Phase 02]: QR token format: registrationId:eventId:userId:hmacHex using BETTER_AUTH_SECRET as HMAC key
 - [Phase 02-events-registration]: Used native datetime-local input for date picker, genre tags as colored toggle buttons, optimistic delete pattern
+- [Phase 03-checkin-loyalty]: Shared performCheckIn helper for DRY QR and manual check-in logic
+- [Phase 03-checkin-loyalty]: Loyalty cycle: isFree set at registration time (attendanceCount >= 4), counter reset at free event check-in
 
 ### Pending Todos
 
@@ -91,6 +94,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-03-29T16:19:24.588Z
-Stopped at: Completed 02-02-PLAN.md
+Last session: 2026-03-29T19:21:54Z
+Stopped at: Completed 03-01-PLAN.md
 Resume file: None

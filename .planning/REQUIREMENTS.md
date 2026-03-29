@@ -32,14 +32,14 @@
 
 - [ ] **CHKN-01**: Admin can scan QR code via mobile camera to check in attendee
 - [ ] **CHKN-02**: Clear visual+audio feedback on scan (green=success, red=invalid/duplicate)
-- [ ] **CHKN-03**: Duplicate check-in prevented at database level (UNIQUE constraint)
+- [x] **CHKN-03**: Duplicate check-in prevented at database level (UNIQUE constraint)
 - [ ] **CHKN-04**: Admin has manual code input fallback for scanning issues
 
 ### Loyalty
 
 - [ ] **LOYL-01**: User sees attendance count and progress toward free event (X/5)
-- [ ] **LOYL-02**: After 4 verified check-ins, 5th registration is auto-marked as free
-- [ ] **LOYL-03**: Loyalty counter resets after free event (new cycle starts at 0)
+- [x] **LOYL-02**: After 4 verified check-ins, 5th registration is auto-marked as free
+- [x] **LOYL-03**: Loyalty counter resets after free event (new cycle starts at 0)
 
 ### Admin Dashboard
 
@@ -121,11 +121,11 @@
 | REGN-04 | Phase 2 | Complete |
 | CHKN-01 | Phase 3 | Pending |
 | CHKN-02 | Phase 3 | Pending |
-| CHKN-03 | Phase 3 | Pending |
+| CHKN-03 | Phase 3 | Complete |
 | CHKN-04 | Phase 3 | Pending |
 | LOYL-01 | Phase 3 | Pending |
-| LOYL-02 | Phase 3 | Pending |
-| LOYL-03 | Phase 3 | Pending |
+| LOYL-02 | Phase 3 | Complete |
+| LOYL-03 | Phase 3 | Complete |
 | ADMN-01 | Phase 3 | Pending |
 | ADMN-02 | Phase 3 | Pending |
 | ADMN-03 | Phase 3 | Pending |
