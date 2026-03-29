@@ -230,6 +230,13 @@ export async function getUpcomingEvents() {
     .orderBy(asc(event.date));
 }
 
+export async function getAllEvents() {
+  const { env } = getCloudflareContext();
+  const db = getDb(env.DB);
+
+  return db.select().from(event).orderBy(desc(event.date));
+}
+
 export async function getEventById(id: string) {
   const { env } = getCloudflareContext();
   const db = getDb(env.DB);
