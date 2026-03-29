@@ -47,6 +47,7 @@ export default async function QrFullScreenPage({
       {/* QR display */}
       <QrDisplay
         qrToken={qrToken}
+        eventId={id}
         eventName={eventData.name}
         eventDate={eventData.date}
       />

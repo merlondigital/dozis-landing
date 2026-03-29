@@ -56,6 +56,7 @@ export function EventDetailActions({
       <div className="space-y-6">
         <QrDisplay
           qrToken={registration.qrToken}
+          eventId={eventId}
           eventName={eventName}
           eventDate={eventDate}
         />
