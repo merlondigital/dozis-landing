@@ -1,7 +1,7 @@
-# Requirements: DÓZIS. Event App
+# Requirements: DOZIS. Event App
 
 **Defined:** 2026-03-29
-**Core Value:** A vendég QR kóddal igazolhatja jelenlétét az eventen, és az 5. látogatása ingyenes.
+**Core Value:** A vendeg QR koddal igazolhatja jelenletet az eventen, es az 5. latogatasa ingyenes.
 
 ## v1 Requirements
 
@@ -53,7 +53,7 @@
 - [ ] **INFR-02**: Hono API router with typed bindings
 - [ ] **INFR-03**: @cloudflare/vite-plugin unified SPA + API build
 - [ ] **INFR-04**: Resend email integration with custom domain (SPF/DKIM/DMARC)
-- [ ] **INFR-05**: DÓZIS branding (dark theme, amber/blue, Anton/Montserrat, spray-paint aesthetic)
+- [ ] **INFR-05**: DOZIS branding (dark theme, amber/blue, Anton/Montserrat, spray-paint aesthetic)
 
 ### UX
 
@@ -101,13 +101,44 @@
 
 | Requirement | Phase | Status |
 |-------------|-------|--------|
-| (Populated during roadmap creation) | | |
+| AUTH-01 | Phase 1 | Pending |
+| AUTH-02 | Phase 1 | Pending |
+| AUTH-03 | Phase 1 | Pending |
+| AUTH-04 | Phase 1 | Pending |
+| AUTH-05 | Phase 1 | Pending |
+| INFR-01 | Phase 1 | Pending |
+| INFR-02 | Phase 1 | Pending |
+| INFR-03 | Phase 1 | Pending |
+| INFR-04 | Phase 1 | Pending |
+| EVNT-01 | Phase 2 | Pending |
+| EVNT-02 | Phase 2 | Pending |
+| EVNT-03 | Phase 2 | Pending |
+| EVNT-04 | Phase 2 | Pending |
+| EVNT-05 | Phase 2 | Pending |
+| REGN-01 | Phase 2 | Pending |
+| REGN-02 | Phase 2 | Pending |
+| REGN-03 | Phase 2 | Pending |
+| REGN-04 | Phase 2 | Pending |
+| CHKN-01 | Phase 3 | Pending |
+| CHKN-02 | Phase 3 | Pending |
+| CHKN-03 | Phase 3 | Pending |
+| CHKN-04 | Phase 3 | Pending |
+| LOYL-01 | Phase 3 | Pending |
+| LOYL-02 | Phase 3 | Pending |
+| LOYL-03 | Phase 3 | Pending |
+| ADMN-01 | Phase 3 | Pending |
+| ADMN-02 | Phase 3 | Pending |
+| ADMN-03 | Phase 3 | Pending |
+| INFR-05 | Phase 4 | Pending |
+| UX-01 | Phase 4 | Pending |
+| UX-02 | Phase 4 | Pending |
+| UX-03 | Phase 4 | Pending |
 
 **Coverage:**
-- v1 requirements: 27 total
-- Mapped to phases: 0
-- Unmapped: 27 ⚠️
+- v1 requirements: 32 total
+- Mapped to phases: 32
+- Unmapped: 0
 
 ---
 *Requirements defined: 2026-03-29*
-*Last updated: 2026-03-29 after initial definition*
+*Last updated: 2026-03-29 after roadmap creation*
