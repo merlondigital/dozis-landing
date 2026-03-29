@@ -24,6 +24,7 @@
     "clsx": "^2",
     "date-fns": "^4.1.0",
     "drizzle-orm": "^0.45.2",
+    "html5-qrcode": "^2.3.8",
     "lucide-react": "^0.500",
     "next": "^15.3",
     "qrcode.react": "^4.2.0",
