@@ -47,7 +47,7 @@ Plans:
 **Plans**: 3 plans
 
 Plans:
-- [ ] 02-01-PLAN.md — Event + registration Drizzle schema, Zod validation, HMAC QR signing, Server Actions
+- [x] 02-01-PLAN.md — Event + registration Drizzle schema, Zod validation, HMAC QR signing, Server Actions
 - [ ] 02-02-PLAN.md — Admin event CRUD UI (list, create, edit, delete pages)
 - [ ] 02-03-PLAN.md — User event listing, detail page, registration flow, QR code display, dashboard update
 

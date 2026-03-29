@@ -15,18 +15,18 @@
 
 ### Events
 
-- [ ] **EVNT-01**: Admin can create event (name, date, time, venue, description, genre tags)
-- [ ] **EVNT-02**: Admin can edit existing event details
-- [ ] **EVNT-03**: Admin can delete event
+- [x] **EVNT-01**: Admin can create event (name, date, time, venue, description, genre tags)
+- [x] **EVNT-02**: Admin can edit existing event details
+- [x] **EVNT-03**: Admin can delete event
 - [ ] **EVNT-04**: User sees upcoming events list with next event highlighted
 - [ ] **EVNT-05**: User sees event detail page (date, venue, lineup, genre)
 
 ### Registration & QR
 
 - [ ] **REGN-01**: User can register for an upcoming event (one-tap after login)
-- [ ] **REGN-02**: HMAC-signed QR code generated on registration (registration+event+user IDs)
+- [x] **REGN-02**: HMAC-signed QR code generated on registration (registration+event+user IDs)
 - [ ] **REGN-03**: User can view QR code full-screen with white background and max contrast
-- [ ] **REGN-04**: Duplicate registration prevented (one registration per user per event)
+- [x] **REGN-04**: Duplicate registration prevented (one registration per user per event)
 
 ### Check-In
 
@@ -110,15 +110,15 @@
 | INFR-02 | Phase 1 | Complete |
 | INFR-03 | Phase 1 | Complete |
 | INFR-04 | Phase 1 | Complete |
-| EVNT-01 | Phase 2 | Pending |
-| EVNT-02 | Phase 2 | Pending |
-| EVNT-03 | Phase 2 | Pending |
+| EVNT-01 | Phase 2 | Complete |
+| EVNT-02 | Phase 2 | Complete |
+| EVNT-03 | Phase 2 | Complete |
 | EVNT-04 | Phase 2 | Pending |
 | EVNT-05 | Phase 2 | Pending |
 | REGN-01 | Phase 2 | Pending |
-| REGN-02 | Phase 2 | Pending |
+| REGN-02 | Phase 2 | Complete |
 | REGN-03 | Phase 2 | Pending |
-| REGN-04 | Phase 2 | Pending |
+| REGN-04 | Phase 2 | Complete |
 | CHKN-01 | Phase 3 | Pending |
 | CHKN-02 | Phase 3 | Pending |
 | CHKN-03 | Phase 3 | Pending |

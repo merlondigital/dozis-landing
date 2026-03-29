@@ -2,16 +2,16 @@
 gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
-status: verifying
-stopped_at: Completed 01-03-PLAN.md (Task 3 checkpoint pending human verification)
-last_updated: "2026-03-29T15:48:43.706Z"
+status: executing
+stopped_at: Completed 02-01-PLAN.md
+last_updated: "2026-03-29T16:11:52.434Z"
 last_activity: 2026-03-29
 progress:
   total_phases: 4
   completed_phases: 1
-  total_plans: 3
-  completed_plans: 3
-  percent: 33
+  total_plans: 6
+  completed_plans: 4
+  percent: 67
 ---
 
 # Project State
@@ -21,16 +21,16 @@ progress:
 See: .planning/PROJECT.md (updated 2026-03-29)
 
 **Core value:** A vendeg QR koddal igazolhatja jelenletet az eventen, es az 5. latogatasa ingyenes.
-**Current focus:** Phase 01 — foundation-auth
+**Current focus:** Phase 02 — events-registration
 
 ## Current Position
 
 Phase: 2
-Plan: Not started
-Status: Phase complete — ready for verification
+Plan: 1 of 3
+Status: executing
 Last activity: 2026-03-29
 
-Progress: [███░░░░░░░] 33%
+Progress: [███████░░░] 67%
 
 ## Performance Metrics
 
@@ -54,6 +54,7 @@ Progress: [███░░░░░░░] 33%
 *Updated after each plan completion*
 | Phase 01 P02 | 5min | 2 tasks | 8 files |
 | Phase 01 P03 | 6min | 2 tasks | 19 files |
+| Phase 02-events-registration P01 | 4min | 2 tasks | 9 files |
 
 ## Accumulated Context
 
@@ -73,6 +74,8 @@ Recent decisions affecting current work:
 - [Phase 01]: Augmented global CloudflareEnv interface for typed Cloudflare bindings access
 - [Phase 01]: Used Server Action + Drizzle for profile update (profileCompleted has input:false in better-auth)
 - [Phase 01]: Route protection pattern: middleware.ts for fast cookie check, layout.tsx for full session validation, page.tsx for role/profile checks
+- [Phase 02]: Used crypto.subtle.verify() for timing-safe HMAC comparison instead of === string comparison
+- [Phase 02]: QR token format: registrationId:eventId:userId:hmacHex using BETTER_AUTH_SECRET as HMAC key
 
 ### Pending Todos
 
@@ -86,6 +89,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-03-29T15:37:39.045Z
-Stopped at: Completed 01-03-PLAN.md (Task 3 checkpoint pending human verification)
+Last session: 2026-03-29T16:11:52.432Z
+Stopped at: Completed 02-01-PLAN.md
 Resume file: None
