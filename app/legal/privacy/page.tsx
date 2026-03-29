@@ -28,7 +28,7 @@ export default function PrivacyPolicyPage() {
         </p>
         <div className="text-zinc-300 leading-relaxed mb-4 space-y-1">
           <p>
-            <strong className="text-zinc-200">Nev:</strong> Polomai Zoltan
+            <strong className="text-zinc-200">Nev:</strong> Termeszetes szemely (az alkalmazas uzemeltetoje)
           </p>
           <p>
             <strong className="text-zinc-200">E-mail:</strong>{" "}
@@ -222,7 +222,7 @@ export default function PrivacyPolicyPage() {
         </p>
         <div className="text-zinc-300 leading-relaxed space-y-1">
           <p>
-            <strong className="text-zinc-200">Nev:</strong> Polomai Zoltan
+            <strong className="text-zinc-200">Nev:</strong> Termeszetes szemely (az alkalmazas uzemeltetoje)
           </p>
           <p>
             <strong className="text-zinc-200">E-mail:</strong>{" "}
