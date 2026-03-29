@@ -63,7 +63,7 @@ export function EventDetailActions({
         <div className="flex flex-col items-center gap-3">
           <a
             href={`/app/events/${eventId}/qr?token=${encodeURIComponent(registration.qrToken)}`}
-            className="text-dozis-amber hover:text-dozis-amber-light transition-colors text-sm font-medium"
+            className="inline-flex items-center justify-center min-h-[44px] text-dozis-amber hover:text-dozis-amber-light transition-colors text-sm font-medium"
           >
             Teljes kepernyo
           </a>
@@ -71,7 +71,7 @@ export function EventDetailActions({
           <button
             onClick={handleCancel}
             disabled={cancelling}
-            className="text-zinc-500 hover:text-red-400 transition-colors text-sm"
+            className="min-h-[44px] text-zinc-500 hover:text-red-400 transition-colors text-sm"
           >
             {cancelling ? "Lemondas..." : "Regisztracio lemondasa"}
           </button>

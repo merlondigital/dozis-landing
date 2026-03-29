@@ -15,7 +15,7 @@ export default async function AdminDashboardPage() {
   return (
     <div className="space-y-6 p-4 md:p-6">
       <h2 className="font-heading text-3xl text-white tracking-wide">
-        Admin Dashboard
+        Admin Vezerlopult
       </h2>
 
       {/* Quick stats */}

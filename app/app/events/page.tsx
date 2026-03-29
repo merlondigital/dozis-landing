@@ -45,7 +45,7 @@ export default async function EventsPage() {
           <EventHeroCard event={heroEvent} />
 
           {restEvents.length > 0 && (
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
               {restEvents.map((e) => (
                 <EventCard key={e.id} event={e} />
               ))}
@@ -74,7 +74,7 @@ export default async function EventsPage() {
             <div className="h-px flex-1 bg-zinc-800" />
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 opacity-60">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 opacity-60">
             {pastEvents.map((e) => (
               <EventCard key={e.id} event={e} />
             ))}

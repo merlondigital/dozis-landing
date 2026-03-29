@@ -143,7 +143,7 @@ export function EventList({ events: initialEvents, counts = {} }: EventListProps
               </div>
 
               {/* Quick links + actions */}
-              <div className="flex items-center gap-2 shrink-0 flex-wrap justify-end">
+              <div className="flex items-center gap-2 shrink-0 flex-wrap justify-end mt-3 md:mt-0">
                 <Link href={`/app/admin/events/${event.id}/scan`}>
                   <Button variant="outline" size="sm" className="gap-1.5">
                     <ScanLine className="size-3.5" />

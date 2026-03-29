@@ -156,7 +156,7 @@ export function EventForm({ mode, initialData, eventId }: EventFormProps) {
           value={date}
           onChange={(e) => setDate(e.target.value)}
           required
-          className="flex h-9 w-full rounded-md border border-input bg-transparent px-3 py-1 text-base shadow-sm transition-colors placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50 md:text-sm"
+          className="flex h-11 min-h-[44px] w-full rounded-md border border-input bg-transparent px-3 py-2 text-base shadow-sm transition-colors placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50"
         />
         {fieldErrors.date && (
           <p className="text-sm text-red-400">{fieldErrors.date}</p>

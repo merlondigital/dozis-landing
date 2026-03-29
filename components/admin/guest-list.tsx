@@ -179,7 +179,7 @@ export function GuestList({ guests: initialGuests, stats, eventId }: GuestListPr
         </p>
       ) : (
         <div className="overflow-x-auto rounded-lg border border-zinc-800">
-          <table className="w-full text-sm">
+          <table className="w-full min-w-[600px] text-sm">
             <thead>
               <tr className="border-b border-zinc-800 bg-zinc-900/50">
                 <th className="text-left p-3 text-muted-foreground font-medium">Nev</th>

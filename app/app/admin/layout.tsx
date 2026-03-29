@@ -17,7 +17,7 @@ export default async function AdminLayout({
     <div>
       <div className="bg-dozis-navy border-b border-zinc-800 px-4 py-2">
         <span className="text-xs text-dozis-amber font-body uppercase tracking-widest">
-          Admin Panel
+          Admin Felulet
         </span>
       </div>
       {children}

@@ -87,13 +87,13 @@ export function ManualEntry({ eventId, guests, onResult }: ManualEntryProps) {
             value={token}
             onChange={(e) => setToken(e.target.value)}
             placeholder="Token beillesztese..."
-            className="flex-1 bg-zinc-900 border border-zinc-700 rounded-lg px-3 py-2 text-sm text-white placeholder:text-zinc-500 focus:outline-none focus:ring-2 focus:ring-dozis-amber"
+            className="flex-1 min-h-[44px] bg-zinc-900 border border-zinc-700 rounded-lg px-3 py-2 text-base text-white placeholder:text-zinc-500 focus:outline-none focus:ring-2 focus:ring-dozis-amber"
             disabled={isPending}
           />
           <button
             type="submit"
             disabled={isPending || !token.trim()}
-            className="px-4 py-2 bg-dozis-amber text-black text-sm font-bold rounded-lg hover:bg-dozis-amber-light transition-colors disabled:opacity-50"
+            className="min-h-[44px] px-4 py-2 bg-dozis-amber text-black text-sm font-bold rounded-lg hover:bg-dozis-amber-light transition-colors disabled:opacity-50"
           >
             {isPending ? "..." : "Becsekkoltatás"}
           </button>
@@ -110,7 +110,7 @@ export function ManualEntry({ eventId, guests, onResult }: ManualEntryProps) {
           value={searchQuery}
           onChange={(e) => setSearchQuery(e.target.value)}
           placeholder="Nev vagy email..."
-          className="w-full bg-zinc-900 border border-zinc-700 rounded-lg px-3 py-2 text-sm text-white placeholder:text-zinc-500 focus:outline-none focus:ring-2 focus:ring-dozis-amber"
+          className="w-full min-h-[44px] bg-zinc-900 border border-zinc-700 rounded-lg px-3 py-2 text-base text-white placeholder:text-zinc-500 focus:outline-none focus:ring-2 focus:ring-dozis-amber"
         />
 
         {filteredGuests.length > 0 && (
@@ -139,7 +139,7 @@ export function ManualEntry({ eventId, guests, onResult }: ManualEntryProps) {
                       type="button"
                       onClick={() => handleManualCheckIn(guest.registrationId)}
                       disabled={isPending || guest.status === "cancelled"}
-                      className="text-xs px-3 py-1 bg-dozis-amber text-black font-bold rounded-md hover:bg-dozis-amber-light transition-colors disabled:opacity-50 whitespace-nowrap"
+                      className="text-xs min-h-[44px] px-3 py-1 bg-dozis-amber text-black font-bold rounded-md hover:bg-dozis-amber-light transition-colors disabled:opacity-50 whitespace-nowrap"
                     >
                       Becsekkoltatás
                     </button>

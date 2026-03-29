@@ -44,7 +44,7 @@ export function EventHeroCard({ event }: { event: EventData }) {
 
         <Link
           href={`/app/events/${event.id}`}
-          className="mt-6 inline-flex items-center gap-2 bg-dozis-amber text-black font-medium px-6 py-2.5 rounded-lg hover:bg-dozis-amber-light transition-colors"
+          className="mt-6 inline-flex items-center justify-center gap-2 min-h-[44px] bg-dozis-amber text-black font-medium px-6 py-2.5 rounded-lg hover:bg-dozis-amber-light transition-colors"
         >
           Reszletek
           <ArrowRight className="size-4" />

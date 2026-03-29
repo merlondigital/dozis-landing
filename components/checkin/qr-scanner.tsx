@@ -104,7 +104,7 @@ export function QrScanner({ eventId, onResult, paused }: QrScannerProps) {
       <button
         type="button"
         onClick={toggleCamera}
-        className="mt-3 w-full text-sm text-muted-foreground hover:text-white transition-colors py-2 border border-zinc-700 rounded-lg"
+        className="mt-3 w-full min-h-[44px] text-sm text-muted-foreground hover:text-white transition-colors py-2 border border-zinc-700 rounded-lg"
       >
         {useFrontCamera ? "Hatsó kamera" : "Elülső kamera"}
       </button>

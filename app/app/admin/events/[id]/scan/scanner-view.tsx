@@ -65,7 +65,7 @@ export function ScannerView({
   }, []);
 
   return (
-    <div className="space-y-4">
+    <div className="space-y-4 min-h-[calc(100dvh-8rem)]">
       {/* Event header + stats */}
       <div className="text-center">
         <h1 className="text-2xl font-heading text-white tracking-wide">
@@ -95,7 +95,7 @@ export function ScannerView({
         <button
           type="button"
           onClick={() => setShowManual((prev) => !prev)}
-          className="w-full text-sm text-muted-foreground hover:text-white transition-colors py-2"
+          className="w-full min-h-[44px] text-sm text-muted-foreground hover:text-white transition-colors py-2"
         >
           {showManual ? "Manualis becsekkoltatás elrejtése" : "Manualis becsekkoltatás"}
         </button>
