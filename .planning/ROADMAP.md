@@ -10,7 +10,7 @@ Transform the existing DOZIS landing page repo into a full event management app 
 - Integer phases (1, 2, 3): Planned milestone work
 - Decimal phases (2.1, 2.2): Urgent insertions (marked with INSERTED)
 
-- [ ] **Phase 1: Foundation & Auth** - Infrastructure setup (Workers, D1, Hono, Drizzle, Resend) and email OTP authentication with admin middleware
+- [ ] **Phase 1: Foundation & Auth** - Infrastructure setup (Next.js, D1, Drizzle, Resend) and email OTP authentication with admin middleware
 - [ ] **Phase 2: Events & Registration** - Event CRUD for admins, event listing for users, registration with QR code generation
 - [ ] **Phase 3: Check-In, Loyalty & Admin Dashboard** - QR scanner, attendance verification, loyalty tracking, and admin guest management
 - [ ] **Phase 4: Branding & UX Polish** - DOZIS visual identity, mobile-first responsive design, Hungarian UI, offline QR support
@@ -25,14 +25,14 @@ Transform the existing DOZIS landing page repo into a full event management app 
   1. A user can enter their email, receive a 6-digit OTP code via Resend, and log in to the app
   2. A logged-in user stays logged in after closing and reopening the browser
   3. An admin-listed email gets access to admin routes; a regular user is blocked from admin routes
-  4. The Hono API responds on Cloudflare Workers with D1 database connected and Drizzle migrations applied
+  4. Next.js API routes respond on Cloudflare Workers via @opennextjs/cloudflare with D1 database connected and Drizzle migrations applied
   5. OTP codes expire after 5 minutes and brute-force attempts are rate-limited
-**Plans**: TBD
+**Plans**: 3 plans
 
 Plans:
-- [ ] 01-01: TBD
-- [ ] 01-02: TBD
-- [ ] 01-03: TBD
+- [ ] 01-01-PLAN.md — Next.js App Router scaffold with Tailwind + shadcn/ui + Drizzle schema + D1 config
+- [ ] 01-02-PLAN.md — better-auth server with email-otp plugin + Resend OTP email + auth client
+- [ ] 01-03-PLAN.md — Auth UI (login/OTP/registration pages) + middleware + admin protection
 
 ### Phase 2: Events & Registration
 **Goal**: Users can discover events and register to receive a scannable QR code
@@ -94,7 +94,7 @@ Phases execute in numeric order: 1 -> 2 -> 3 -> 4
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
-| 1. Foundation & Auth | 0/3 | Not started | - |
+| 1. Foundation & Auth | 0/3 | Planning complete | - |
 | 2. Events & Registration | 0/3 | Not started | - |
 | 3. Check-In, Loyalty & Admin Dashboard | 0/3 | Not started | - |
 | 4. Branding & UX Polish | 0/2 | Not started | - |
