@@ -9,10 +9,17 @@ export default async function AppLayout({
 }: {
   children: React.ReactNode;
 }) {
-  const session = await getSession();
+  let session;
+  try {
+    session = await getSession();
+  } catch {
+    // getSession may fail during build or on login page where CF context is unavailable
+    session = null;
+  }
 
+  // If no session, render children without AppShell (login/register pages handle their own layout)
   if (!session?.user) {
-    redirect("/app/login");
+    return <>{children}</>;
   }
 
   const user = session.user as {
