@@ -30,7 +30,7 @@ Transform the existing DOZIS landing page repo into a full event management app 
 **Plans**: 3 plans
 
 Plans:
-- [ ] 01-01-PLAN.md — Next.js App Router scaffold with Tailwind + shadcn/ui + Drizzle schema + D1 config
+- [x] 01-01-PLAN.md — Next.js App Router scaffold with Tailwind + shadcn/ui + Drizzle schema + D1 config
 - [ ] 01-02-PLAN.md — better-auth server with email-otp plugin + Resend OTP email + auth client
 - [ ] 01-03-PLAN.md — Auth UI (login/OTP/registration pages) + middleware + admin protection
 

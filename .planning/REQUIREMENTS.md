@@ -49,9 +49,9 @@
 
 ### Infrastructure
 
-- [ ] **INFR-01**: Cloudflare Workers + D1 database with Drizzle ORM
-- [ ] **INFR-02**: Next.js API routes and Server Actions for data mutations
-- [ ] **INFR-03**: @opennextjs/cloudflare adapter for Workers deployment
+- [x] **INFR-01**: Cloudflare Workers + D1 database with Drizzle ORM
+- [x] **INFR-02**: Next.js API routes and Server Actions for data mutations
+- [x] **INFR-03**: @opennextjs/cloudflare adapter for Workers deployment
 - [ ] **INFR-04**: Resend email integration with custom domain (SPF/DKIM/DMARC)
 - [ ] **INFR-05**: DOZIS branding (dark theme, amber/blue, Anton/Montserrat, spray-paint aesthetic)
 
@@ -106,9 +106,9 @@
 | AUTH-03 | Phase 1 | Pending |
 | AUTH-04 | Phase 1 | Pending |
 | AUTH-05 | Phase 1 | Pending |
-| INFR-01 | Phase 1 | Pending |
-| INFR-02 | Phase 1 | Pending |
-| INFR-03 | Phase 1 | Pending |
+| INFR-01 | Phase 1 | Complete |
+| INFR-02 | Phase 1 | Complete |
+| INFR-03 | Phase 1 | Complete |
 | INFR-04 | Phase 1 | Pending |
 | EVNT-01 | Phase 2 | Pending |
 | EVNT-02 | Phase 2 | Pending |
