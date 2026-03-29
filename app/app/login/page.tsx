@@ -32,9 +32,12 @@ export default function LoginPage() {
   return (
     <div className="min-h-screen flex flex-col items-center justify-center bg-dozis-navy-deep px-4">
       {/* DOZIS Logo */}
-      <h1 className="font-heading text-5xl text-dozis-amber tracking-wider mb-8">
-        DOZIS.
-      </h1>
+      <div className="mb-8 flex flex-col items-center">
+        <img src="/images/globe-logo.png" alt="DÓZIS." className="h-20 w-20 rounded-full mb-3" />
+        <h1 className="font-heading text-4xl text-dozis-amber tracking-wider">
+          DÓZIS.
+        </h1>
+      </div>
 
       <Card className="w-full max-w-md bg-dozis-navy border-zinc-800">
         <CardHeader className="text-center pb-2">
