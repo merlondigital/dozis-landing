@@ -1,11 +1,15 @@
 export const dynamic = "force-dynamic";
 
-import { AppLayoutClient } from "@/components/app/app-layout-client";
-
 export default function AppLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
-  return <AppLayoutClient>{children}</AppLayoutClient>;
+  // Minimal server layout - no CF context needed
+  // Client-side auth handled by AppLayoutClient loaded from page
+  return (
+    <div id="app-root">
+      {children}
+    </div>
+  );
 }
