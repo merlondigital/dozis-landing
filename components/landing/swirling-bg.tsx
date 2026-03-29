@@ -1,13 +1,11 @@
-import styles from './SwirlingBg.module.css'
-
 export default function SwirlingBg() {
   return (
-    <div className={styles.wrap} aria-hidden="true">
+    <div className="fixed inset-0 z-0 pointer-events-none" aria-hidden="true">
       <svg
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 1920 1080"
         preserveAspectRatio="xMidYMid slice"
-        className={styles.svg}
+        className="w-full h-full block"
       >
         <defs>
           <filter id="heavyBlur" x="-50%" y="-50%" width="200%" height="200%">
@@ -40,8 +38,8 @@ export default function SwirlingBg() {
           </circle>
         </g>
 
-        <rect width="100%" height="100%" filter="url(#noiseFilter)" style={{ pointerEvents: 'none' }} />
+        <rect width="100%" height="100%" filter="url(#noiseFilter)" style={{ pointerEvents: "none" }} />
       </svg>
     </div>
-  )
+  );
 }

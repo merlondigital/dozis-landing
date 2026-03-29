@@ -1,12 +1,25 @@
+import SwirlingBg from "@/components/landing/swirling-bg";
+import Navbar from "@/components/landing/navbar";
+import Hero from "@/components/landing/hero";
+import About from "@/components/landing/about";
+import Events from "@/components/landing/events";
+import DJs from "@/components/landing/djs";
+import Footer from "@/components/landing/footer";
+import GrainOverlay from "@/components/landing/grain-overlay";
+
 export default function LandingPage() {
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen">
-      <h1 className="font-heading text-6xl text-dozis-amber tracking-wider">
-        DOZIS.
-      </h1>
-      <p className="text-zinc-400 mt-4 font-body">
-        Landing page migration in progress...
-      </p>
+    <div className="relative min-h-screen w-full overflow-x-hidden">
+      <SwirlingBg />
+      <Navbar />
+      <main className="relative z-[1]">
+        <Hero />
+        <About />
+        <Events />
+        <DJs />
+      </main>
+      <Footer />
+      <GrainOverlay />
     </div>
   );
 }

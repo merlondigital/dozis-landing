@@ -1,8 +1,9 @@
-import styles from './GrainOverlay.module.css'
-
 export default function GrainOverlay() {
   return (
-    <div className={styles.grain} aria-hidden="true">
+    <div
+      className="fixed -top-1/2 -left-1/2 w-[200%] h-[200%] pointer-events-none z-[9999] opacity-[0.06] motion-safe:animate-grain-shift"
+      aria-hidden="true"
+    >
       <svg width="100%" height="100%">
         <filter id="grain-filter">
           <feTurbulence
@@ -16,5 +17,5 @@ export default function GrainOverlay() {
         <rect width="100%" height="100%" filter="url(#grain-filter)" />
       </svg>
     </div>
-  )
+  );
 }

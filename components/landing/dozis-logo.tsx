@@ -1,29 +1,35 @@
-import styles from './DozisLogo.module.css'
+const SIZE_CLASSES = {
+  hero: "w-[clamp(320px,55vw,700px)] h-auto",
+  nav: "w-[120px] h-auto",
+  footer: "w-[100px] h-auto",
+} as const;
 
-export default function DozisLogo({ className = '', size = 'hero' }) {
-  const sizeClass = styles[size] || styles.hero
+type LogoSize = keyof typeof SIZE_CLASSES;
+
+interface DozisLogoProps {
+  className?: string;
+  size?: LogoSize;
+}
+
+export default function DozisLogo({ className = "", size = "hero" }: DozisLogoProps) {
+  const sizeClass = SIZE_CLASSES[size];
 
   return (
     <svg
-      className={`${styles.logo} ${sizeClass} ${className}`}
+      className={`block select-none ${sizeClass} ${className}`}
       viewBox="0 0 600 120"
       xmlns="http://www.w3.org/2000/svg"
       role="img"
-      aria-label="DÓZIS."
+      aria-label="DOZIS."
     >
       <defs>
         {/* Spray paint glow effect */}
         <filter id="spray-glow" x="-20%" y="-40%" width="140%" height="180%">
-          {/* Base blur for spray-paint spread */}
           <feGaussianBlur in="SourceGraphic" stdDeviation="1.5" result="blur1" />
-          {/* Wider glow */}
           <feGaussianBlur in="SourceGraphic" stdDeviation="6" result="blur2" />
-          {/* Even wider atmospheric glow */}
           <feGaussianBlur in="SourceGraphic" stdDeviation="14" result="blur3" />
-          {/* Noise for spray-paint grain */}
           <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="4" seed="2" result="noise" />
           <feColorMatrix in="noise" type="saturate" values="0" result="grayNoise" />
-          {/* Merge everything */}
           <feMerge>
             <feMergeNode in="blur3" />
             <feMergeNode in="blur2" />
@@ -50,21 +56,23 @@ export default function DozisLogo({ className = '', size = 'hero' }) {
       <text
         x="300" y="88"
         textAnchor="middle"
-        className={styles.textScatter}
+        className="font-heading text-[100px] fill-white/40 tracking-[0.04em]"
+        style={{ fontFamily: "'Anton', sans-serif", fontSize: 100, fill: "rgba(255,255,255,0.4)", letterSpacing: "0.04em" }}
         filter="url(#spray-scatter)"
       >
-        DÓZIS.
+        DOZIS.
       </text>
 
       {/* Main spray-paint text with glow */}
       <text
         x="300" y="88"
         textAnchor="middle"
-        className={styles.textMain}
+        className="font-heading text-[100px] fill-white tracking-[0.04em]"
+        style={{ fontFamily: "'Anton', sans-serif", fontSize: 100, fill: "#ffffff", letterSpacing: "0.04em" }}
         filter="url(#spray-glow)"
       >
-        DÓZIS.
+        DOZIS.
       </text>
     </svg>
-  )
+  );
 }
