@@ -25,7 +25,7 @@ export function RegisterButton({ eventId, onRegistered }: RegisterButtonProps) {
         onRegistered(result.qrToken as string);
       }
     } catch {
-      setError("Hiba tortent a regisztracio soran.");
+      setError("Hiba történt a regisztráció során.");
     } finally {
       setLoading(false);
     }
@@ -39,7 +39,7 @@ export function RegisterButton({ eventId, onRegistered }: RegisterButtonProps) {
         className="w-full bg-dozis-amber text-black font-medium hover:bg-dozis-amber-light text-base py-6"
         size="lg"
       >
-        {loading ? "Regisztracio..." : "Regisztracio"}
+        {loading ? "Regisztráció..." : "Regisztráció"}
       </Button>
       {error && (
         <p className="text-red-400 text-sm mt-2 text-center">{error}</p>

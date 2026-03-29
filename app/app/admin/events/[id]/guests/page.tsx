@@ -28,14 +28,14 @@ export default async function GuestsPage({ params }: GuestsPageProps) {
         href="/app/admin/events"
         className="text-sm text-muted-foreground hover:text-white transition-colors"
       >
-        &larr; Vissza az esemenyekhez
+        &larr; Vissza az eseményekhez
       </Link>
 
       <div>
         <h2 className="font-heading text-2xl text-white tracking-wide">
           {event.name}
         </h2>
-        <p className="text-sm text-muted-foreground mt-1">Vendeglista</p>
+        <p className="text-sm text-muted-foreground mt-1">Vendéglista</p>
       </div>
 
       <GuestList

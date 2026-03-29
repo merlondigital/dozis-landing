@@ -43,7 +43,7 @@ export function CheckinFeedback({
             <p className="text-sm opacity-90">{message}</p>
             {isFree && (
               <p className="mt-1 text-sm font-bold text-dozis-amber bg-black/20 inline-block px-3 py-1 rounded-full">
-                INGYENES ESEMENY!
+                INGYENES ESEMÉNY!
               </p>
             )}
           </>

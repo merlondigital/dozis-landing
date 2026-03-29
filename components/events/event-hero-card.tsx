@@ -15,7 +15,7 @@ export function EventHeroCard({ event }: { event: EventData }) {
 
       <div className="relative">
         <p className="text-dozis-amber text-sm font-medium uppercase tracking-wider mb-2">
-          Kovetkezo esemeny
+          Következő esemény
         </p>
 
         <h2 className="font-heading text-3xl text-white tracking-wide">
@@ -46,7 +46,7 @@ export function EventHeroCard({ event }: { event: EventData }) {
           href={`/app/events/${event.id}`}
           className="mt-6 inline-flex items-center justify-center gap-2 min-h-[44px] bg-dozis-amber text-black font-medium px-6 py-2.5 rounded-lg hover:bg-dozis-amber-light transition-colors"
         >
-          Reszletek
+          Részletek
           <ArrowRight className="size-4" />
         </Link>
       </div>

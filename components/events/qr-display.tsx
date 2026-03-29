@@ -60,7 +60,7 @@ export function QrDisplay({ qrToken, eventId, eventName, eventDate, registration
       {isOffline && (
         <div className="bg-amber-500/20 text-amber-400 rounded-lg px-4 py-2 text-sm flex items-center gap-2 mb-4 w-full max-w-sm mx-auto">
           <WifiOff className="size-4 shrink-0" />
-          Offline mod — mentett QR kod
+          Offline mód — mentett QR kód
         </div>
       )}
 
@@ -84,7 +84,7 @@ export function QrDisplay({ qrToken, eventId, eventName, eventDate, registration
         </div>
 
         <p className="text-gray-500 text-sm mt-6">
-          Mutasd meg a bejaratnal
+          Mutasd meg a bejáratnál
         </p>
       </div>
 

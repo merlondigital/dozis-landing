@@ -39,7 +39,7 @@ export function AppHeader({ user }: AppHeaderProps) {
             onClick={handleSignOut}
             className="inline-flex items-center justify-center min-h-[44px] min-w-[44px] px-3 text-sm font-body text-zinc-500 hover:text-white transition-colors"
           >
-            Kilepes
+            Kilépés
           </button>
         </div>
       </div>

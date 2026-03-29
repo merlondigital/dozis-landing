@@ -25,7 +25,7 @@ export default function LegalLayout({
             href="/"
             className="text-sm text-zinc-400 hover:text-white transition-colors"
           >
-            Vissza a folapra
+            Vissza a főlapra
           </Link>
         </div>
       </header>
@@ -42,7 +42,7 @@ export default function LegalLayout({
             href="/legal/privacy"
             className="text-xs text-zinc-500 hover:text-zinc-300 transition-colors"
           >
-            Adatvedelmi Tajekoztato
+            Adatvédelmi Tájékoztató
           </Link>
           <span className="text-zinc-700">|</span>
           <Link

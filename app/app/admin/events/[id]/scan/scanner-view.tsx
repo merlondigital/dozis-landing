@@ -97,7 +97,7 @@ export function ScannerView({
           onClick={() => setShowManual((prev) => !prev)}
           className="w-full min-h-[44px] text-sm text-muted-foreground hover:text-white transition-colors py-2"
         >
-          {showManual ? "Manualis becsekkoltatás elrejtése" : "Manualis becsekkoltatás"}
+          {showManual ? "Manuális becsekkoltatás elrejtése" : "Manuális becsekkoltatás"}
         </button>
 
         {showManual && (

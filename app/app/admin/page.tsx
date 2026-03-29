@@ -15,7 +15,7 @@ export default async function AdminDashboardPage() {
   return (
     <div className="space-y-6 p-4 md:p-6">
       <h2 className="font-heading text-3xl text-white tracking-wide">
-        Admin Vezerlopult
+        Admin Vezérlőpult
       </h2>
 
       {/* Quick stats */}
@@ -23,7 +23,7 @@ export default async function AdminDashboardPage() {
         <Card>
           <CardHeader className="pb-2">
             <CardTitle className="text-sm font-body font-medium text-muted-foreground">
-              Aktiv esemenyek
+              Aktív események
             </CardTitle>
           </CardHeader>
           <CardContent>
@@ -36,7 +36,7 @@ export default async function AdminDashboardPage() {
         <Card>
           <CardHeader className="pb-2">
             <CardTitle className="text-sm font-body font-medium text-muted-foreground">
-              Osszes esemeny
+              Összes esemény
             </CardTitle>
           </CardHeader>
           <CardContent>
@@ -52,14 +52,14 @@ export default async function AdminDashboardPage() {
         <CardContent className="flex items-center justify-between p-6">
           <div>
             <h3 className="font-body font-semibold text-white text-lg">
-              Esemenyek kezelese
+              Események kezelése
             </h3>
             <p className="text-sm text-muted-foreground mt-1">
-              Esemenyek letrehozasa, szerkesztese es torlese
+              Események létrehozása, szerkesztése és törlése
             </p>
           </div>
           <Link href="/app/admin/events">
-            <Button>Megnyitas</Button>
+            <Button>Megnyitás</Button>
           </Link>
         </CardContent>
       </Card>

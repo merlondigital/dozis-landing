@@ -25,20 +25,20 @@ function validate(data: FormData): FormErrors {
   const errors: FormErrors = {};
 
   if (!data.lastName.trim()) {
-    errors.lastName = "A vezeteknev megadasa kotelezo.";
+    errors.lastName = "A vezetéknév megadása kötelező.";
   }
   if (!data.firstName.trim()) {
-    errors.firstName = "A keresztnev megadasa kotelezo.";
+    errors.firstName = "A keresztnév megadása kötelező.";
   }
   if (!data.address.trim()) {
-    errors.address = "A lakcim megadasa kotelezo.";
+    errors.address = "A lakcím megadása kötelező.";
   }
 
   const year = parseInt(data.birthYear, 10);
   if (!data.birthYear.trim()) {
-    errors.birthYear = "A szuletesi ev megadasa kotelezo.";
+    errors.birthYear = "A születési év megadása kötelező.";
   } else if (isNaN(year) || year < 1940 || year > 2010) {
-    errors.birthYear = "A szuletesi ev 1940 es 2010 kozott legyen.";
+    errors.birthYear = "A születési év 1940 és 2010 között legyen.";
   }
 
   return errors;
@@ -94,7 +94,7 @@ export function RegisterForm() {
 
       router.push("/app");
     } catch {
-      setSubmitError("Hiba tortent a mentes soran. Probald ujra.");
+      setSubmitError("Hiba történt a mentés során. Próbáld újra.");
     } finally {
       setLoading(false);
     }
@@ -104,7 +104,7 @@ export function RegisterForm() {
     <form onSubmit={handleSubmit} className="space-y-5">
       <div className="space-y-2">
         <Label htmlFor="lastName" className="text-zinc-300">
-          Vezeteknev
+          Vezetéknév
         </Label>
         <Input
           id="lastName"
@@ -113,7 +113,7 @@ export function RegisterForm() {
           onChange={(e) => handleChange("lastName", e.target.value)}
           disabled={loading}
           className="bg-zinc-900 border-zinc-700 text-white placeholder:text-zinc-500 focus-visible:ring-dozis-amber"
-          placeholder="Kovacs"
+          placeholder="Kovács"
           autoFocus
         />
         {errors.lastName && (
@@ -123,7 +123,7 @@ export function RegisterForm() {
 
       <div className="space-y-2">
         <Label htmlFor="firstName" className="text-zinc-300">
-          Keresztnev
+          Keresztnév
         </Label>
         <Input
           id="firstName"
@@ -132,7 +132,7 @@ export function RegisterForm() {
           onChange={(e) => handleChange("firstName", e.target.value)}
           disabled={loading}
           className="bg-zinc-900 border-zinc-700 text-white placeholder:text-zinc-500 focus-visible:ring-dozis-amber"
-          placeholder="Janos"
+          placeholder="János"
         />
         {errors.firstName && (
           <p className="text-xs text-red-400">{errors.firstName}</p>
@@ -141,7 +141,7 @@ export function RegisterForm() {
 
       <div className="space-y-2">
         <Label htmlFor="birthYear" className="text-zinc-300">
-          Szuletesi ev
+          Születési év
         </Label>
         <Input
           id="birthYear"
@@ -161,7 +161,7 @@ export function RegisterForm() {
 
       <div className="space-y-2">
         <Label htmlFor="address" className="text-zinc-300">
-          Lakcim
+          Lakcím
         </Label>
         <Input
           id="address"
@@ -170,7 +170,7 @@ export function RegisterForm() {
           onChange={(e) => handleChange("address", e.target.value)}
           disabled={loading}
           className="bg-zinc-900 border-zinc-700 text-white placeholder:text-zinc-500 focus-visible:ring-dozis-amber"
-          placeholder="Budapest, Fo utca 1."
+          placeholder="Budapest, Fő utca 1."
         />
         {errors.address && (
           <p className="text-xs text-red-400">{errors.address}</p>
@@ -187,7 +187,7 @@ export function RegisterForm() {
         className="w-full bg-dozis-amber text-black hover:bg-dozis-amber-light font-body font-semibold"
         size="lg"
       >
-        {loading ? "Mentes..." : "Profil mentese"}
+        {loading ? "Mentés..." : "Profil mentése"}
       </Button>
     </form>
   );

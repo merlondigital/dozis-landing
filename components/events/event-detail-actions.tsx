@@ -32,7 +32,7 @@ export function EventDetailActions({
 
   const handleCancel = async () => {
     if (!registration) return;
-    if (!confirm("Biztosan lemondod a regisztraciot?")) return;
+    if (!confirm("Biztosan lemondod a regisztrációt?")) return;
 
     setCancelling(true);
     setCancelError(null);
@@ -45,7 +45,7 @@ export function EventDetailActions({
         router.refresh();
       }
     } catch {
-      setCancelError("Hiba tortent a lemondas soran.");
+      setCancelError("Hiba történt a lemondás során.");
     } finally {
       setCancelling(false);
     }
@@ -66,7 +66,7 @@ export function EventDetailActions({
             href={`/app/events/${eventId}/qr?token=${encodeURIComponent(registration.qrToken)}`}
             className="inline-flex items-center justify-center min-h-[44px] text-dozis-amber hover:text-dozis-amber-light transition-colors text-sm font-medium"
           >
-            Teljes kepernyo
+            Teljes képernyő
           </a>
 
           <button
@@ -74,7 +74,7 @@ export function EventDetailActions({
             disabled={cancelling}
             className="min-h-[44px] text-zinc-500 hover:text-red-400 transition-colors text-sm"
           >
-            {cancelling ? "Lemondas..." : "Regisztracio lemondasa"}
+            {cancelling ? "Lemondás..." : "Regisztráció lemondása"}
           </button>
           {cancelError && (
             <p className="text-red-400 text-xs">{cancelError}</p>

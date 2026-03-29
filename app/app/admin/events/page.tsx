@@ -21,10 +21,10 @@ export default async function AdminEventsPage() {
     <div className="space-y-6 p-4 md:p-6">
       <div className="flex items-center justify-between">
         <h2 className="font-heading text-3xl text-white tracking-wide">
-          Esemenyek
+          Események
         </h2>
         <Link href="/app/admin/events/new">
-          <Button>Uj esemeny</Button>
+          <Button>Új esemény</Button>
         </Link>
       </div>
 

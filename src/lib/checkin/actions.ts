@@ -36,12 +36,12 @@ async function performCheckIn(
     .limit(1);
 
   if (!reg) {
-    return { error: "Nincs regisztracio.", type: "not_found" };
+    return { error: "Nincs regisztráció.", type: "not_found" };
   }
 
   // Verify it belongs to the given event
   if (reg.eventId !== eventId) {
-    return { error: "Ez a QR kod masik esemenyhez tartozik.", type: "wrong_event" };
+    return { error: "Ez a QR kód másik eseményhez tartozik.", type: "wrong_event" };
   }
 
   // Reject duplicate check-in (per D-14)
@@ -55,12 +55,12 @@ async function performCheckIn(
     const guestName = guest
       ? [guest.firstName, guest.lastName].filter(Boolean).join(" ") || guest.name
       : "Ismeretlen";
-    return { error: "Mar becsekkolva.", type: "duplicate", guestName };
+    return { error: "Már becsekkolva.", type: "duplicate", guestName };
   }
 
   // Reject cancelled registrations
   if (reg.status === "cancelled") {
-    return { error: "A regisztracio torolve lett.", type: "cancelled" };
+    return { error: "A regisztráció törölve lett.", type: "cancelled" };
   }
 
   // --- Perform check-in + loyalty update ---
@@ -86,7 +86,7 @@ async function performCheckIn(
 
   if (!userData) {
     // Edge case: user deleted between registration and check-in
-    return { error: "Nincs regisztracio.", type: "not_found" };
+    return { error: "Nincs regisztráció.", type: "not_found" };
   }
 
   // 3. Loyalty logic (per D-19, D-21)
@@ -130,7 +130,7 @@ export async function checkInByToken(
 ): Promise<CheckInResult> {
   const session = await requireAdmin();
   if (!session) {
-    return { error: "Nincs jogosultsagod.", type: "unauthorized" };
+    return { error: "Nincs jogosultságod.", type: "unauthorized" };
   }
 
   const { env } = getCloudflareContext();
@@ -138,12 +138,12 @@ export async function checkInByToken(
   // Verify HMAC token
   const result = await verifyQrToken(token, env.BETTER_AUTH_SECRET);
   if (!result.valid || !result.registrationId || !result.eventId || !result.userId) {
-    return { error: "Ervenytelen QR kod.", type: "invalid" };
+    return { error: "Érvénytelen QR kód.", type: "invalid" };
   }
 
   // Verify token belongs to this event
   if (result.eventId !== eventId) {
-    return { error: "Ez a QR kod masik esemenyhez tartozik.", type: "wrong_event" };
+    return { error: "Ez a QR kód másik eseményhez tartozik.", type: "wrong_event" };
   }
 
   return performCheckIn(result.registrationId, eventId, session.user.id);
@@ -159,11 +159,11 @@ export async function manualCheckInByRegistrationId(
 ): Promise<CheckInResult> {
   const session = await requireAdmin();
   if (!session) {
-    return { error: "Nincs jogosultsagod.", type: "unauthorized" };
+    return { error: "Nincs jogosultságod.", type: "unauthorized" };
   }
 
   if (!registrationId || !eventId) {
-    return { error: "Ervenytelen azonosito.", type: "invalid" };
+    return { error: "Érvénytelen azonosító.", type: "invalid" };
   }
 
   return performCheckIn(registrationId, eventId, session.user.id);

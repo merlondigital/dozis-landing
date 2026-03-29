@@ -40,7 +40,7 @@ export default async function DashboardPage() {
           Szia, {user.firstName || user.name}!
         </h2>
         <p className="text-zinc-400 mt-2">
-          Udvozlunk a DOZIS. alkalmazasban.
+          Üdvözlünk a DÓZIS. alkalmazásban.
         </p>
       </div>
 
@@ -53,12 +53,12 @@ export default async function DashboardPage() {
           >
             <div className="flex items-center justify-between mb-3">
               <h3 className="font-heading text-xl text-dozis-amber">
-                Kovetkezo esemeny
+                Következő esemény
               </h3>
               {isRegistered && (
                 <span className="flex items-center gap-1 text-green-400 text-xs font-medium">
                   <QrCode className="size-3.5" />
-                  Regisztralt
+                  Regisztrált
                 </span>
               )}
             </div>
@@ -90,10 +90,10 @@ export default async function DashboardPage() {
         ) : (
           <div className="bg-dozis-navy rounded-xl p-6 border border-zinc-800">
             <h3 className="font-heading text-xl text-dozis-amber mb-2">
-              Esemenyek
+              Események
             </h3>
             <p className="text-zinc-400 text-sm">
-              Jelenleg nincs kozelgo esemeny.
+              Jelenleg nincs közelgő esemény.
             </p>
           </div>
         )}
@@ -110,7 +110,7 @@ export default async function DashboardPage() {
         href="/app/events"
         className="inline-flex items-center gap-2 text-dozis-amber hover:text-dozis-amber-light transition-colors text-sm font-medium"
       >
-        Osszes esemeny
+        Összes esemény
         <ArrowRight className="size-4" />
       </Link>
     </div>

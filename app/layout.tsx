@@ -17,8 +17,8 @@ const montserrat = Montserrat({
 });
 
 export const metadata: Metadata = {
-  title: "DOZIS. | Elektronikus Zenei Esemenyek",
-  description: "Regisztralj DOZIS. esemenyekre, kapj QR kodot es gyujtsd az ingyenes belepodet!",
+  title: "DOZIS. | Elektronikus Zenei Események",
+  description: "Regisztrálj DÓZIS. eseményekre, kapj QR kódot és gyűjtsd az ingyenes belépődet!",
 };
 
 export default function RootLayout({

@@ -22,7 +22,7 @@ export default function LoginPage() {
   if (isPending) {
     return (
       <div className="min-h-screen flex items-center justify-center bg-dozis-navy-deep">
-        <p className="text-zinc-400">Betoltes...</p>
+        <p className="text-zinc-400">Betöltés...</p>
       </div>
     );
   }
@@ -39,11 +39,11 @@ export default function LoginPage() {
       <Card className="w-full max-w-md bg-dozis-navy border-zinc-800">
         <CardHeader className="text-center pb-2">
           <h2 className="font-heading text-2xl text-white tracking-wide">
-            {email ? "Kod megadasa" : "Bejelentkezes"}
+            {email ? "Kód megadása" : "Bejelentkezés"}
           </h2>
           {!email && (
             <p className="text-zinc-400 text-sm font-body">
-              Add meg az email cimed es kuldunk egy kodot.
+              Add meg az email címed és küldünk egy kódot.
             </p>
           )}
         </CardHeader>

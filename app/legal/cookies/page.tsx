@@ -1,43 +1,43 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Cookie (Suti) Szabalyzat | DOZIS.",
-  description: "A DOZIS. esemeny alkalmazas cookie (suti) szabalyzata.",
+  title: "Cookie (Süti) Szabályzat | DÓZIS.",
+  description: "A DÓZIS. esemény alkalmazás cookie (süti) szabályzata.",
 };
 
 export default function CookiePolicyPage() {
   return (
     <article>
       <h1 className="font-heading text-3xl text-dozis-amber uppercase tracking-wider mb-8">
-        Cookie (Suti) Szabalyzat
+        Cookie (Süti) Szabályzat
       </h1>
 
       <p className="text-zinc-400 text-sm mb-8">
-        Hatalyos: 2026. marcius 29.
+        Hatályos: 2026. március 29.
       </p>
 
-      {/* 1. Mik azok a sutik? */}
+      {/* 1. Mik azok a sütik? */}
       <section className="mb-8">
         <h2 className="font-heading text-xl text-dozis-amber uppercase mt-8 mb-3">
-          1. Mik azok a sutik?
+          1. Mik azok a sütik?
         </h2>
         <p className="text-zinc-300 leading-relaxed mb-4">
-          A sutik (cookie-k) kis szoveges fajlok, amelyeket a bongeszo tarol
-          az On eszkozen, amikor meglategat egy webhelyet. A sutik segitik a
-          webhely mukodeset, peldaul megjegyzik a bejelentkezesi
-          allapotat.
+          A sütik (cookie-k) kis szöveges fájlok, amelyeket a böngésző tárol
+          az Ön eszközén, amikor meglátogat egy webhelyet. A sütik segítik a
+          webhely működését, például megjegyzik a bejelentkezési
+          állapotát.
         </p>
       </section>
 
-      {/* 2. Altalunk hasznalt sutik */}
+      {/* 2. Az általunk használt sütik */}
       <section className="mb-8">
         <h2 className="font-heading text-xl text-dozis-amber uppercase mt-8 mb-3">
-          2. Az altalunk hasznalt sutik
+          2. Az általunk használt sütik
         </h2>
         <p className="text-zinc-300 leading-relaxed mb-4">
-          Az alkalmazasunk kizarolag a mukodeseshez elengedhetetlenul
-          szukseges sutiket hasznalja. Nem hasznalunk marketing, analytics
-          vagy reklamcelokat szolgalo sutiket.
+          Az alkalmazásunk kizárólag a működéséhez elengedhetetlenül
+          szükséges sütiket használja. Nem használunk marketing, analytics
+          vagy reklámcélokat szolgáló sütiket.
         </p>
 
         <div className="overflow-x-auto mb-4">
@@ -45,15 +45,15 @@ export default function CookiePolicyPage() {
             <thead>
               <tr className="border-b border-zinc-700 text-left">
                 <th className="py-2 pr-4 text-zinc-200 font-semibold">
-                  Suti neve
+                  Süti neve
                 </th>
                 <th className="py-2 pr-4 text-zinc-200 font-semibold">
-                  Tipusa
+                  Típusa
                 </th>
                 <th className="py-2 pr-4 text-zinc-200 font-semibold">
-                  Celja
+                  Célja
                 </th>
-                <th className="py-2 text-zinc-200 font-semibold">Lejarat</th>
+                <th className="py-2 text-zinc-200 font-semibold">Lejárat</th>
               </tr>
             </thead>
             <tbody>
@@ -63,22 +63,22 @@ export default function CookiePolicyPage() {
                 </td>
                 <td className="py-2 pr-4">Elengedhetetlen</td>
                 <td className="py-2 pr-4">
-                  Munkamenet suti — a bejelentkezesi allapot fenntartasa
+                  Munkamenet süti — a bejelentkezési állapot fenntartása
                 </td>
-                <td className="py-2">Munkamenet vege</td>
+                <td className="py-2">Munkamenet vége</td>
               </tr>
             </tbody>
           </table>
         </div>
       </section>
 
-      {/* 3. Harmadik feles sutik */}
+      {/* 3. Harmadik féles sütik */}
       <section className="mb-8">
         <h2 className="font-heading text-xl text-dozis-amber uppercase mt-8 mb-3">
-          3. Harmadik feles sutik
+          3. Harmadik féles sütik
         </h2>
         <p className="text-zinc-300 leading-relaxed mb-4">
-          A Cloudflare tarhelyszolgaltato biztonsagi celbol sajat sutiket
+          A Cloudflare tárhelyszolgáltató biztonsági célból saját sütiket
           helyezhet el:
         </p>
         <div className="overflow-x-auto mb-4">
@@ -86,12 +86,12 @@ export default function CookiePolicyPage() {
             <thead>
               <tr className="border-b border-zinc-700 text-left">
                 <th className="py-2 pr-4 text-zinc-200 font-semibold">
-                  Suti neve
+                  Süti neve
                 </th>
                 <th className="py-2 pr-4 text-zinc-200 font-semibold">
-                  Szolgaltato
+                  Szolgáltató
                 </th>
-                <th className="py-2 text-zinc-200 font-semibold">Celja</th>
+                <th className="py-2 text-zinc-200 font-semibold">Célja</th>
               </tr>
             </thead>
             <tbody>
@@ -101,7 +101,7 @@ export default function CookiePolicyPage() {
                 </td>
                 <td className="py-2 pr-4">Cloudflare</td>
                 <td className="py-2">
-                  Bot-vedelem es biztonsagi ellenorzes
+                  Bot-védelem és biztonsági ellenőrzés
                 </td>
               </tr>
             </tbody>
@@ -109,37 +109,37 @@ export default function CookiePolicyPage() {
         </div>
       </section>
 
-      {/* 4. Sutik kezelese */}
+      {/* 4. Sütik kezelése */}
       <section className="mb-8">
         <h2 className="font-heading text-xl text-dozis-amber uppercase mt-8 mb-3">
-          4. Sutik kezelese
+          4. Sütik kezelése
         </h2>
         <p className="text-zinc-300 leading-relaxed mb-4">
-          A bongeszo beallitasaiban lehetosege van a sutik torleszere es
-          letiltasara. Fontos azonban, hogy az elengedhetetlen sutik
-          letiltasa eseten az alkalmazas nem fog megfeleloen mukodni (pl.
+          A böngésző beállításaiban lehetősége van a sütik törlésére és
+          letiltására. Fontos azonban, hogy az elengedhetetlen sütik
+          letiltása esetén az alkalmazás nem fog megfelelően működni (pl.
           nem fog tudni bejelentkezni).
         </p>
         <p className="text-zinc-300 leading-relaxed mb-4">
-          A sutik kezelese a kovetkezo bongeszokben:
+          A sütik kezelése a következő böngészőkben:
         </p>
         <ul className="list-disc list-inside text-zinc-300 space-y-1 mb-4">
           <li>
-            <strong className="text-zinc-200">Chrome:</strong> Beallitasok
-            &rarr; Adatvedelem es biztonsag &rarr; Cookie-k
+            <strong className="text-zinc-200">Chrome:</strong> Beállítások
+            &rarr; Adatvédelem és biztonság &rarr; Cookie-k
           </li>
           <li>
-            <strong className="text-zinc-200">Firefox:</strong> Beallitasok
-            &rarr; Adatvedelem es biztonsag &rarr; Cookie-k es weboldalak
+            <strong className="text-zinc-200">Firefox:</strong> Beállítások
+            &rarr; Adatvédelem és biztonság &rarr; Cookie-k és weboldalak
             adatai
           </li>
           <li>
-            <strong className="text-zinc-200">Safari:</strong> Beallitasok
-            &rarr; Adatvedelem &rarr; Cookie-k kezelese
+            <strong className="text-zinc-200">Safari:</strong> Beállítások
+            &rarr; Adatvédelem &rarr; Cookie-k kezelése
           </li>
           <li>
-            <strong className="text-zinc-200">Edge:</strong> Beallitasok
-            &rarr; Cookie-k es webhelyengedlyek
+            <strong className="text-zinc-200">Edge:</strong> Beállítások
+            &rarr; Cookie-k és webhelyengedélyek
           </li>
         </ul>
       </section>
@@ -147,15 +147,15 @@ export default function CookiePolicyPage() {
       {/* 5. Cookie banner */}
       <section className="mb-8">
         <h2 className="font-heading text-xl text-dozis-amber uppercase mt-8 mb-3">
-          5. Miert nincs cookie banner?
+          5. Miért nincs cookie banner?
         </h2>
         <p className="text-zinc-300 leading-relaxed mb-4">
-          Alkalmazasunk kizarolag a mukodeseshez elengedhetetlenul szukseges
-          (strictly necessary) sutiket hasznalja. Az Europai Unio ePrivacy
-          iranyelv 5. cikk (3) bekezdesenek kivelenek megfeleloen, a
-          kizarolag technikai celbol szukseges sutik tarolasa nem igenyli a
-          felhasznalo elozetetes hozzajarulasat, igy cookie banner
-          megjelenites sem szukseges.
+          Alkalmazásunk kizárólag a működéséhez elengedhetetlenül szükséges
+          (strictly necessary) sütiket használja. Az Európai Unió ePrivacy
+          irányelv 5. cikk (3) bekezdésének kivételének megfelelően, a
+          kizárólag technikai célból szükséges sütik tárolása nem igényli a
+          felhasználó előzetes hozzájárulását, így cookie banner
+          megjelenítés sem szükséges.
         </p>
       </section>
     </article>

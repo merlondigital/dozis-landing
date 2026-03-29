@@ -125,7 +125,7 @@ export function EventForm({ mode, initialData, eventId }: EventFormProps) {
         router.push("/app/admin/events");
         router.refresh();
       } catch {
-        setError("Varatlan hiba tortent. Probald ujra.");
+        setError("Váratlan hiba történt. Próbáld újra.");
       }
     });
   }
@@ -134,12 +134,12 @@ export function EventForm({ mode, initialData, eventId }: EventFormProps) {
     <form onSubmit={handleSubmit} className="space-y-6">
       {/* Name */}
       <div className="space-y-2">
-        <Label htmlFor="name">Esemenynev *</Label>
+        <Label htmlFor="name">Eseménynév *</Label>
         <Input
           id="name"
           value={name}
           onChange={(e) => setName(e.target.value)}
-          placeholder="Esemenynev"
+          placeholder="Eseménynév"
           required
         />
         {fieldErrors.name && (
@@ -149,7 +149,7 @@ export function EventForm({ mode, initialData, eventId }: EventFormProps) {
 
       {/* Date */}
       <div className="space-y-2">
-        <Label htmlFor="date">Datum es idopont *</Label>
+        <Label htmlFor="date">Dátum és időpont *</Label>
         <input
           id="date"
           type="datetime-local"
@@ -165,12 +165,12 @@ export function EventForm({ mode, initialData, eventId }: EventFormProps) {
 
       {/* Venue */}
       <div className="space-y-2">
-        <Label htmlFor="venue">Helyszin *</Label>
+        <Label htmlFor="venue">Helyszín *</Label>
         <Input
           id="venue"
           value={venue}
           onChange={(e) => setVenue(e.target.value)}
-          placeholder="Helyszin"
+          placeholder="Helyszín"
           required
         />
         {fieldErrors.venue && (
@@ -180,12 +180,12 @@ export function EventForm({ mode, initialData, eventId }: EventFormProps) {
 
       {/* Description */}
       <div className="space-y-2">
-        <Label htmlFor="description">Leiras</Label>
+        <Label htmlFor="description">Leírás</Label>
         <textarea
           id="description"
           value={description}
           onChange={(e) => setDescription(e.target.value)}
-          placeholder="Leiras (opcionalis)"
+          placeholder="Leírás (opcionális)"
           maxLength={2000}
           rows={4}
           className="flex w-full rounded-md border border-input bg-transparent px-3 py-2 text-base shadow-sm transition-colors placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50 md:text-sm resize-y"
@@ -200,7 +200,7 @@ export function EventForm({ mode, initialData, eventId }: EventFormProps) {
 
       {/* Genre Tags */}
       <div className="space-y-2">
-        <Label>Mufajok *</Label>
+        <Label>Műfajok *</Label>
         <div className="flex flex-wrap gap-2">
           {GENRE_OPTIONS.map((genre) => {
             const selected = genreTags.includes(genre);
@@ -242,12 +242,12 @@ export function EventForm({ mode, initialData, eventId }: EventFormProps) {
 
       {/* Image URL */}
       <div className="space-y-2">
-        <Label htmlFor="imageUrl">Kep URL</Label>
+        <Label htmlFor="imageUrl">Kép URL</Label>
         <Input
           id="imageUrl"
           value={imageUrl}
           onChange={(e) => setImageUrl(e.target.value)}
-          placeholder="Kep URL (opcionalis)"
+          placeholder="Kép URL (opcionális)"
           type="url"
         />
         {fieldErrors.imageUrl && (
@@ -266,10 +266,10 @@ export function EventForm({ mode, initialData, eventId }: EventFormProps) {
       <div className="flex gap-3">
         <Button type="submit" disabled={isPending}>
           {isPending
-            ? "Mentes..."
+            ? "Mentés..."
             : mode === "create"
-              ? "Esemeny letrehozasa"
-              : "Valtozasok mentese"}
+              ? "Esemény létrehozása"
+              : "Változások mentése"}
         </Button>
         <Button
           type="button"
@@ -277,7 +277,7 @@ export function EventForm({ mode, initialData, eventId }: EventFormProps) {
           onClick={() => router.push("/app/admin/events")}
           disabled={isPending}
         >
-          Megse
+          Mégse
         </Button>
       </div>
     </form>

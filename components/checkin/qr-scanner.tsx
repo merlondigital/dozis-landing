@@ -35,7 +35,7 @@ export function QrScanner({ eventId, onResult, paused }: QrScannerProps) {
         const result = await checkInByToken(decodedText, eventId);
         onResult(result as CheckInResult);
       } catch {
-        onResult({ error: "Halozati hiba. Probald ujra.", type: "invalid" });
+        onResult({ error: "Hálózati hiba. Próbáld újra.", type: "invalid" });
       } finally {
         processingRef.current = false;
       }
@@ -98,7 +98,7 @@ export function QrScanner({ eventId, onResult, paused }: QrScannerProps) {
       />
       {!scannerReady && (
         <div className="absolute inset-0 flex items-center justify-center bg-black/70 rounded-xl">
-          <p className="text-white text-sm">Kamera inditasa...</p>
+          <p className="text-white text-sm">Kamera indítása...</p>
         </div>
       )}
       <button
@@ -106,7 +106,7 @@ export function QrScanner({ eventId, onResult, paused }: QrScannerProps) {
         onClick={toggleCamera}
         className="mt-3 w-full min-h-[44px] text-sm text-muted-foreground hover:text-white transition-colors py-2 border border-zinc-700 rounded-lg"
       >
-        {useFrontCamera ? "Hatsó kamera" : "Elülső kamera"}
+        {useFrontCamera ? "Hátsó kamera" : "Elülső kamera"}
       </button>
     </div>
   );

@@ -45,7 +45,7 @@ export function EventList({ events: initialEvents, counts = {} }: EventListProps
 
   function handleDelete(eventId: string, eventName: string) {
     const confirmed = window.confirm(
-      `Biztosan torlod ezt az esemenyt: "${eventName}"? A regisztraciok is torlodnek.`
+      `Biztosan törlöd ezt az eseményt: "${eventName}"? A regisztrációk is törlődnek.`
     );
     if (!confirmed) return;
 
@@ -67,7 +67,7 @@ export function EventList({ events: initialEvents, counts = {} }: EventListProps
         router.refresh();
       } catch {
         setEvents(initialEvents);
-        alert("Hiba tortent a torles soran.");
+        alert("Hiba történt a törlés során.");
       } finally {
         setDeletingId(null);
       }
@@ -78,7 +78,7 @@ export function EventList({ events: initialEvents, counts = {} }: EventListProps
     return (
       <div className="text-center py-12">
         <p className="text-muted-foreground text-lg">
-          Meg nincs esemeny. Hozz letre az elsot!
+          Még nincs esemény. Hozz létre az elsőt!
         </p>
       </div>
     );
@@ -108,7 +108,7 @@ export function EventList({ events: initialEvents, counts = {} }: EventListProps
                   </h3>
                   {isPast && (
                     <span className="text-xs text-zinc-500 bg-zinc-800 rounded px-1.5 py-0.5">
-                      MULT
+                      MÚLT
                     </span>
                   )}
                 </div>
@@ -137,7 +137,7 @@ export function EventList({ events: initialEvents, counts = {} }: EventListProps
                 {/* Registration/check-in counts */}
                 {eventCounts && (
                   <p className="text-xs text-muted-foreground mt-2">
-                    {eventCounts.registered} regisztralt, {eventCounts.checkedIn} becsekkolva
+                    {eventCounts.registered} regisztrált, {eventCounts.checkedIn} becsekkolva
                   </p>
                 )}
               </div>
@@ -153,13 +153,13 @@ export function EventList({ events: initialEvents, counts = {} }: EventListProps
                 <Link href={`/app/admin/events/${event.id}/guests`}>
                   <Button variant="outline" size="sm" className="gap-1.5">
                     <Users className="size-3.5" />
-                    Vendeglista
+                    Vendéglista
                   </Button>
                 </Link>
                 <Link href={`/app/admin/events/${event.id}/edit`}>
                   <Button variant="outline" size="sm" className="gap-1.5">
                     <Pencil className="size-3.5" />
-                    Szerkesztes
+                    Szerkesztés
                   </Button>
                 </Link>
                 <Button
@@ -171,8 +171,8 @@ export function EventList({ events: initialEvents, counts = {} }: EventListProps
                 >
                   <Trash2 className="size-3.5" />
                   {isPending && deletingId === event.id
-                    ? "Torles..."
-                    : "Torles"}
+                    ? "Törlés..."
+                    : "Törlés"}
                 </Button>
               </div>
             </div>

@@ -37,7 +37,7 @@ export function OtpForm({ email, onBack }: OtpFormProps) {
         });
 
         if (result.error) {
-          setError(result.error.message || "Ervenytelen kod. Probald ujra.");
+          setError(result.error.message || "Érvénytelen kód. Próbáld újra.");
           setLoading(false);
           return;
         }
@@ -47,7 +47,7 @@ export function OtpForm({ email, onBack }: OtpFormProps) {
         const callbackUrl = params.get("callbackUrl") || "/app";
         router.push(callbackUrl);
       } catch {
-        setError("Hiba tortent. Probald ujra.");
+        setError("Hiba történt. Próbáld újra.");
         setLoading(false);
       }
     },
@@ -109,13 +109,13 @@ export function OtpForm({ email, onBack }: OtpFormProps) {
       });
 
       if (result.error) {
-        setError(result.error.message || "Nem sikerult ujra kuldeni a kodot.");
+        setError(result.error.message || "Nem sikerült újra küldeni a kódot.");
       } else {
         setOtp(Array(6).fill(""));
         inputRefs.current[0]?.focus();
       }
     } catch {
-      setError("Hiba tortent. Probald ujra.");
+      setError("Hiba történt. Próbáld újra.");
     } finally {
       setResending(false);
     }
@@ -125,7 +125,7 @@ export function OtpForm({ email, onBack }: OtpFormProps) {
     <div className="space-y-6">
       <div className="text-center">
         <p className="text-zinc-400 text-sm">
-          Kodot kuldtunk: <span className="text-white font-medium">{maskEmail(email)}</span>
+          Kódot küldtünk: <span className="text-white font-medium">{maskEmail(email)}</span>
         </p>
       </div>
 
@@ -156,7 +156,7 @@ export function OtpForm({ email, onBack }: OtpFormProps) {
       )}
 
       {loading && (
-        <p className="text-sm text-zinc-400 text-center">Ellenorzes...</p>
+        <p className="text-sm text-zinc-400 text-center">Ellenőrzés...</p>
       )}
 
       <div className="flex flex-col gap-3">
@@ -167,7 +167,7 @@ export function OtpForm({ email, onBack }: OtpFormProps) {
           disabled={resending || loading}
           className="text-dozis-amber hover:text-dozis-amber-light hover:bg-transparent"
         >
-          {resending ? "Kuldes..." : "Uj kod kerese"}
+          {resending ? "Küldés..." : "Új kód kérése"}
         </Button>
 
         <Button

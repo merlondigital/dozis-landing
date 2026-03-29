@@ -10,15 +10,15 @@ export const GENRE_OPTIONS = [
 ] as const;
 
 export const createEventSchema = z.object({
-  name: z.string().min(2, "Az esemenynev legalabb 2 karakter").max(100),
+  name: z.string().min(2, "Az eseménynév legalább 2 karakter").max(100),
   date: z.coerce
     .date()
-    .refine((d) => d > new Date(), "A datum a jovoben kell legyen"),
+    .refine((d) => d > new Date(), "A dátum a jövőben kell legyen"),
   venue: z.string().min(2).max(200).default("DOPAMIN, Budapest"),
   description: z.string().max(2000).optional(),
   genreTags: z
     .array(z.enum(GENRE_OPTIONS))
-    .min(1, "Legalabb egy mufaj kotelezo"),
+    .min(1, "Legalább egy műfaj kötelező"),
   imageUrl: z.string().url().optional().or(z.literal("")),
 });
 

@@ -10,7 +10,7 @@ export async function sendOtpEmail(params: {
   await resend.emails.send({
     from: "DOZIS. <onboarding@resend.dev>",
     to: params.email,
-    subject: "DOZIS. - Belepesi kod",
+    subject: "DOZIS. - Belépési kód",
     html: getOtpEmailHtml(params.otp),
   });
 }
@@ -34,7 +34,7 @@ function getOtpEmailHtml(otp: string): string {
           <tr>
             <td align="center" style="padding-bottom:16px;">
               <p style="margin:0;color:#94a3b8;font-size:14px;">
-                A belepesi kodod:
+                A belépési kódod:
               </p>
             </td>
           </tr>
@@ -50,14 +50,14 @@ function getOtpEmailHtml(otp: string): string {
           <tr>
             <td align="center" style="padding-bottom:8px;">
               <p style="margin:0;color:#64748b;font-size:12px;">
-                A kod 5 percig ervenyes.
+                A kód 5 percig érvényes.
               </p>
             </td>
           </tr>
           <tr>
             <td align="center">
               <p style="margin:0;color:#475569;font-size:11px;">
-                Ha nem te kerted, hagyd figyelmen kivul ezt az emailt.
+                Ha nem te kérted, hagyd figyelmen kívül ezt az emailt.
               </p>
             </td>
           </tr>

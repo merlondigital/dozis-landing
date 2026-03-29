@@ -20,11 +20,11 @@ import { generateQrToken } from "./qr";
 
 export async function createEvent(input: CreateEventInput) {
   const session = await requireAdmin();
-  if (!session) return { error: "Nincs jogosultsagod." };
+  if (!session) return { error: "Nincs jogosultságod." };
 
   const parsed = createEventSchema.safeParse(input);
   if (!parsed.success) {
-    return { error: parsed.error.issues[0]?.message ?? "Ervenytelen adatok." };
+    return { error: parsed.error.issues[0]?.message ?? "Érvénytelen adatok." };
   }
 
   const { env } = getCloudflareContext();
@@ -49,17 +49,17 @@ export async function createEvent(input: CreateEventInput) {
 
     return { success: true, eventId: created.id };
   } catch {
-    return { error: "Hiba tortent az esemeny letrehozasakor." };
+    return { error: "Hiba történt az esemény létrehozásakor." };
   }
 }
 
 export async function updateEvent(input: UpdateEventInput) {
   const session = await requireAdmin();
-  if (!session) return { error: "Nincs jogosultsagod." };
+  if (!session) return { error: "Nincs jogosultságod." };
 
   const parsed = updateEventSchema.safeParse(input);
   if (!parsed.success) {
-    return { error: parsed.error.issues[0]?.message ?? "Ervenytelen adatok." };
+    return { error: parsed.error.issues[0]?.message ?? "Érvénytelen adatok." };
   }
 
   const { id, ...fields } = parsed.data;
@@ -86,15 +86,15 @@ export async function updateEvent(input: UpdateEventInput) {
 
     return { success: true };
   } catch {
-    return { error: "Hiba tortent az esemeny frissitesekor." };
+    return { error: "Hiba történt az esemény frissítésekor." };
   }
 }
 
 export async function deleteEvent(eventId: string) {
   const session = await requireAdmin();
-  if (!session) return { error: "Nincs jogosultsagod." };
+  if (!session) return { error: "Nincs jogosultságod." };
 
-  if (!eventId) return { error: "Ervenytelen esemeny azonosito." };
+  if (!eventId) return { error: "Érvénytelen esemény azonosító." };
 
   const { env } = getCloudflareContext();
   const db = getDb(env.DB);
@@ -108,7 +108,7 @@ export async function deleteEvent(eventId: string) {
 
     return { success: true };
   } catch {
-    return { error: "Hiba tortent az esemeny torlesekor." };
+    return { error: "Hiba történt az esemény törlésekor." };
   }
 }
 
@@ -118,9 +118,9 @@ export async function deleteEvent(eventId: string) {
 
 export async function registerForEvent(eventId: string) {
   const session = await getSession();
-  if (!session?.user) return { error: "Jelentkezz be elobb." };
+  if (!session?.user) return { error: "Jelentkezz be előbb." };
 
-  if (!eventId) return { error: "Ervenytelen esemeny azonosito." };
+  if (!eventId) return { error: "Érvénytelen esemény azonosító." };
 
   const { env } = getCloudflareContext();
   const db = getDb(env.DB);
@@ -133,9 +133,9 @@ export async function registerForEvent(eventId: string) {
       .where(eq(event.id, eventId))
       .limit(1);
 
-    if (!targetEvent) return { error: "Az esemeny nem talalhato." };
+    if (!targetEvent) return { error: "Az esemény nem található." };
     if (targetEvent.date <= new Date())
-      return { error: "Erre az esemenyre mar nem lehet regisztralni." };
+      return { error: "Erre az eseményre már nem lehet regisztrálni." };
 
     // Check loyalty status: if attendanceCount >= 4, this registration is free (per D-20)
     const [userData] = await db
@@ -173,17 +173,17 @@ export async function registerForEvent(eventId: string) {
     const message =
       err instanceof Error ? err.message : String(err);
     if (message.includes("UNIQUE constraint failed")) {
-      return { error: "Mar regisztraltal erre az esemenyre." };
+      return { error: "Már regisztráltál erre az eseményre." };
     }
-    return { error: "Hiba tortent a regisztracio soran." };
+    return { error: "Hiba történt a regisztráció során." };
   }
 }
 
 export async function cancelRegistration(registrationId: string) {
   const session = await getSession();
-  if (!session?.user) return { error: "Jelentkezz be elobb." };
+  if (!session?.user) return { error: "Jelentkezz be előbb." };
 
-  if (!registrationId) return { error: "Ervenytelen regisztracio azonosito." };
+  if (!registrationId) return { error: "Érvénytelen regisztráció azonosító." };
 
   const { env } = getCloudflareContext();
   const db = getDb(env.DB);
@@ -196,9 +196,9 @@ export async function cancelRegistration(registrationId: string) {
       .where(eq(registration.id, registrationId))
       .limit(1);
 
-    if (!reg) return { error: "A regisztracio nem talalhato." };
+    if (!reg) return { error: "A regisztráció nem található." };
     if (reg.userId !== session.user.id)
-      return { error: "Nincs jogosultsagod." };
+      return { error: "Nincs jogosultságod." };
 
     // Verify event is in the future
     const [targetEvent] = await db
@@ -208,7 +208,7 @@ export async function cancelRegistration(registrationId: string) {
       .limit(1);
 
     if (!targetEvent || targetEvent.date <= new Date())
-      return { error: "Mult esemenyre nem lehet lemondani." };
+      return { error: "Múlt eseményre nem lehet lemondani." };
 
     // Delete registration per D-20
     await db
@@ -220,7 +220,7 @@ export async function cancelRegistration(registrationId: string) {
 
     return { success: true };
   } catch {
-    return { error: "Hiba tortent a lemondas soran." };
+    return { error: "Hiba történt a lemondás során." };
   }
 }
 

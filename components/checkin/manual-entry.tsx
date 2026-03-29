@@ -43,7 +43,7 @@ export function ManualEntry({ eventId, guests, onResult }: ManualEntryProps) {
         onResult(result as CheckInResult);
         setToken("");
       } catch {
-        onResult({ error: "Halozati hiba. Probald ujra.", type: "invalid" });
+        onResult({ error: "Hálózati hiba. Próbáld újra.", type: "invalid" });
       }
     });
   }
@@ -69,7 +69,7 @@ export function ManualEntry({ eventId, guests, onResult }: ManualEntryProps) {
         onResult(result as CheckInResult);
         setSearchQuery("");
       } catch {
-        onResult({ error: "Halozati hiba. Probald ujra.", type: "invalid" });
+        onResult({ error: "Hálózati hiba. Próbáld újra.", type: "invalid" });
       }
     });
   }
@@ -79,14 +79,14 @@ export function ManualEntry({ eventId, guests, onResult }: ManualEntryProps) {
       {/* Token input */}
       <div>
         <h3 className="text-sm font-bold text-muted-foreground uppercase tracking-wide mb-2">
-          QR token beillesztese
+          QR token beillesztése
         </h3>
         <form onSubmit={handleTokenSubmit} className="flex gap-2">
           <input
             type="text"
             value={token}
             onChange={(e) => setToken(e.target.value)}
-            placeholder="Token beillesztese..."
+            placeholder="Token beillesztése..."
             className="flex-1 min-h-[44px] bg-zinc-900 border border-zinc-700 rounded-lg px-3 py-2 text-base text-white placeholder:text-zinc-500 focus:outline-none focus:ring-2 focus:ring-dozis-amber"
             disabled={isPending}
           />
@@ -103,13 +103,13 @@ export function ManualEntry({ eventId, guests, onResult }: ManualEntryProps) {
       {/* Guest search */}
       <div>
         <h3 className="text-sm font-bold text-muted-foreground uppercase tracking-wide mb-2">
-          Vendeg keresese
+          Vendég keresése
         </h3>
         <input
           type="text"
           value={searchQuery}
           onChange={(e) => setSearchQuery(e.target.value)}
-          placeholder="Nev vagy email..."
+          placeholder="Név vagy email..."
           className="w-full min-h-[44px] bg-zinc-900 border border-zinc-700 rounded-lg px-3 py-2 text-base text-white placeholder:text-zinc-500 focus:outline-none focus:ring-2 focus:ring-dozis-amber"
         />
 
@@ -151,7 +151,7 @@ export function ManualEntry({ eventId, guests, onResult }: ManualEntryProps) {
         )}
 
         {searchQuery.trim() && filteredGuests.length === 0 && (
-          <p className="mt-2 text-sm text-zinc-500">Nincs talalat.</p>
+          <p className="mt-2 text-sm text-zinc-500">Nincs találat.</p>
         )}
       </div>
     </div>

@@ -29,7 +29,7 @@ export default async function ScanPage({ params }: ScanPageProps) {
         href={`/app/admin/events`}
         className="text-sm text-muted-foreground hover:text-white transition-colors"
       >
-        &larr; Vissza az esemenyekhez
+        &larr; Vissza az eseményekhez
       </Link>
 
       <ScannerView

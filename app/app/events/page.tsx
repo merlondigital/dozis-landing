@@ -36,7 +36,7 @@ export default async function EventsPage() {
   return (
     <div className="space-y-8">
       <h1 className="font-heading text-3xl text-white tracking-wide">
-        Esemenyek
+        Események
       </h1>
 
       {/* Upcoming events */}
@@ -55,10 +55,10 @@ export default async function EventsPage() {
       ) : (
         <div className="bg-dozis-navy rounded-xl border border-zinc-800 p-12 text-center">
           <p className="text-zinc-400 text-lg">
-            Jelenleg nincs kozelgo esemeny
+            Jelenleg nincs közelgő esemény
           </p>
           <p className="text-zinc-500 text-sm mt-2">
-            Nezz vissza kesobb az uj esemenyekert!
+            Nézz vissza később az új eseményekért!
           </p>
         </div>
       )}
@@ -69,7 +69,7 @@ export default async function EventsPage() {
           <div className="flex items-center gap-4">
             <div className="h-px flex-1 bg-zinc-800" />
             <span className="text-zinc-500 text-sm uppercase tracking-wider">
-              Korabbi esemenyek
+              Korábbi események
             </span>
             <div className="h-px flex-1 bg-zinc-800" />
           </div>

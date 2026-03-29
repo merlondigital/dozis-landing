@@ -21,7 +21,7 @@ export function LoginForm({ onOtpSent }: LoginFormProps) {
 
     const trimmed = email.trim().toLowerCase();
     if (!trimmed || !trimmed.includes("@")) {
-      setError("Kerlek adj meg egy ervenyes email cimet.");
+      setError("Kérlek adj meg egy érvényes email címet.");
       return;
     }
 
@@ -33,13 +33,13 @@ export function LoginForm({ onOtpSent }: LoginFormProps) {
       });
 
       if (result.error) {
-        setError(result.error.message || "Hiba tortent. Probald ujra.");
+        setError(result.error.message || "Hiba történt. Próbáld újra.");
         return;
       }
 
       onOtpSent(trimmed);
     } catch {
-      setError("Hiba tortent. Probald ujra.");
+      setError("Hiba történt. Próbáld újra.");
     } finally {
       setLoading(false);
     }
@@ -49,12 +49,12 @@ export function LoginForm({ onOtpSent }: LoginFormProps) {
     <form onSubmit={handleSubmit} className="space-y-6">
       <div className="space-y-2">
         <Label htmlFor="email" className="text-zinc-300">
-          Email cim
+          Email cím
         </Label>
         <Input
           id="email"
           type="email"
-          placeholder="pelda@email.com"
+          placeholder="példa@email.com"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           disabled={loading}
@@ -74,7 +74,7 @@ export function LoginForm({ onOtpSent }: LoginFormProps) {
         className="w-full bg-dozis-amber text-black hover:bg-dozis-amber-light font-body font-semibold"
         size="lg"
       >
-        {loading ? "Kuldes..." : "Kod kuldese"}
+        {loading ? "Küldés..." : "Kód küldése"}
       </Button>
     </form>
   );

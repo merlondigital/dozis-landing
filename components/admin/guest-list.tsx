@@ -124,7 +124,7 @@ export function GuestList({ guests: initialGuests, stats, eventId }: GuestListPr
           alert(result.error);
         }
       } catch {
-        alert("Hiba tortent a becsekkolaskor.");
+        alert("Hiba történt a becsekkoláskor.");
       } finally {
         setCheckingInId(null);
       }
@@ -137,7 +137,7 @@ export function GuestList({ guests: initialGuests, stats, eventId }: GuestListPr
       <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
         <StatCard
           icon={Users}
-          label="Regisztralt"
+          label="Regisztrált"
           value={stats.totalRegistered}
           iconColor="text-blue-400"
         />
@@ -155,7 +155,7 @@ export function GuestList({ guests: initialGuests, stats, eventId }: GuestListPr
         />
         <StatCard
           icon={Percent}
-          label="Becsekkolasi rata"
+          label="Becsekkolási ráta"
           value={`${stats.checkInRate}%`}
           iconColor="text-dozis-amber"
         />
@@ -165,7 +165,7 @@ export function GuestList({ guests: initialGuests, stats, eventId }: GuestListPr
       <div className="relative">
         <Search className="absolute left-3 top-1/2 -translate-y-1/2 size-4 text-muted-foreground" />
         <Input
-          placeholder="Kereses nev vagy email alapjan..."
+          placeholder="Keresés név vagy email alapján..."
           value={search}
           onChange={(e) => setSearch(e.target.value)}
           className="pl-9"
@@ -175,19 +175,19 @@ export function GuestList({ guests: initialGuests, stats, eventId }: GuestListPr
       {/* Guest table */}
       {filtered.length === 0 ? (
         <p className="text-center text-muted-foreground py-8">
-          {search ? "Nincs talalat." : "Meg nincs regisztracio."}
+          {search ? "Nincs találat." : "Még nincs regisztráció."}
         </p>
       ) : (
         <div className="overflow-x-auto rounded-lg border border-zinc-800">
           <table className="w-full min-w-[600px] text-sm">
             <thead>
               <tr className="border-b border-zinc-800 bg-zinc-900/50">
-                <th className="text-left p-3 text-muted-foreground font-medium">Nev</th>
+                <th className="text-left p-3 text-muted-foreground font-medium">Név</th>
                 <th className="text-left p-3 text-muted-foreground font-medium">Email</th>
-                <th className="text-left p-3 text-muted-foreground font-medium">Regisztracio</th>
-                <th className="text-left p-3 text-muted-foreground font-medium">Statusz</th>
+                <th className="text-left p-3 text-muted-foreground font-medium">Regisztráció</th>
+                <th className="text-left p-3 text-muted-foreground font-medium">Státusz</th>
                 <th className="text-left p-3 text-muted-foreground font-medium">Becsekkolva</th>
-                <th className="text-left p-3 text-muted-foreground font-medium">Muvelet</th>
+                <th className="text-left p-3 text-muted-foreground font-medium">Művelet</th>
               </tr>
             </thead>
             <tbody>
@@ -217,7 +217,7 @@ export function GuestList({ guests: initialGuests, stats, eventId }: GuestListPr
                           </span>
                         ) : (
                           <span className="inline-flex items-center rounded-full bg-yellow-500/20 text-yellow-400 px-2 py-0.5 text-xs font-medium">
-                            Regisztralt
+                            Regisztrált
                           </span>
                         )}
                         {guest.isFree && (

@@ -12,7 +12,7 @@ export function LoyaltyCard({ attendanceCount, nextIsFree }: LoyaltyCardProps) {
   return (
     <div className="bg-dozis-navy rounded-xl p-6 border border-zinc-800">
       <h3 className="font-heading text-xl text-dozis-amber mb-4">
-        Husegprogram
+        Hűségprogram
       </h3>
 
       {/* 5-dot progress */}
@@ -42,17 +42,17 @@ export function LoyaltyCard({ attendanceCount, nextIsFree }: LoyaltyCardProps) {
 
       {/* Progress text */}
       <p className="text-center text-zinc-400 text-sm mt-3">
-        {attendanceCount} / 5 esemeny
+        {attendanceCount} / 5 esemény
       </p>
 
       {/* Next-free label or encouragement */}
       {nextIsFree ? (
         <p className="text-center text-dozis-amber font-heading text-lg mt-2 animate-pulse">
-          Kovetkezo ingyenes!
+          Következő ingyenes!
         </p>
       ) : attendanceCount === 0 ? (
         <p className="text-center text-zinc-500 text-xs mt-2">
-          Vegyel reszt esemenyeken es minden 5. alkalommal ingyenes belepot kapsz!
+          Vegyél részt eseményeken és minden 5. alkalommal ingyenes belépőt kapsz!
         </p>
       ) : null}
     </div>

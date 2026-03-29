@@ -37,13 +37,13 @@ export default async function EditEventPage({ params }: EditEventPageProps) {
         href="/app/admin/events"
         className="text-sm text-muted-foreground hover:text-white transition-colors"
       >
-        &larr; Vissza az esemenyekhez
+        &larr; Vissza az eseményekhez
       </Link>
 
       <Card>
         <CardHeader>
           <CardTitle className="font-heading text-2xl text-white tracking-wide">
-            Esemeny szerkesztese
+            Esemény szerkesztése
           </CardTitle>
         </CardHeader>
         <CardContent>

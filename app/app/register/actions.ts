@@ -17,10 +17,10 @@ interface ProfileData {
 export async function updateProfile(data: ProfileData) {
   // Validate on server side
   if (!data.lastName?.trim() || !data.firstName?.trim() || !data.address?.trim()) {
-    return { error: "Minden mezo kitoltese kotelezo." };
+    return { error: "Minden mező kitöltése kötelező." };
   }
   if (!data.birthYear || data.birthYear < 1940 || data.birthYear > 2010) {
-    return { error: "A szuletesi ev 1940 es 2010 kozott legyen." };
+    return { error: "A születési év 1940 és 2010 között legyen." };
   }
 
   const { env } = getCloudflareContext();
@@ -54,6 +54,6 @@ export async function updateProfile(data: ProfileData) {
 
     return { success: true };
   } catch {
-    return { error: "Hiba tortent a mentes soran." };
+    return { error: "Hiba történt a mentés során." };
   }
 }

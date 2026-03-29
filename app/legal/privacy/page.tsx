@@ -1,34 +1,34 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Adatvedelmi Tajekoztato | DOZIS.",
-  description: "A DOZIS. esemeny alkalmazas adatvedelmi tajekoztatoja.",
+  title: "Adatvédelmi Tájékoztató | DÓZIS.",
+  description: "A DÓZIS. esemény alkalmazás adatvédelmi tájékoztatója.",
 };
 
 export default function PrivacyPolicyPage() {
   return (
     <article>
       <h1 className="font-heading text-3xl text-dozis-amber uppercase tracking-wider mb-8">
-        Adatvedelmi Tajekoztato
+        Adatvédelmi Tájékoztató
       </h1>
 
       <p className="text-zinc-400 text-sm mb-8">
-        Hatalyos: 2026. marcius 29.
+        Hatályos: 2026. március 29.
       </p>
 
-      {/* 1. Adatkezelo */}
+      {/* 1. Adatkezelő */}
       <section className="mb-8">
         <h2 className="font-heading text-xl text-dozis-amber uppercase mt-8 mb-3">
-          1. Adatkezelo
+          1. Adatkezelő
         </h2>
         <p className="text-zinc-300 leading-relaxed mb-4">
-          Az adatkezelo termeszetes szemely, aki a DOZIS. esemeny alkalmazas
-          uzemelteteset es az ezzel kapcsolatos szemelyesadat-kezelest vegzi
-          (a tovabbiakban: &quot;Adatkezelo&quot;).
+          Az adatkezelő természetes személy, aki a DÓZIS. esemény alkalmazás
+          üzemeltetését és az ezzel kapcsolatos személyesadat-kezelést végzi
+          (a továbbiakban: &quot;Adatkezelő&quot;).
         </p>
         <div className="text-zinc-300 leading-relaxed mb-4 space-y-1">
           <p>
-            <strong className="text-zinc-200">Nev:</strong> Termeszetes szemely (az alkalmazas uzemeltetoje)
+            <strong className="text-zinc-200">Név:</strong> Természetes személy (az alkalmazás üzemeltetője)
           </p>
           <p>
             <strong className="text-zinc-200">E-mail:</strong>{" "}
@@ -40,16 +40,16 @@ export default function PrivacyPolicyPage() {
             </a>
           </p>
           <p>
-            <strong className="text-zinc-200">Lakcim:</strong> 1000 Budapest
+            <strong className="text-zinc-200">Lakcím:</strong> 1000 Budapest
           </p>
         </div>
         <p className="text-zinc-300 leading-relaxed mb-4">
-          Az Adatkezelo nem minosul jogi szemelynek (vallalkozasnak), hanem
-          termeszetes szemelykent jelen tajekoztatoban foglaltak szerint kezeli
-          az alkalmazas felhasznaloianak szemelyes adatait, az Europai
-          Parlament es a Tanacs (EU) 2016/679 rendelete (GDPR) es az
-          informacios onrendelkezesi jogrol es az informacioszabadsagrol szolo
-          2011. evi CXII. torveny (Infotv.) eloirasainak megfeleloen.
+          Az Adatkezelő nem minősül jogi személynek (vállalkozásnak), hanem
+          természetes személyként jelen tájékoztatóban foglaltak szerint kezeli
+          az alkalmazás felhasználóinak személyes adatait, az Európai
+          Parlament és a Tanács (EU) 2016/679 rendelete (GDPR) és az
+          információs önrendelkezési jogról és az információszabadságról szóló
+          2011. évi CXII. törvény (Infotv.) előírásainak megfelelően.
         </p>
       </section>
 
@@ -59,147 +59,147 @@ export default function PrivacyPolicyPage() {
           2. Kezelt adatok
         </h2>
         <p className="text-zinc-300 leading-relaxed mb-4">
-          Az alkalmazas hasznalata soran az alabbi szemelyes adatokat kezeljuk:
+          Az alkalmazás használata során az alábbi személyes adatokat kezeljük:
         </p>
         <ul className="list-disc list-inside text-zinc-300 space-y-1 mb-4">
-          <li>E-mail cim</li>
-          <li>Vezeteknev</li>
-          <li>Keresztnev</li>
-          <li>Szuletesi ev</li>
-          <li>Lakcim</li>
-          <li>Esemeny latogatasi elozmeny (reszveteli tortenet)</li>
+          <li>E-mail cím</li>
+          <li>Vezetéknév</li>
+          <li>Keresztnév</li>
+          <li>Születési év</li>
+          <li>Lakcím</li>
+          <li>Esemény látogatási előzmény (részvételi történet)</li>
         </ul>
       </section>
 
-      {/* 3. Adatkezeles celja */}
+      {/* 3. Adatkezelés célja */}
       <section className="mb-8">
         <h2 className="font-heading text-xl text-dozis-amber uppercase mt-8 mb-3">
-          3. Az adatkezeles celja
+          3. Az adatkezelés célja
         </h2>
         <p className="text-zinc-300 leading-relaxed mb-4">
-          A szemelyes adatok kezelese az alabbi celokbol tortenik:
+          A személyes adatok kezelése az alábbi célokból történik:
         </p>
         <ul className="list-disc list-inside text-zinc-300 space-y-1 mb-4">
           <li>
-            <strong className="text-zinc-200">Esemeny regisztracio:</strong>{" "}
-            A felhasznalo esemenyre valo regisztraciojanak kezelese es
-            nyilvantartasa.
+            <strong className="text-zinc-200">Esemény regisztráció:</strong>{" "}
+            A felhasználó eseményre való regisztrációjának kezelése és
+            nyilvántartása.
           </li>
           <li>
             <strong className="text-zinc-200">
-              Becsekkolasi azonositas:
+              Becsekkolási azonosítás:
             </strong>{" "}
-            QR kod alapu jelenletigazolas az esemenyen.
+            QR kód alapú jelenlétigazolás az eseményen.
           </li>
           <li>
-            <strong className="text-zinc-200">Husegprogram:</strong> Az 5.
-            alkalommal ingyenes belepes biztositasa erdekeben a latogatasi
-            szam nyomon kovetese.
+            <strong className="text-zinc-200">Hűségprogram:</strong> Az 5.
+            alkalommal ingyenes belépés biztosítása érdekében a látogatási
+            szám nyomon követése.
           </li>
         </ul>
       </section>
 
-      {/* 4. Adatkezeles jogalapja */}
+      {/* 4. Adatkezelés jogalapja */}
       <section className="mb-8">
         <h2 className="font-heading text-xl text-dozis-amber uppercase mt-8 mb-3">
-          4. Az adatkezeles jogalapja
+          4. Az adatkezelés jogalapja
         </h2>
         <ul className="list-disc list-inside text-zinc-300 space-y-1 mb-4">
           <li>
             <strong className="text-zinc-200">
-              GDPR 6. cikk (1) bekezdes a) pont — Hozzajarulas:
+              GDPR 6. cikk (1) bekezdés a) pont — Hozzájárulás:
             </strong>{" "}
-            A felhasznalo onkentesen regisztral az alkalmazasban es megadja
-            szemelyes adatait.
+            A felhasználó önkéntesen regisztrál az alkalmazásban és megadja
+            személyes adatait.
           </li>
           <li>
             <strong className="text-zinc-200">
-              GDPR 6. cikk (1) bekezdes b) pont — Szerzodeses jogalap:
+              GDPR 6. cikk (1) bekezdés b) pont — Szerződéses jogalap:
             </strong>{" "}
-            Az adatkezeles az esemeny regisztraciohoz kapcsolodo szolgaltatas
-            teljesitesehez szukseges.
+            Az adatkezelés az esemény regisztrációhoz kapcsolódó szolgáltatás
+            teljesítéséhez szükséges.
           </li>
         </ul>
       </section>
 
-      {/* 5. Adatok megorzese */}
+      {/* 5. Adatok megőrzése */}
       <section className="mb-8">
         <h2 className="font-heading text-xl text-dozis-amber uppercase mt-8 mb-3">
-          5. Az adatok megorzesi ideje
+          5. Az adatok megőrzési ideje
         </h2>
         <p className="text-zinc-300 leading-relaxed mb-4">
-          A szemelyes adatokat addig orizzzuk meg, amig a felhasznaloi fiok
-          letezik. A felhasznalo barmikor kerelmezheti adatainak torleset,
-          amelyet indokolatlan keslekedes nelkul, legkesobb 30 napon belul
-          teljesitunk.
+          A személyes adatokat addig őrizzük meg, amíg a felhasználói fiók
+          létezik. A felhasználó bármikor kérelmezheti adatainak törlését,
+          amelyet indokolatlan késlekedés nélkül, legkésőbb 30 napon belül
+          teljesítünk.
         </p>
       </section>
 
       {/* 6. Harmadik felek */}
       <section className="mb-8">
         <h2 className="font-heading text-xl text-dozis-amber uppercase mt-8 mb-3">
-          6. Adatfeldolgozok es harmadik felek
+          6. Adatfeldolgozók és harmadik felek
         </h2>
         <p className="text-zinc-300 leading-relaxed mb-4">
-          Az alabbi harmadik feleket vesszuk igenybe a szolgaltatas
-          mukodtetesehez:
+          Az alábbi harmadik feleket vesszük igénybe a szolgáltatás
+          működtetéséhez:
         </p>
         <ul className="list-disc list-inside text-zinc-300 space-y-1 mb-4">
           <li>
             <strong className="text-zinc-200">Resend</strong> —
-            Tranzakcios e-mail kuldes (OTP kodok, ertesitesek). A Resend
-            kizarolag az e-mail cimeket kezeli a kuldes celjara.
+            Tranzakciós e-mail küldés (OTP kódok, értesítések). A Resend
+            kizárólag az e-mail címeket kezeli a küldés céljára.
           </li>
           <li>
             <strong className="text-zinc-200">Cloudflare</strong> —
-            Tarhelyszolgaltatas, CDN es adatbazis-szolgaltatas (D1). Az
-            adatok az Europai Unio teruleten belul kerulnek feldolgozasra.
+            Tárhelyszolgáltatás, CDN és adatbázis-szolgáltatás (D1). Az
+            adatok az Európai Unió területén belül kerülnek feldolgozásra.
           </li>
         </ul>
       </section>
 
-      {/* 7. Felhasznaloi jogok */}
+      {/* 7. Felhasználói jogok */}
       <section className="mb-8">
         <h2 className="font-heading text-xl text-dozis-amber uppercase mt-8 mb-3">
-          7. Az On jogai
+          7. Az Ön jogai
         </h2>
         <p className="text-zinc-300 leading-relaxed mb-4">
-          A GDPR alapjan On az alabbi jogokkal rendelkezik:
+          A GDPR alapján Ön az alábbi jogokkal rendelkezik:
         </p>
         <ul className="list-disc list-inside text-zinc-300 space-y-1 mb-4">
           <li>
-            <strong className="text-zinc-200">Hozzaferes joga:</strong>{" "}
-            Tajekoztatas kerese az Onrol kezelt adatokrol.
+            <strong className="text-zinc-200">Hozzáférés joga:</strong>{" "}
+            Tájékoztatás kérése az Önről kezelt adatokról.
           </li>
           <li>
-            <strong className="text-zinc-200">Helyesbites joga:</strong>{" "}
-            Pontatlan adatainak javitasa.
+            <strong className="text-zinc-200">Helyesbítés joga:</strong>{" "}
+            Pontatlan adatainak javítása.
           </li>
           <li>
-            <strong className="text-zinc-200">Torles joga:</strong> Adatai
-            torlesenek kerelmezes (&quot;elfeledteteshez valo jog&quot;).
-          </li>
-          <li>
-            <strong className="text-zinc-200">
-              Adatkezeles korlatozasa:
-            </strong>{" "}
-            Az adatkezeles korlatozasanak kerese bizonyos esetekben.
+            <strong className="text-zinc-200">Törlés joga:</strong> Adatai
+            törlésének kérelmezése (&quot;elfeledtetéshez való jog&quot;).
           </li>
           <li>
             <strong className="text-zinc-200">
-              Adathordozhatosag joga:
+              Adatkezelés korlátozása:
             </strong>{" "}
-            Adatainak geppel olvashatoan torteno megkapasa.
+            Az adatkezelés korlátozásának kérése bizonyos esetekben.
           </li>
           <li>
-            <strong className="text-zinc-200">Tiltakozas joga:</strong>{" "}
-            Tiltakozas az adatkezeles ellen.
+            <strong className="text-zinc-200">
+              Adathordozhatóság joga:
+            </strong>{" "}
+            Adatainak géppel olvashatóan történő megkapása.
+          </li>
+          <li>
+            <strong className="text-zinc-200">Tiltakozás joga:</strong>{" "}
+            Tiltakozás az adatkezelés ellen.
           </li>
         </ul>
         <p className="text-zinc-300 leading-relaxed mb-4">
-          Jogai gyakorlasahoz kerem, vegye fel velunk a kapcsolatot az
-          alabbi elerhetosegen. Panasz eseten a Nemzeti Adatvedelmi es
-          Informacioszabadsag Hatosaghoz (NAIH) is fordulhat:{" "}
+          Jogai gyakorlásához kérem, vegye fel velünk a kapcsolatot az
+          alábbi elérhetőségen. Panasz esetén a Nemzeti Adatvédelmi és
+          Információszabadság Hatósághoz (NAIH) is fordulhat:{" "}
           <a
             href="https://www.naih.hu"
             target="_blank"
@@ -217,12 +217,12 @@ export default function PrivacyPolicyPage() {
           8. Kapcsolat
         </h2>
         <p className="text-zinc-300 leading-relaxed mb-4">
-          Adatvedelmi kerdeseivel, jogai gyakorlasaval kapcsolatban az alabbi
-          elerhetosegen tud velunk kapcsolatba lepni:
+          Adatvédelmi kérdéseivel, jogai gyakorlásával kapcsolatban az alábbi
+          elérhetőségen tud velünk kapcsolatba lépni:
         </p>
         <div className="text-zinc-300 leading-relaxed space-y-1">
           <p>
-            <strong className="text-zinc-200">Nev:</strong> Termeszetes szemely (az alkalmazas uzemeltetoje)
+            <strong className="text-zinc-200">Név:</strong> Természetes személy (az alkalmazás üzemeltetője)
           </p>
           <p>
             <strong className="text-zinc-200">E-mail:</strong>{" "}
@@ -234,11 +234,11 @@ export default function PrivacyPolicyPage() {
             </a>
           </p>
           <p>
-            <strong className="text-zinc-200">Lakcim:</strong> 1000 Budapest
+            <strong className="text-zinc-200">Lakcím:</strong> 1000 Budapest
           </p>
         </div>
         <p className="text-zinc-300 leading-relaxed mt-4">
-          A megkeresekre legkesobb 30 napon belul valaszolunk.
+          A megkeresésekre legkésőbb 30 napon belül válaszolunk.
         </p>
       </section>
     </article>

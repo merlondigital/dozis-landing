@@ -25,10 +25,10 @@ export default async function RegisterPage() {
       <Card className="w-full max-w-md bg-dozis-navy border-zinc-800">
         <CardHeader className="text-center pb-2">
           <h2 className="font-heading text-2xl text-white tracking-wide">
-            Regisztracio
+            Regisztráció
           </h2>
           <p className="text-zinc-400 text-sm font-body">
-            Kerlek add meg az adataidat a folytatáshoz.
+            Kérlek add meg az adataidat a folytatáshoz.
           </p>
         </CardHeader>
         <CardContent>
