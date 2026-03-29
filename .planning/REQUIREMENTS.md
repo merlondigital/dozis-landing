@@ -10,8 +10,8 @@
 - [x] **AUTH-01**: User can register and log in with email OTP (6-digit code via Resend)
 - [x] **AUTH-02**: OTP expires after 5 minutes, max 5 attempts per email per 15 minutes
 - [x] **AUTH-03**: Session persists via HttpOnly JWT cookie across browser refresh
-- [ ] **AUTH-04**: Admin users identified by email allowlist in environment variables
-- [ ] **AUTH-05**: Admin middleware protects admin-only API routes and pages
+- [x] **AUTH-04**: Admin users identified by email allowlist in environment variables
+- [x] **AUTH-05**: Admin middleware protects admin-only API routes and pages
 
 ### Events
 
@@ -104,8 +104,8 @@
 | AUTH-01 | Phase 1 | Complete |
 | AUTH-02 | Phase 1 | Complete |
 | AUTH-03 | Phase 1 | Complete |
-| AUTH-04 | Phase 1 | Pending |
-| AUTH-05 | Phase 1 | Pending |
+| AUTH-04 | Phase 1 | Complete |
+| AUTH-05 | Phase 1 | Complete |
 | INFR-01 | Phase 1 | Complete |
 | INFR-02 | Phase 1 | Complete |
 | INFR-03 | Phase 1 | Complete |
