@@ -1,0 +1,73 @@
+/**
+ * QR token format: {registrationId}:{eventId}:{userId}:{hmacHex}
+ * Uses BETTER_AUTH_SECRET as HMAC key (per D-14)
+ * Web Crypto API works in both Workers and Node.js runtimes
+ */
+
+async function getHmacKey(secret: string): Promise<CryptoKey> {
+  return crypto.subtle.importKey(
+    "raw",
+    new TextEncoder().encode(secret),
+    { name: "HMAC", hash: "SHA-256" },
+    false,
+    ["sign", "verify"]
+  );
+}
+
+function hexToBytes(hex: string): Uint8Array {
+  const bytes = new Uint8Array(hex.length / 2);
+  for (let i = 0; i < hex.length; i += 2) {
+    bytes[i / 2] = parseInt(hex.substring(i, i + 2), 16);
+  }
+  return bytes;
+}
+
+export async function generateQrToken(
+  registrationId: string,
+  eventId: string,
+  userId: string,
+  secret: string
+): Promise<string> {
+  const payload = `${registrationId}:${eventId}:${userId}`;
+  const key = await getHmacKey(secret);
+  const signature = await crypto.subtle.sign(
+    "HMAC",
+    key,
+    new TextEncoder().encode(payload)
+  );
+  const hmacHex = Array.from(new Uint8Array(signature))
+    .map((b) => b.toString(16).padStart(2, "0"))
+    .join("");
+  return `${payload}:${hmacHex}`;
+}
+
+export async function verifyQrToken(
+  token: string,
+  secret: string
+): Promise<{
+  valid: boolean;
+  registrationId?: string;
+  eventId?: string;
+  userId?: string;
+}> {
+  const parts = token.split(":");
+  if (parts.length !== 4) return { valid: false };
+
+  const [registrationId, eventId, userId, hmacHex] = parts;
+  const payload = `${registrationId}:${eventId}:${userId}`;
+  const key = await getHmacKey(secret);
+
+  // Timing-safe comparison using crypto.subtle.verify()
+  // This avoids === string comparison which leaks timing information
+  const signatureBytes = hexToBytes(hmacHex);
+  const valid = await crypto.subtle.verify(
+    "HMAC",
+    key,
+    signatureBytes as BufferSource,
+    new TextEncoder().encode(payload) as BufferSource
+  );
+
+  return valid
+    ? { valid: true, registrationId, eventId, userId }
+    : { valid: false };
+}
