@@ -12,12 +12,7 @@ import { GenreBadge, parseGenreTags } from "@/components/events/genre-badge";
 import { LoyaltyCard } from "@/components/loyalty/loyalty-card";
 
 export default async function DashboardPage() {
-  let result;
-  try {
-    result = await requireProfile();
-  } catch {
-    redirect("/app/login");
-  }
+  const result = await requireProfile();
   if (!result) redirect("/app/login");
   if (result.needsProfile) redirect("/app/register");
 

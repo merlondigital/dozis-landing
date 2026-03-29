@@ -7,20 +7,15 @@ import { getCloudflareContext } from "@opennextjs/cloudflare";
  * Use in Server Components and Server Actions.
  */
 export async function getSession() {
-  try {
-    const { env } = getCloudflareContext();
-    const auth = createAuth(env);
-    const hdrs = await headers();
+  const { env } = getCloudflareContext();
+  const auth = createAuth(env);
+  const hdrs = await headers();
 
-    const session = await auth.api.getSession({
-      headers: hdrs,
-    });
+  const session = await auth.api.getSession({
+    headers: hdrs,
+  });
 
-    return session;
-  } catch (err) {
-    console.error("[getSession] Error:", err instanceof Error ? err.message : err);
-    return null;
-  }
+  return session;
 }
 
 /**
