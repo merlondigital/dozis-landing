@@ -3,7 +3,7 @@
 import { getCloudflareContext } from "@opennextjs/cloudflare";
 import { getDb } from "@/src/db";
 import { event, registration, user } from "@/src/db/schema";
-import { eq, and, gt, asc, desc } from "drizzle-orm";
+import { eq, and, gt, lte, asc, desc } from "drizzle-orm";
 import { revalidatePath } from "next/cache";
 import { getSession, requireAdmin } from "@/src/lib/auth-utils";
 import {
@@ -228,6 +228,17 @@ export async function getUpcomingEvents() {
     .from(event)
     .where(gt(event.date, new Date()))
     .orderBy(asc(event.date));
+}
+
+export async function getPastEvents() {
+  const { env } = getCloudflareContext();
+  const db = getDb(env.DB);
+
+  return db
+    .select()
+    .from(event)
+    .where(lte(event.date, new Date()))
+    .orderBy(desc(event.date));
 }
 
 export async function getEventById(id: string) {
