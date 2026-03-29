@@ -16,7 +16,7 @@ export function AppShell({ user, children }: AppShellProps) {
   return (
     <div className="min-h-screen bg-dozis-navy-deep">
       <AppHeader user={user} />
-      <main className="container mx-auto px-4 py-8">
+      <main className="container mx-auto px-4 py-8 pb-24">
         {children}
       </main>
     </div>

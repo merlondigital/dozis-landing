@@ -17,8 +17,8 @@ const montserrat = Montserrat({
 });
 
 export const metadata: Metadata = {
-  title: "DOZIS.",
-  description: "Budapesti elektronikus zenei kollektiva. Negy DJ. Egy kuldetes.",
+  title: "DOZIS. | Elektronikus Zenei Esemenyek",
+  description: "Regisztralj DOZIS. esemenyekre, kapj QR kodot es gyujtsd az ingyenes belepodet!",
 };
 
 export default function RootLayout({
