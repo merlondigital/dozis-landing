@@ -48,7 +48,7 @@ Plans:
 
 Plans:
 - [x] 02-01-PLAN.md — Event + registration Drizzle schema, Zod validation, HMAC QR signing, Server Actions
-- [ ] 02-02-PLAN.md — Admin event CRUD UI (list, create, edit, delete pages)
+- [x] 02-02-PLAN.md — Admin event CRUD UI (list, create, edit, delete pages)
 - [ ] 02-03-PLAN.md — User event listing, detail page, registration flow, QR code display, dashboard update
 
 ### Phase 3: Check-In, Loyalty & Admin Dashboard
@@ -94,6 +94,6 @@ Phases execute in numeric order: 1 -> 2 -> 3 -> 4
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
 | 1. Foundation & Auth | 3/3 | Complete | 2026-03-29 |
-| 2. Events & Registration | 0/3 | Planning complete | - |
+| 2. Events & Registration | 2/3 | In Progress|  |
 | 3. Check-In, Loyalty & Admin Dashboard | 0/3 | Not started | - |
 | 4. Branding & UX Polish | 0/2 | Not started | - |
