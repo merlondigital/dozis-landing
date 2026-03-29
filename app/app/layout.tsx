@@ -10,10 +10,8 @@ export default async function AppLayout({
 }) {
   const session = await getSession();
 
-  // No session: render bare (middleware redirects unauthenticated to login,
-  // login/register pages have their own standalone layouts)
   if (!session?.user) {
-    return <div className="min-h-screen bg-dozis-navy-deep">{children}</div>;
+    return <>{children}</>;
   }
 
   const user = session.user as {
@@ -23,9 +21,8 @@ export default async function AppLayout({
     profileCompleted?: boolean;
   };
 
-  // Profile incomplete: render bare for register page
   if (!user.profileCompleted) {
-    return <div className="min-h-screen bg-dozis-navy-deep">{children}</div>;
+    return <>{children}</>;
   }
 
   return (
