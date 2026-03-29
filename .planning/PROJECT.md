@@ -51,7 +51,7 @@ A vendég QR kóddal igazolhatja jelenlétét az eventen, és az 5. látogatása
 ## Constraints
 
 - **Tech stack**: Cloudflare Pages + Workers + D1 — az egész Cloudflare ökoszisztémában
-- **Email**: Resend (vagy Mailgun) az OTP emailekhez
+- **Email**: Resend az OTP emailekhez
 - **Branding**: DÓZIS vizuális identitás kötelező (sötét háttér, amber/kék színvilág, Anton/Montserrat font, spray-paint effekt)
 - **Nyelv**: Magyar UI, angol kód/commit
 - **Admin auth**: Fix email lista a kódban/env-ben, ugyanaz az OTP flow mint a usereknek
