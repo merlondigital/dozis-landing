@@ -50,8 +50,8 @@
 ### Infrastructure
 
 - [ ] **INFR-01**: Cloudflare Workers + D1 database with Drizzle ORM
-- [ ] **INFR-02**: Hono API router with typed bindings
-- [ ] **INFR-03**: @cloudflare/vite-plugin unified SPA + API build
+- [ ] **INFR-02**: Next.js API routes and Server Actions for data mutations
+- [ ] **INFR-03**: @opennextjs/cloudflare adapter for Workers deployment
 - [ ] **INFR-04**: Resend email integration with custom domain (SPF/DKIM/DMARC)
 - [ ] **INFR-05**: DOZIS branding (dark theme, amber/blue, Anton/Montserrat, spray-paint aesthetic)
 
