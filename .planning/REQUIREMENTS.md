@@ -53,7 +53,7 @@
 - [x] **INFR-02**: Next.js API routes and Server Actions for data mutations
 - [x] **INFR-03**: @opennextjs/cloudflare adapter for Workers deployment
 - [x] **INFR-04**: Resend email integration with custom domain (SPF/DKIM/DMARC)
-- [ ] **INFR-05**: DOZIS branding (dark theme, amber/blue, Anton/Montserrat, spray-paint aesthetic)
+- [x] **INFR-05**: DOZIS branding (dark theme, amber/blue, Anton/Montserrat, spray-paint aesthetic)
 
 ### UX
 
@@ -129,7 +129,7 @@
 | ADMN-01 | Phase 3 | Complete |
 | ADMN-02 | Phase 3 | Complete |
 | ADMN-03 | Phase 3 | Complete |
-| INFR-05 | Phase 4 | Pending |
+| INFR-05 | Phase 4 | Complete |
 | UX-01 | Phase 4 | Pending |
 | UX-02 | Phase 4 | Pending |
 | UX-03 | Phase 4 | Pending |

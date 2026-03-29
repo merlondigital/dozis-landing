@@ -3,14 +3,14 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: executing
-stopped_at: Completed 03-03-PLAN.md
-last_updated: "2026-03-29T19:37:34.162Z"
+stopped_at: Completed 04-02-PLAN.md
+last_updated: "2026-03-29T19:52:02.675Z"
 last_activity: 2026-03-29
 progress:
   total_phases: 4
   completed_phases: 3
-  total_plans: 9
-  completed_plans: 9
+  total_plans: 12
+  completed_plans: 10
   percent: 89
 ---
 
@@ -21,13 +21,13 @@ progress:
 See: .planning/PROJECT.md (updated 2026-03-29)
 
 **Core value:** A vendeg QR koddal igazolhatja jelenletet az eventen, es az 5. latogatasa ingyenes.
-**Current focus:** Phase 03 — checkin-loyalty
+**Current focus:** Phase 04 — branding-ux
 
 ## Current Position
 
-Phase: 4
-Plan: Not started
-Status: Executing
+Phase: 04 (branding-ux) — EXECUTING
+Plan: 2 of 3
+Status: Ready to execute
 Last activity: 2026-03-29
 
 Progress: [████████░░] 89%
@@ -58,6 +58,7 @@ Progress: [████████░░] 89%
 | Phase 02-events-registration P02 | 3min | 2 tasks | 9 files |
 | Phase 03-checkin-loyalty P01 | 4min | 2 tasks | 7 files |
 | Phase 03-checkin-loyalty P03 | 3min | 2 tasks | 6 files |
+| Phase 04-branding-ux P02 | 4min | 2 tasks | 8 files |
 
 ## Accumulated Context
 
@@ -83,6 +84,8 @@ Recent decisions affecting current work:
 - [Phase 03-checkin-loyalty]: Shared performCheckIn helper for DRY QR and manual check-in logic
 - [Phase 03-checkin-loyalty]: Loyalty cycle: isFree set at registration time (attendanceCount >= 4), counter reset at free event check-in
 - [Phase 03-checkin-loyalty]: Map-to-Record serialization at server/client boundary for EventList counts prop
+- [Phase 04-branding-ux]: Natural person data controller with placeholder fields for legal pages
+- [Phase 04-branding-ux]: No cookie banner needed — only essential cookies (ePrivacy Art 5(3) exemption)
 
 ### Pending Todos
 
@@ -96,6 +99,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-03-29T19:30:46Z
-Stopped at: Completed 03-03-PLAN.md
+Last session: 2026-03-29T19:52:02.672Z
+Stopped at: Completed 04-02-PLAN.md
 Resume file: None
