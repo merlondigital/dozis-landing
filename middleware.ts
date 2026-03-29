@@ -5,7 +5,6 @@ export function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;
 
   // Check for better-auth session cookie
-  // In production (HTTPS), better-auth prefixes with __Secure-
   const sessionToken =
     request.cookies.get("better-auth.session_token") ||
     request.cookies.get("__Secure-better-auth.session_token");
@@ -22,6 +21,12 @@ export function middleware(request: NextRequest) {
       loginUrl.searchParams.set("callbackUrl", pathname);
       return NextResponse.redirect(loginUrl);
     }
+
+    // Prevent CDN caching of authenticated app pages
+    const response = NextResponse.next();
+    response.headers.set("Cache-Control", "private, no-cache, no-store, must-revalidate");
+    response.headers.set("CDN-Cache-Control", "no-store");
+    return response;
   }
 
   return NextResponse.next();
