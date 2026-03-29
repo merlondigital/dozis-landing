@@ -17,7 +17,7 @@ export default async function AppLayout({
     session = null;
   }
 
-  // If no session, render children without AppShell (login/register pages handle their own layout)
+  // If no session, render children without AppShell (login page handles its own layout)
   if (!session?.user) {
     return <>{children}</>;
   }
@@ -28,6 +28,11 @@ export default async function AppLayout({
     role?: string;
     profileCompleted?: boolean;
   };
+
+  // If profile is not completed, render without AppShell (register page handles its own layout)
+  if (!user.profileCompleted) {
+    return <>{children}</>;
+  }
 
   return (
     <AppShell user={user}>
