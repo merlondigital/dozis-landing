@@ -1,12 +1,31 @@
 import { createAuth } from "@/src/lib/auth";
-import { toNextJsHandler } from "better-auth/next-js";
 import { getCloudflareContext } from "@opennextjs/cloudflare";
+import { NextRequest } from "next/server";
 
-// Create auth per-request to access Cloudflare env bindings
-async function handleAuthRequest(request: Request) {
+async function handleAuth(request: NextRequest) {
   const { env } = getCloudflareContext();
   const auth = createAuth(env);
-  return auth.handler(request);
+
+  const response = await auth.handler(request);
+
+  // Log non-2xx responses for debugging
+  if (!response.ok) {
+    const cloned = response.clone();
+    try {
+      const body = await cloned.text();
+      console.error(`[auth] ${request.method} ${request.nextUrl.pathname} → ${response.status}:`, body);
+    } catch {
+      // ignore
+    }
+  }
+
+  return response;
 }
 
-export const { GET, POST } = toNextJsHandler(handleAuthRequest);
+export async function GET(request: NextRequest) {
+  return handleAuth(request);
+}
+
+export async function POST(request: NextRequest) {
+  return handleAuth(request);
+}
