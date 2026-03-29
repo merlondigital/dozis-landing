@@ -44,13 +44,12 @@ Plans:
   3. A user can tap to register for an event and immediately sees their unique QR code
   4. A user can view their QR code full-screen with maximum contrast (white background)
   5. A user cannot register twice for the same event
-**Plans**: TBD
-**UI hint**: yes
+**Plans**: 3 plans
 
 Plans:
-- [ ] 02-01: TBD
-- [ ] 02-02: TBD
-- [ ] 02-03: TBD
+- [ ] 02-01-PLAN.md — Event + registration Drizzle schema, Zod validation, HMAC QR signing, Server Actions
+- [ ] 02-02-PLAN.md — Admin event CRUD UI (list, create, edit, delete pages)
+- [ ] 02-03-PLAN.md — User event listing, detail page, registration flow, QR code display, dashboard update
 
 ### Phase 3: Check-In, Loyalty & Admin Dashboard
 **Goal**: Admins can verify attendance via QR scan, users earn loyalty progress, and admins have full guest oversight
@@ -94,7 +93,7 @@ Phases execute in numeric order: 1 -> 2 -> 3 -> 4
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
-| 1. Foundation & Auth | 0/3 | Planning complete | - |
-| 2. Events & Registration | 0/3 | Not started | - |
+| 1. Foundation & Auth | 3/3 | Complete | 2026-03-29 |
+| 2. Events & Registration | 0/3 | Planning complete | - |
 | 3. Check-In, Loyalty & Admin Dashboard | 0/3 | Not started | - |
 | 4. Branding & UX Polish | 0/2 | Not started | - |
