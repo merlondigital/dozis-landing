@@ -92,7 +92,8 @@ export function RegisterForm() {
         return;
       }
 
-      router.push("/app/events");
+      // Force full page reload to refresh session cookie with updated profileCompleted
+      window.location.href = "/app/events";
     } catch {
       setSubmitError("Hiba történt a mentés során. Próbáld újra.");
     } finally {
