@@ -1,4 +1,4 @@
-import { sqliteTable, text, integer } from "drizzle-orm/sqlite-core";
+import { sqliteTable, text, integer, unique } from "drizzle-orm/sqlite-core";
 
 // better-auth required: user table
 // Custom fields: role (admin role support), lastName, firstName, birthYear, address (profile data)
@@ -56,3 +56,31 @@ export const verification = sqliteTable("verification", {
   createdAt: integer("created_at", { mode: "timestamp" }).$defaultFn(() => new Date()),
   updatedAt: integer("updated_at", { mode: "timestamp" }).$defaultFn(() => new Date()),
 });
+
+// Event table (per D-01)
+export const event = sqliteTable("event", {
+  id: text("id").primaryKey().$defaultFn(() => crypto.randomUUID()),
+  name: text("name").notNull(),
+  date: integer("date", { mode: "timestamp" }).notNull(),
+  venue: text("venue").notNull().default("DOPAMIN, Budapest"),
+  description: text("description"),
+  genreTags: text("genre_tags"), // comma-separated: "UK Garage,Club Trance" per D-02
+  imageUrl: text("image_url"),
+  createdBy: text("created_by").notNull().references(() => user.id),
+  createdAt: integer("created_at", { mode: "timestamp" }).notNull().$defaultFn(() => new Date()),
+  updatedAt: integer("updated_at", { mode: "timestamp" }).notNull().$defaultFn(() => new Date()),
+});
+
+// Registration table (per D-03)
+export const registration = sqliteTable("registration", {
+  id: text("id").primaryKey().$defaultFn(() => crypto.randomUUID()),
+  eventId: text("event_id").notNull().references(() => event.id, { onDelete: "cascade" }),
+  userId: text("user_id").notNull().references(() => user.id, { onDelete: "cascade" }),
+  qrToken: text("qr_token").notNull(), // HMAC-signed token per D-13
+  status: text("status", { enum: ["registered", "cancelled"] }).notNull().default("registered"),
+  isFree: integer("is_free", { mode: "boolean" }).notNull().default(false), // for Phase 3 loyalty
+  checkedInAt: integer("checked_in_at", { mode: "timestamp" }), // for Phase 3 check-in
+  createdAt: integer("created_at", { mode: "timestamp" }).notNull().$defaultFn(() => new Date()),
+}, (table) => [
+  unique().on(table.eventId, table.userId), // per D-04, REGN-04
+]);
