@@ -5,8 +5,10 @@ export function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;
 
   // Check for better-auth session cookie
-  // better-auth uses "better-auth.session_token" cookie name by default
-  const sessionToken = request.cookies.get("better-auth.session_token");
+  // In production (HTTPS), better-auth prefixes with __Secure-
+  const sessionToken =
+    request.cookies.get("better-auth.session_token") ||
+    request.cookies.get("__Secure-better-auth.session_token");
 
   // Public routes that don't need auth
   if (pathname === "/" || pathname.startsWith("/api/") || pathname === "/app/login" || pathname.startsWith("/legal")) {
