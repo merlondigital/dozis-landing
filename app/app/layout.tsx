@@ -1,3 +1,5 @@
+export const dynamic = "force-dynamic";
+
 import { AppLayoutClient } from "@/components/app/app-layout-client";
 
 export default function AppLayout({
