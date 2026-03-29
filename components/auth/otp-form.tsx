@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useRef, useEffect, useCallback } from "react";
-import { verifyEmail, sendVerificationOtp } from "@/src/lib/auth-client";
+import { signInWithOtp, sendVerificationOtp } from "@/src/lib/auth-client";
 import { useRouter } from "next/navigation";
 import { Button } from "@/components/ui/button";
 
@@ -31,7 +31,7 @@ export function OtpForm({ email, onBack }: OtpFormProps) {
       setError(null);
 
       try {
-        const result = await verifyEmail({
+        const result = await signInWithOtp({
           email,
           otp: code,
         });

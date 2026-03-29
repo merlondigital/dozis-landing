@@ -14,5 +14,8 @@ export const authClient = createAuthClient({
 // Re-export commonly used methods
 export const { signOut, useSession } = authClient;
 
-// Email OTP specific methods
-export const { sendVerificationOtp, verifyEmail } = authClient.emailOtp;
+// Email OTP: send OTP
+export const { sendVerificationOtp } = authClient.emailOtp;
+
+// Email OTP: sign in with OTP (uses /sign-in/email-otp endpoint)
+export const signInWithOtp = authClient.signIn.emailOtp;
