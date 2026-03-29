@@ -66,8 +66,8 @@ Plans:
 
 Plans:
 - [x] 03-01-PLAN.md — Schema migration, check-in Server Action with loyalty logic, query helpers
-- [x] 03-02-PLAN.md — Admin QR scanner page with camera scanning, audio feedback, manual entry
-- [ ] 03-03-PLAN.md — Guest list page, loyalty card, enhanced admin event list with counts
+- [ ] 03-02-PLAN.md — Admin QR scanner page with camera scanning, audio feedback, manual entry
+- [x] 03-03-PLAN.md — Guest list page, loyalty card, enhanced admin event list with counts
 
 ### Phase 4: Branding & UX Polish
 **Goal**: The app looks and feels like DOZIS with full mobile-first Hungarian UI
@@ -94,5 +94,5 @@ Phases execute in numeric order: 1 -> 2 -> 3 -> 4
 |-------|----------------|--------|-----------|
 | 1. Foundation & Auth | 3/3 | Complete | 2026-03-29 |
 | 2. Events & Registration | 2/3 | In Progress|  |
-| 3. Check-In, Loyalty & Admin Dashboard | 1/3 | In Progress | - |
+| 3. Check-In, Loyalty & Admin Dashboard | 2/3 | In Progress | - |
 | 4. Branding & UX Polish | 0/2 | Not started | - |

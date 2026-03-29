@@ -30,22 +30,22 @@
 
 ### Check-In
 
-- [x] **CHKN-01**: Admin can scan QR code via mobile camera to check in attendee
-- [x] **CHKN-02**: Clear visual+audio feedback on scan (green=success, red=invalid/duplicate)
+- [ ] **CHKN-01**: Admin can scan QR code via mobile camera to check in attendee
+- [ ] **CHKN-02**: Clear visual+audio feedback on scan (green=success, red=invalid/duplicate)
 - [x] **CHKN-03**: Duplicate check-in prevented at database level (UNIQUE constraint)
 - [x] **CHKN-04**: Admin has manual code input fallback for scanning issues
 
 ### Loyalty
 
-- [ ] **LOYL-01**: User sees attendance count and progress toward free event (X/5)
+- [x] **LOYL-01**: User sees attendance count and progress toward free event (X/5)
 - [x] **LOYL-02**: After 4 verified check-ins, 5th registration is auto-marked as free
 - [x] **LOYL-03**: Loyalty counter resets after free event (new cycle starts at 0)
 
 ### Admin Dashboard
 
-- [ ] **ADMN-01**: Admin sees guest list per event (registered vs checked-in)
-- [ ] **ADMN-02**: Admin can search guests by name or email
-- [ ] **ADMN-03**: Admin sees basic event analytics (registered count, checked-in count, no-show rate)
+- [x] **ADMN-01**: Admin sees guest list per event (registered vs checked-in)
+- [x] **ADMN-02**: Admin can search guests by name or email
+- [x] **ADMN-03**: Admin sees basic event analytics (registered count, checked-in count, no-show rate)
 
 ### Infrastructure
 
@@ -119,16 +119,16 @@
 | REGN-02 | Phase 2 | Complete |
 | REGN-03 | Phase 2 | Pending |
 | REGN-04 | Phase 2 | Complete |
-| CHKN-01 | Phase 3 | Complete |
-| CHKN-02 | Phase 3 | Complete |
+| CHKN-01 | Phase 3 | Pending |
+| CHKN-02 | Phase 3 | Pending |
 | CHKN-03 | Phase 3 | Complete |
 | CHKN-04 | Phase 3 | Complete |
-| LOYL-01 | Phase 3 | Pending |
+| LOYL-01 | Phase 3 | Complete |
 | LOYL-02 | Phase 3 | Complete |
 | LOYL-03 | Phase 3 | Complete |
-| ADMN-01 | Phase 3 | Pending |
-| ADMN-02 | Phase 3 | Pending |
-| ADMN-03 | Phase 3 | Pending |
+| ADMN-01 | Phase 3 | Complete |
+| ADMN-02 | Phase 3 | Complete |
+| ADMN-03 | Phase 3 | Complete |
 | INFR-05 | Phase 4 | Pending |
 | UX-01 | Phase 4 | Pending |
 | UX-02 | Phase 4 | Pending |

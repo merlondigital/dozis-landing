@@ -5,7 +5,9 @@ import { hu } from "date-fns/locale";
 import { Calendar, MapPin, ArrowRight, QrCode } from "lucide-react";
 import { requireProfile } from "@/src/lib/auth-utils";
 import { getUpcomingEvents, getUserRegistration } from "@/src/lib/events/actions";
+import { getUserLoyalty } from "@/src/lib/checkin/queries";
 import { GenreBadge, parseGenreTags } from "@/components/events/genre-badge";
+import { LoyaltyCard } from "@/components/loyalty/loyalty-card";
 
 export default async function DashboardPage() {
   const result = await requireProfile();
@@ -24,6 +26,8 @@ export default async function DashboardPage() {
     const reg = await getUserRegistration(nextEvent.id, user.id);
     isRegistered = reg !== null && reg.status === "registered";
   }
+
+  const loyalty = await getUserLoyalty(user.id);
 
   const nextEventGenres = nextEvent
     ? parseGenreTags(nextEvent.genreTags)
@@ -94,13 +98,11 @@ export default async function DashboardPage() {
           </div>
         )}
 
-        {/* Loyalty program placeholder */}
-        <div className="bg-dozis-navy rounded-xl p-6 border border-zinc-800">
-          <h3 className="font-heading text-xl text-dozis-amber mb-2">
-            Husegprogram
-          </h3>
-          <p className="text-zinc-400 text-sm">Hamarosan...</p>
-        </div>
+        {/* Loyalty program card */}
+        <LoyaltyCard
+          attendanceCount={loyalty?.attendanceCount ?? 0}
+          nextIsFree={loyalty?.nextIsFree ?? false}
+        />
       </div>
 
       {/* Link to all events */}
