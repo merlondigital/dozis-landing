@@ -66,7 +66,7 @@ Plans:
 
 Plans:
 - [x] 03-01-PLAN.md — Schema migration, check-in Server Action with loyalty logic, query helpers
-- [ ] 03-02-PLAN.md — Admin QR scanner page with camera scanning, audio feedback, manual entry
+- [x] 03-02-PLAN.md — Admin QR scanner page with camera scanning, audio feedback, manual entry
 - [ ] 03-03-PLAN.md — Guest list page, loyalty card, enhanced admin event list with counts
 
 ### Phase 4: Branding & UX Polish

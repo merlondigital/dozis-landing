@@ -30,10 +30,10 @@
 
 ### Check-In
 
-- [ ] **CHKN-01**: Admin can scan QR code via mobile camera to check in attendee
-- [ ] **CHKN-02**: Clear visual+audio feedback on scan (green=success, red=invalid/duplicate)
+- [x] **CHKN-01**: Admin can scan QR code via mobile camera to check in attendee
+- [x] **CHKN-02**: Clear visual+audio feedback on scan (green=success, red=invalid/duplicate)
 - [x] **CHKN-03**: Duplicate check-in prevented at database level (UNIQUE constraint)
-- [ ] **CHKN-04**: Admin has manual code input fallback for scanning issues
+- [x] **CHKN-04**: Admin has manual code input fallback for scanning issues
 
 ### Loyalty
 
@@ -119,10 +119,10 @@
 | REGN-02 | Phase 2 | Complete |
 | REGN-03 | Phase 2 | Pending |
 | REGN-04 | Phase 2 | Complete |
-| CHKN-01 | Phase 3 | Pending |
-| CHKN-02 | Phase 3 | Pending |
+| CHKN-01 | Phase 3 | Complete |
+| CHKN-02 | Phase 3 | Complete |
 | CHKN-03 | Phase 3 | Complete |
-| CHKN-04 | Phase 3 | Pending |
+| CHKN-04 | Phase 3 | Complete |
 | LOYL-01 | Phase 3 | Pending |
 | LOYL-02 | Phase 3 | Complete |
 | LOYL-03 | Phase 3 | Complete |
