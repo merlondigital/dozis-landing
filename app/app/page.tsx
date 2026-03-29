@@ -1,54 +1,21 @@
-export const dynamic = "force-dynamic";
+"use client";
 
-import { redirect } from "next/navigation";
 import Link from "next/link";
-import { format } from "date-fns";
-import { hu } from "date-fns/locale";
-import { Calendar, MapPin, ArrowRight, QrCode } from "lucide-react";
-import { getSession } from "@/src/lib/auth-utils";
-import { getUpcomingEvents, getUserRegistration } from "@/src/lib/events/actions";
-import { getUserLoyalty } from "@/src/lib/checkin/queries";
-import { GenreBadge, parseGenreTags } from "@/components/events/genre-badge";
-import { LoyaltyCard } from "@/components/loyalty/loyalty-card";
+import { useSession } from "@/src/lib/auth-client";
 
-export default async function DashboardPage() {
-  const session = await getSession();
-
-  if (!session?.user) {
-    redirect("/app/login");
-  }
-
-  const user = session.user as {
+export default function DashboardPage() {
+  const { data: session } = useSession();
+  const user = session?.user as {
     firstName?: string;
     name: string;
     id: string;
-    profileCompleted?: boolean;
-  };
-
-  if (!user.profileCompleted) {
-    redirect("/app/register");
-  }
-
-  const upcoming = await getUpcomingEvents();
-  const nextEvent = upcoming[0] ?? null;
-
-  let isRegistered = false;
-  if (nextEvent) {
-    const reg = await getUserRegistration(nextEvent.id, user.id);
-    isRegistered = reg !== null && reg.status === "registered";
-  }
-
-  const loyalty = await getUserLoyalty(user.id);
-
-  const nextEventGenres = nextEvent
-    ? parseGenreTags(nextEvent.genreTags)
-    : [];
+  } | undefined;
 
   return (
     <div className="space-y-8">
       <div>
         <h2 className="font-heading text-3xl text-white tracking-wide">
-          Szia, {user.firstName || user.name}!
+          Szia, {user?.firstName || user?.name || ""}!
         </h2>
         <p className="text-zinc-400 mt-2">
           Üdvözlünk a DÓZIS. alkalmazásban.
@@ -56,71 +23,27 @@ export default async function DashboardPage() {
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-        {nextEvent ? (
-          <Link
-            href={`/app/events/${nextEvent.id}`}
-            className="bg-dozis-navy rounded-xl p-6 border border-zinc-800 hover:border-zinc-600 transition-colors block"
-          >
-            <div className="flex items-center justify-between mb-3">
-              <h3 className="font-heading text-xl text-dozis-amber">
-                Következő esemény
-              </h3>
-              {isRegistered && (
-                <span className="flex items-center gap-1 text-green-400 text-xs font-medium">
-                  <QrCode className="size-3.5" />
-                  Regisztrált
-                </span>
-              )}
-            </div>
+        <Link
+          href="/app/events"
+          className="bg-dozis-navy rounded-xl p-6 border border-zinc-800 hover:border-zinc-600 transition-colors block"
+        >
+          <h3 className="font-heading text-xl text-dozis-amber mb-2">
+            Események
+          </h3>
+          <p className="text-zinc-400 text-sm">
+            Böngészd az eseményeket és regisztrálj.
+          </p>
+        </Link>
 
-            <p className="text-white font-heading text-lg">
-              {nextEvent.name}
-            </p>
-
-            <div className="mt-2 flex items-center gap-2 text-zinc-400 text-sm">
-              <Calendar className="size-4 shrink-0" />
-              <span>
-                {format(nextEvent.date, "MMMM d., EEEE, HH:mm", { locale: hu })}
-              </span>
-            </div>
-
-            <div className="mt-1 flex items-center gap-2 text-zinc-400 text-sm">
-              <MapPin className="size-4 shrink-0" />
-              <span>{nextEvent.venue}</span>
-            </div>
-
-            {nextEventGenres.length > 0 && (
-              <div className="mt-3 flex flex-wrap gap-1.5">
-                {nextEventGenres.map((g) => (
-                  <GenreBadge key={g} genre={g} />
-                ))}
-              </div>
-            )}
-          </Link>
-        ) : (
-          <div className="bg-dozis-navy rounded-xl p-6 border border-zinc-800">
-            <h3 className="font-heading text-xl text-dozis-amber mb-2">
-              Események
-            </h3>
-            <p className="text-zinc-400 text-sm">
-              Jelenleg nincs közelgő esemény.
-            </p>
-          </div>
-        )}
-
-        <LoyaltyCard
-          attendanceCount={loyalty?.attendanceCount ?? 0}
-          nextIsFree={loyalty?.nextIsFree ?? false}
-        />
+        <div className="bg-dozis-navy rounded-xl p-6 border border-zinc-800">
+          <h3 className="font-heading text-xl text-dozis-amber mb-2">
+            Hűségprogram
+          </h3>
+          <p className="text-zinc-400 text-sm">
+            Minden 5. esemény ingyenes!
+          </p>
+        </div>
       </div>
-
-      <Link
-        href="/app/events"
-        className="inline-flex items-center gap-2 text-dozis-amber hover:text-dozis-amber-light transition-colors text-sm font-medium"
-      >
-        Összes esemény
-        <ArrowRight className="size-4" />
-      </Link>
     </div>
   );
 }
