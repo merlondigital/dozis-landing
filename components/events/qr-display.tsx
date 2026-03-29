@@ -7,14 +7,24 @@ import { hu } from "date-fns/locale";
 import { WifiOff } from "lucide-react";
 import { cacheQrData } from "@/lib/qr-cache";
 
+function AppleWalletIcon() {
+  return (
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <rect x="3" y="2" width="18" height="20" rx="3" stroke="currentColor" strokeWidth="1.5" />
+      <path d="M7 6h10M7 10h10M7 14h6" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+    </svg>
+  );
+}
+
 interface QrDisplayProps {
   qrToken: string;
   eventId: string;
   eventName: string;
   eventDate: Date;
+  registrationId?: string;
 }
 
-export function QrDisplay({ qrToken, eventId, eventName, eventDate }: QrDisplayProps) {
+export function QrDisplay({ qrToken, eventId, eventName, eventDate, registrationId }: QrDisplayProps) {
   const [isOffline, setIsOffline] = useState(false);
 
   useEffect(() => {
@@ -77,6 +87,16 @@ export function QrDisplay({ qrToken, eventId, eventName, eventDate }: QrDisplayP
           Mutasd meg a bejaratnal
         </p>
       </div>
+
+      {registrationId && (
+        <a
+          href={`/api/wallet/${registrationId}`}
+          className="mt-4 inline-flex items-center gap-2 bg-black text-white rounded-xl px-5 py-3 text-sm font-medium hover:bg-gray-900 transition-colors min-h-[44px]"
+        >
+          <AppleWalletIcon />
+          Hozzáadás az Apple Wallet-hez
+        </a>
+      )}
     </div>
   );
 }

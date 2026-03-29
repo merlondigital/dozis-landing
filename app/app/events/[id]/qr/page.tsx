@@ -25,10 +25,12 @@ export default async function QrFullScreenPage({
 
   // Use token from URL or fetch from DB
   let qrToken = token;
+  let registrationId: string | undefined;
   if (!qrToken) {
     const reg = await getUserRegistration(id, session.user.id);
     if (!reg || reg.status !== "registered") notFound();
     qrToken = reg.qrToken;
+    registrationId = reg.id;
   }
 
   return (
@@ -50,6 +52,7 @@ export default async function QrFullScreenPage({
         eventId={id}
         eventName={eventData.name}
         eventDate={eventData.date}
+        registrationId={registrationId}
       />
     </div>
   );
