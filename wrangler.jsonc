@@ -15,7 +15,7 @@
     }
   ],
   "vars": {
-    "ADMIN_EMAILS": "polosai@example.com,petrus@example.com,dave@example.com",
+    "ADMIN_EMAILS": "polosai@example.com,petrus@example.com,dave@example.com,leon@bildr.hu",
     "BETTER_AUTH_URL": "https://dozis.dozisdozis0.workers.dev"
   }
   // Note: RESEND_API_KEY and BETTER_AUTH_SECRET set via `wrangler secret put`
