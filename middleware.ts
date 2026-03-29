@@ -38,9 +38,11 @@ export function middleware(request: NextRequest) {
 
     if (sessionDataCookie?.value) {
       try {
-        const sessionData = JSON.parse(sessionDataCookie.value);
-        const profileCompleted = sessionData?.user?.profileCompleted;
-        if (profileCompleted === false || profileCompleted === 0) {
+        // Cookie is base64 encoded JSON
+        const decoded = atob(sessionDataCookie.value);
+        const sessionData = JSON.parse(decoded);
+        const user = sessionData?.session?.user;
+        if (user && (user.profileCompleted === false || user.profileCompleted === 0)) {
           return NextResponse.redirect(new URL("/app/register", request.url));
         }
       } catch {
