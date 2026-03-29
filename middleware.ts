@@ -9,7 +9,7 @@ export function middleware(request: NextRequest) {
   const sessionToken = request.cookies.get("better-auth.session_token");
 
   // Public routes that don't need auth
-  if (pathname === "/" || pathname.startsWith("/api/") || pathname === "/app/login") {
+  if (pathname === "/" || pathname.startsWith("/api/") || pathname === "/app/login" || pathname.startsWith("/legal")) {
     return NextResponse.next();
   }
 
