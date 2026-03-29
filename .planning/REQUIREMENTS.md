@@ -59,7 +59,7 @@
 
 - [x] **UX-01**: Mobile-first responsive design (44px+ touch targets)
 - [x] **UX-02**: Hungarian language UI throughout
-- [ ] **UX-03**: QR display works offline (cached in localStorage/service worker)
+- [x] **UX-03**: QR display works offline (cached in localStorage/service worker)
 
 ## v2 Requirements
 
@@ -132,7 +132,7 @@
 | INFR-05 | Phase 4 | Complete |
 | UX-01 | Phase 4 | Complete |
 | UX-02 | Phase 4 | Complete |
-| UX-03 | Phase 4 | Pending |
+| UX-03 | Phase 4 | Complete |
 
 **Coverage:**
 - v1 requirements: 32 total

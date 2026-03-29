@@ -84,7 +84,7 @@ Plans:
 Plans:
 - [x] 04-01-PLAN.md — DOZIS branding consistency, 44px touch targets, mobile-responsive polish, Hungarian UI audit
 - [x] 04-02-PLAN.md — Legal pages (privacy, cookies, terms) with GDPR compliance + footer links
-- [ ] 04-03-PLAN.md — Offline QR support via localStorage cache + service worker
+- [x] 04-03-PLAN.md — Offline QR support via localStorage cache + service worker
 
 ## Progress
 
