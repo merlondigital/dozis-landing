@@ -14,6 +14,7 @@ export const user = sqliteTable("user", {
   birthYear: integer("birth_year"),
   address: text("address"),
   profileCompleted: integer("profile_completed", { mode: "boolean" }).notNull().default(false),
+  attendanceCount: integer("attendance_count").notNull().default(0), // loyalty counter: 0-4, resets after free event (per D-18)
   createdAt: integer("created_at", { mode: "timestamp" }).notNull().$defaultFn(() => new Date()),
   updatedAt: integer("updated_at", { mode: "timestamp" }).notNull().$defaultFn(() => new Date()),
 });
@@ -80,6 +81,7 @@ export const registration = sqliteTable("registration", {
   status: text("status", { enum: ["registered", "cancelled"] }).notNull().default("registered"),
   isFree: integer("is_free", { mode: "boolean" }).notNull().default(false), // for Phase 3 loyalty
   checkedInAt: integer("checked_in_at", { mode: "timestamp" }), // for Phase 3 check-in
+  checkedInBy: text("checked_in_by").references(() => user.id), // admin who performed check-in (per D-11)
   createdAt: integer("created_at", { mode: "timestamp" }).notNull().$defaultFn(() => new Date()),
 }, (table) => [
   unique().on(table.eventId, table.userId), // per D-04, REGN-04

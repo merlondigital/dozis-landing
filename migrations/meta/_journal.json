@@ -15,6 +15,13 @@
       "when": 1774800452100,
       "tag": "0001_daily_spectrum",
       "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "6",
+      "when": 1774811917742,
+      "tag": "0002_checkin_loyalty",
+      "breakpoints": true
     }
   ]
 }
