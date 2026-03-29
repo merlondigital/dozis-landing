@@ -29,7 +29,7 @@ export async function generateWalletPass(
     APPLE_PASS_TYPE_ID: string;
     APPLE_TEAM_ID: string;
   },
-): Promise<Buffer> {
+): Promise<Uint8Array> {
   const pass = new PKPass(
     {},
     {
@@ -100,5 +100,6 @@ export async function generateWalletPass(
     messageEncoding: "iso-8859-1",
   });
 
-  return pass.getAsBuffer();
+  const buffer = pass.getAsBuffer();
+  return new Uint8Array(buffer);
 }

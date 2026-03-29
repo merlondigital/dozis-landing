@@ -1,3 +1,5 @@
+export const dynamic = "force-dynamic";
+
 import { getUpcomingEvents, getPastEvents } from "@/src/lib/events/actions";
 import { EventCard } from "@/components/events/event-card";
 import { EventHeroCard } from "@/components/events/event-hero-card";
