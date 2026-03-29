@@ -2,6 +2,7 @@ export const dynamic = "force-dynamic";
 
 import { getSession } from "@/src/lib/auth-utils";
 import { AppShell } from "@/components/app/app-shell";
+import { ProfileGate } from "@/components/app/profile-gate";
 
 export default async function AppLayout({
   children,
@@ -10,6 +11,7 @@ export default async function AppLayout({
 }) {
   const session = await getSession();
 
+  // No session: render bare (login page has its own standalone layout)
   if (!session?.user) {
     return <>{children}</>;
   }
@@ -21,8 +23,9 @@ export default async function AppLayout({
     profileCompleted?: boolean;
   };
 
+  // Profile incomplete: client-side redirect to register
   if (!user.profileCompleted) {
-    return <>{children}</>;
+    return <ProfileGate needsProfile={true}>{children}</ProfileGate>;
   }
 
   return (
