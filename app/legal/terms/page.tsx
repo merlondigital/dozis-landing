@@ -21,27 +21,31 @@ export default function TermsOfServicePage() {
         <h2 className="font-heading text-xl text-dozis-amber uppercase mt-8 mb-3">
           1. Szolgaltato
         </h2>
-        {/* TODO: Replace with actual data controller details */}
+        <p className="text-zinc-300 leading-relaxed mb-4">
+          A DOZIS. esemeny alkalmazas szolgaltatoja termeszetes szemely
+          (a tovabbiakban: &quot;Szolgaltato&quot;):
+        </p>
         <div className="text-zinc-300 leading-relaxed mb-4 space-y-1">
           <p>
-            <strong className="text-zinc-200">Nev:</strong> [Teljes Nev]
+            <strong className="text-zinc-200">Nev:</strong> Polomai Zoltan
           </p>
           <p>
             <strong className="text-zinc-200">E-mail:</strong>{" "}
             <a
-              href="mailto:dozis@example.com"
+              href="mailto:dozisdozis0@gmail.com"
               className="text-dozis-amber hover:text-dozis-amber-light underline"
             >
-              dozis@example.com
+              dozisdozis0@gmail.com
             </a>
           </p>
           <p>
-            <strong className="text-zinc-200">Lakcim:</strong> [Lakcim]
+            <strong className="text-zinc-200">Lakcim:</strong> 1000 Budapest
           </p>
         </div>
         <p className="text-zinc-300 leading-relaxed mb-4">
-          A szolgaltato termeszetes szemely, aki a DOZIS. esemeny alkalmazast
-          uzemelteti (a tovabbiakban: &quot;Szolgaltato&quot;).
+          A Szolgaltato nem minosul jogi szemelynek (vallalkozasnak). A
+          szolgaltatas a DOZIS. budapesti elektronikus zenei kollektiva
+          esemenyszervezoi tevekenysegehez kapcsolodik.
         </p>
       </section>
 

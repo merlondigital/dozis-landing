@@ -21,21 +21,35 @@ export default function PrivacyPolicyPage() {
         <h2 className="font-heading text-xl text-dozis-amber uppercase mt-8 mb-3">
           1. Adatkezelo
         </h2>
-        {/* TODO: Replace with actual data controller details */}
+        <p className="text-zinc-300 leading-relaxed mb-4">
+          Az adatkezelo termeszetes szemely, aki a DOZIS. esemeny alkalmazas
+          uzemelteteset es az ezzel kapcsolatos szemelyesadat-kezelest vegzi
+          (a tovabbiakban: &quot;Adatkezelo&quot;).
+        </p>
         <div className="text-zinc-300 leading-relaxed mb-4 space-y-1">
           <p>
-            <strong className="text-zinc-200">Nev:</strong> [Teljes Nev]
+            <strong className="text-zinc-200">Nev:</strong> Polomai Zoltan
           </p>
           <p>
-            <strong className="text-zinc-200">E-mail:</strong> [Email cim]
+            <strong className="text-zinc-200">E-mail:</strong>{" "}
+            <a
+              href="mailto:dozisdozis0@gmail.com"
+              className="text-dozis-amber hover:text-dozis-amber-light underline"
+            >
+              dozisdozis0@gmail.com
+            </a>
           </p>
           <p>
-            <strong className="text-zinc-200">Lakcim:</strong> [Lakcim]
+            <strong className="text-zinc-200">Lakcim:</strong> 1000 Budapest
           </p>
         </div>
         <p className="text-zinc-300 leading-relaxed mb-4">
-          Az adatkezelo termeszetes szemely, aki a DOZIS. esemeny alkalmazas
-          uzemelteteset vegzi.
+          Az Adatkezelo nem minosul jogi szemelynek (vallalkozasnak), hanem
+          termeszetes szemelykent jelen tajekoztatoban foglaltak szerint kezeli
+          az alkalmazas felhasznaloianak szemelyes adatait, az Europai
+          Parlament es a Tanacs (EU) 2016/679 rendelete (GDPR) es az
+          informacios onrendelkezesi jogrol es az informacioszabadsagrol szolo
+          2011. evi CXII. torveny (Infotv.) eloirasainak megfeleloen.
         </p>
       </section>
 
@@ -202,24 +216,30 @@ export default function PrivacyPolicyPage() {
         <h2 className="font-heading text-xl text-dozis-amber uppercase mt-8 mb-3">
           8. Kapcsolat
         </h2>
-        {/* TODO: Replace with actual data controller details */}
+        <p className="text-zinc-300 leading-relaxed mb-4">
+          Adatvedelmi kerdeseivel, jogai gyakorlasaval kapcsolatban az alabbi
+          elerhetosegen tud velunk kapcsolatba lepni:
+        </p>
         <div className="text-zinc-300 leading-relaxed space-y-1">
           <p>
-            <strong className="text-zinc-200">Nev:</strong> [Teljes Nev]
+            <strong className="text-zinc-200">Nev:</strong> Polomai Zoltan
           </p>
           <p>
             <strong className="text-zinc-200">E-mail:</strong>{" "}
             <a
-              href="mailto:dozis@example.com"
+              href="mailto:dozisdozis0@gmail.com"
               className="text-dozis-amber hover:text-dozis-amber-light underline"
             >
-              dozis@example.com
+              dozisdozis0@gmail.com
             </a>
           </p>
           <p>
-            <strong className="text-zinc-200">Lakcim:</strong> [Lakcim]
+            <strong className="text-zinc-200">Lakcim:</strong> 1000 Budapest
           </p>
         </div>
+        <p className="text-zinc-300 leading-relaxed mt-4">
+          A megkeresekre legkesobb 30 napon belul valaszolunk.
+        </p>
       </section>
     </article>
   );

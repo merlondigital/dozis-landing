@@ -8,7 +8,7 @@ export async function sendOtpEmail(params: {
   const resend = new Resend(params.resendApiKey);
 
   await resend.emails.send({
-    from: "DOZIS. <noreply@dozis.hu>",
+    from: "DOZIS. <onboarding@resend.dev>",
     to: params.email,
     subject: "DOZIS. - Belepesi kod",
     html: getOtpEmailHtml(params.otp),
