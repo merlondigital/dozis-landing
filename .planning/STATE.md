@@ -3,15 +3,15 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: executing
-stopped_at: Completed 01-01-PLAN.md
-last_updated: "2026-03-29T15:16:46.416Z"
-last_activity: 2026-03-29 -- Phase 01 execution, Wave 1 complete
+stopped_at: Completed 01-02-PLAN.md
+last_updated: "2026-03-29T15:26:53.696Z"
+last_activity: 2026-03-29
 progress:
   total_phases: 4
   completed_phases: 0
   total_plans: 3
-  completed_plans: 1
-  percent: 0
+  completed_plans: 2
+  percent: 33
 ---
 
 # Project State
@@ -26,9 +26,9 @@ See: .planning/PROJECT.md (updated 2026-03-29)
 ## Current Position
 
 Phase: 01 (foundation-auth) — EXECUTING
-Plan: 2 of 3
-Status: Wave 1 complete, starting Wave 2
-Last activity: 2026-03-29 -- Phase 01 execution, Wave 1 complete
+Plan: 3 of 3
+Status: Ready to execute
+Last activity: 2026-03-29
 
 Progress: [███░░░░░░░] 33%
 
@@ -52,6 +52,7 @@ Progress: [███░░░░░░░] 33%
 - Trend: -
 
 *Updated after each plan completion*
+| Phase 01 P02 | 5min | 2 tasks | 8 files |
 
 ## Accumulated Context
 
@@ -66,6 +67,9 @@ Recent decisions affecting current work:
 - [Phase 01]: Upgraded wrangler to v4 (required by @opennextjs/cloudflare peer dep)
 - [Phase 01]: Used Tailwind CSS v4 @theme directive for DOZIS brand colors as CSS custom properties
 - [Phase 01]: Added @cloudflare/workers-types for D1Database type resolution
+- [Phase 01]: Used toNextJsHandler + nextCookies from better-auth/next-js for proper Next.js cookie integration
+- [Phase 01]: Used emailOTP plugin built-in allowedAttempts + rateLimit for AUTH-02 (5 attempts/15min per email)
+- [Phase 01]: Augmented global CloudflareEnv interface for typed Cloudflare bindings access
 
 ### Pending Todos
 
@@ -79,6 +83,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-03-29T15:16:46.414Z
-Stopped at: Completed 01-01-PLAN.md
+Last session: 2026-03-29T15:26:53.694Z
+Stopped at: Completed 01-02-PLAN.md
 Resume file: None

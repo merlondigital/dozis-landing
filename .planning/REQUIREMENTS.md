@@ -7,9 +7,9 @@
 
 ### Authentication
 
-- [ ] **AUTH-01**: User can register and log in with email OTP (6-digit code via Resend)
-- [ ] **AUTH-02**: OTP expires after 5 minutes, max 5 attempts per email per 15 minutes
-- [ ] **AUTH-03**: Session persists via HttpOnly JWT cookie across browser refresh
+- [x] **AUTH-01**: User can register and log in with email OTP (6-digit code via Resend)
+- [x] **AUTH-02**: OTP expires after 5 minutes, max 5 attempts per email per 15 minutes
+- [x] **AUTH-03**: Session persists via HttpOnly JWT cookie across browser refresh
 - [ ] **AUTH-04**: Admin users identified by email allowlist in environment variables
 - [ ] **AUTH-05**: Admin middleware protects admin-only API routes and pages
 
@@ -52,7 +52,7 @@
 - [x] **INFR-01**: Cloudflare Workers + D1 database with Drizzle ORM
 - [x] **INFR-02**: Next.js API routes and Server Actions for data mutations
 - [x] **INFR-03**: @opennextjs/cloudflare adapter for Workers deployment
-- [ ] **INFR-04**: Resend email integration with custom domain (SPF/DKIM/DMARC)
+- [x] **INFR-04**: Resend email integration with custom domain (SPF/DKIM/DMARC)
 - [ ] **INFR-05**: DOZIS branding (dark theme, amber/blue, Anton/Montserrat, spray-paint aesthetic)
 
 ### UX
@@ -101,15 +101,15 @@
 
 | Requirement | Phase | Status |
 |-------------|-------|--------|
-| AUTH-01 | Phase 1 | Pending |
-| AUTH-02 | Phase 1 | Pending |
-| AUTH-03 | Phase 1 | Pending |
+| AUTH-01 | Phase 1 | Complete |
+| AUTH-02 | Phase 1 | Complete |
+| AUTH-03 | Phase 1 | Complete |
 | AUTH-04 | Phase 1 | Pending |
 | AUTH-05 | Phase 1 | Pending |
 | INFR-01 | Phase 1 | Complete |
 | INFR-02 | Phase 1 | Complete |
 | INFR-03 | Phase 1 | Complete |
-| INFR-04 | Phase 1 | Pending |
+| INFR-04 | Phase 1 | Complete |
 | EVNT-01 | Phase 2 | Pending |
 | EVNT-02 | Phase 2 | Pending |
 | EVNT-03 | Phase 2 | Pending |
