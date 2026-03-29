@@ -13,7 +13,7 @@ Transform the existing DOZIS landing page repo into a full event management app 
 - [ ] **Phase 1: Foundation & Auth** - Infrastructure setup (Next.js, D1, Drizzle, Resend) and email OTP authentication with admin middleware
 - [ ] **Phase 2: Events & Registration** - Event CRUD for admins, event listing for users, registration with QR code generation
 - [ ] **Phase 3: Check-In, Loyalty & Admin Dashboard** - QR scanner, attendance verification, loyalty tracking, and admin guest management
-- [ ] **Phase 4: Branding & UX Polish** - DOZIS visual identity, mobile-first responsive design, Hungarian UI, offline QR support
+- [ ] **Phase 4: Branding & UX Polish** - DOZIS visual identity, mobile-first responsive design, Hungarian UI, offline QR support, legal pages
 
 ## Phase Details
 
@@ -70,7 +70,7 @@ Plans:
 - [x] 03-03-PLAN.md — Guest list page, loyalty card, enhanced admin event list with counts
 
 ### Phase 4: Branding & UX Polish
-**Goal**: The app looks and feels like DOZIS with full mobile-first Hungarian UI
+**Goal**: The app looks and feels like DOZIS with full mobile-first Hungarian UI and launch-ready legal compliance
 **Depends on**: Phase 3
 **Requirements**: INFR-05, UX-01, UX-02, UX-03
 **Success Criteria** (what must be TRUE):
@@ -78,12 +78,13 @@ Plans:
   2. All UI elements have 44px+ touch targets and the layout is mobile-first responsive
   3. The entire interface is in Hungarian with no English UI text visible to users
   4. The QR code display works offline (cached locally, viewable without network)
-**Plans**: TBD
-**UI hint**: yes
+  5. Legal pages (Privacy Policy, Cookie Policy, ASZF) are accessible without authentication
+**Plans**: 3 plans
 
 Plans:
-- [ ] 04-01: TBD
-- [ ] 04-02: TBD
+- [ ] 04-01-PLAN.md — DOZIS branding consistency, 44px touch targets, mobile-responsive polish, Hungarian UI audit
+- [ ] 04-02-PLAN.md — Legal pages (privacy, cookies, terms) with GDPR compliance + footer links
+- [ ] 04-03-PLAN.md — Offline QR support via localStorage cache + service worker
 
 ## Progress
 
@@ -95,4 +96,4 @@ Phases execute in numeric order: 1 -> 2 -> 3 -> 4
 | 1. Foundation & Auth | 3/3 | Complete | 2026-03-29 |
 | 2. Events & Registration | 2/3 | In Progress|  |
 | 3. Check-In, Loyalty & Admin Dashboard | 2/3 | In Progress | - |
-| 4. Branding & UX Polish | 0/2 | Not started | - |
+| 4. Branding & UX Polish | 0/3 | Not started | - |
