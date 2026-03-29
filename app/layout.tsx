@@ -30,6 +30,11 @@ export default function RootLayout({
     <html lang="hu" className="dark">
       <body className={`${anton.variable} ${montserrat.variable}`}>
         {children}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `if('serviceWorker' in navigator){window.addEventListener('load',function(){navigator.serviceWorker.register('/sw.js').catch(function(){})})}`
+          }}
+        />
       </body>
     </html>
   );
