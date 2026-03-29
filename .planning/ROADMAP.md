@@ -62,13 +62,12 @@ Plans:
   4. A user sees their attendance count and progress toward the next free event (X/5 display)
   5. After 4 verified check-ins, the user's 5th event registration is automatically marked as free and the counter resets
   6. An admin can view the guest list per event (registered vs checked-in), search by name/email, and see attendance analytics
-**Plans**: TBD
-**UI hint**: yes
+**Plans**: 3 plans
 
 Plans:
-- [ ] 03-01: TBD
-- [ ] 03-02: TBD
-- [ ] 03-03: TBD
+- [ ] 03-01-PLAN.md — Schema migration, check-in Server Action with loyalty logic, query helpers
+- [ ] 03-02-PLAN.md — Admin QR scanner page with camera scanning, audio feedback, manual entry
+- [ ] 03-03-PLAN.md — Guest list page, loyalty card, enhanced admin event list with counts
 
 ### Phase 4: Branding & UX Polish
 **Goal**: The app looks and feels like DOZIS with full mobile-first Hungarian UI
