@@ -1,0 +1,69 @@
+@import "tailwindcss";
+
+@theme {
+  --color-background: oklch(0.145 0.024 264);
+  --color-foreground: oklch(0.985 0 0);
+  --color-card: oklch(0.145 0.024 264);
+  --color-card-foreground: oklch(0.985 0 0);
+  --color-popover: oklch(0.145 0.024 264);
+  --color-popover-foreground: oklch(0.985 0 0);
+  --color-primary: oklch(0.72 0.15 80);
+  --color-primary-foreground: oklch(0 0 0);
+  --color-secondary: oklch(0.55 0.2 260);
+  --color-secondary-foreground: oklch(0.985 0 0);
+  --color-muted: oklch(0.25 0.01 264);
+  --color-muted-foreground: oklch(0.65 0.02 264);
+  --color-accent: oklch(0.72 0.15 80);
+  --color-accent-foreground: oklch(0 0 0);
+  --color-destructive: oklch(0.45 0.18 25);
+  --color-destructive-foreground: oklch(0.985 0 0);
+  --color-border: oklch(0.25 0.01 264);
+  --color-input: oklch(0.25 0.01 264);
+  --color-ring: oklch(0.72 0.15 80);
+  --radius: 0.5rem;
+
+  /* DOZIS brand colors */
+  --color-dozis-black: #000000;
+  --color-dozis-navy: #0d1f3c;
+  --color-dozis-navy-deep: #0a1628;
+  --color-dozis-amber: #d4a017;
+  --color-dozis-amber-light: #e8b84a;
+  --color-dozis-amber-dark: #b8860b;
+  --color-dozis-blue: #1e40af;
+  --color-dozis-blue-light: #3b82f6;
+
+  /* Fonts */
+  --font-heading: var(--font-anton), sans-serif;
+  --font-body: var(--font-montserrat), sans-serif;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-dozis-navy-deep text-foreground antialiased;
+    font-family: var(--font-body);
+  }
+  html {
+    scroll-behavior: smooth;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+    font-weight: 400;
+    text-transform: uppercase;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

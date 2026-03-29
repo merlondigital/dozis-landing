@@ -1,0 +1,15 @@
+{
+  "name": "dozis",
+  "compatibility_date": "2024-12-01",
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "dozis-db",
+      "database_id": "placeholder-will-be-set-after-d1-create"
+    }
+  ],
+  "vars": {
+    "ADMIN_EMAILS": "polosai@example.com,petrus@example.com,dave@example.com"
+  }
+  // Note: RESEND_API_KEY and BETTER_AUTH_SECRET set via `wrangler secret put`
+}

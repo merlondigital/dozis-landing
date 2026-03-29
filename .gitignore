@@ -12,6 +12,22 @@ dist
 dist-ssr
 *.local
 
+# Next.js
+.next
+.open-next
+out
+
+# Cloudflare
+.wrangler
+.dev.vars
+
+# Environment
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json
