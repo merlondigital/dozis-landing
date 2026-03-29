@@ -3,11 +3,21 @@ import { drizzleAdapter } from "better-auth/adapters/drizzle";
 import { emailOTP } from "better-auth/plugins/email-otp";
 import { nextCookies } from "better-auth/next-js";
 import { getDb } from "@/src/db";
+import { user as userTable } from "@/src/db/schema";
+import { eq } from "drizzle-orm";
 import { sendOtpEmail } from "./email";
 import "@/src/env"; // augment global CloudflareEnv
 
+function parseAdminEmails(raw: string | undefined): string[] {
+  return (raw || "")
+    .split(",")
+    .map((e) => e.trim().toLowerCase())
+    .filter(Boolean);
+}
+
 export function createAuth(env: CloudflareEnv) {
   const db = getDb(env.DB);
+  const adminEmails = parseAdminEmails(env.ADMIN_EMAILS);
 
   return betterAuth({
     database: drizzleAdapter(db, {
@@ -61,6 +71,55 @@ export function createAuth(env: CloudflareEnv) {
       }),
       nextCookies(), // proper cookie handling in Next.js
     ],
+    databaseHooks: {
+      user: {
+        create: {
+          before: async (userData) => {
+            // Assign admin role on first sign-up if email is in ADMIN_EMAILS
+            if (adminEmails.includes(userData.email.toLowerCase())) {
+              return {
+                data: {
+                  ...userData,
+                  role: "admin",
+                },
+              };
+            }
+          },
+        },
+      },
+      session: {
+        create: {
+          after: async (sessionData) => {
+            // Sync admin role for existing users on every sign-in
+            // This handles: (1) users created before the hook existed,
+            // (2) emails added to/removed from ADMIN_EMAILS
+            const userId = sessionData.userId;
+            try {
+              const rows = await db
+                .select({ email: userTable.email, role: userTable.role })
+                .from(userTable)
+                .where(eq(userTable.id, userId))
+                .limit(1);
+              const row = rows[0];
+              if (!row) return;
+
+              const shouldBeAdmin = adminEmails.includes(row.email.toLowerCase());
+              const currentRole = row.role || "user";
+              const targetRole = shouldBeAdmin ? "admin" : "user";
+
+              if (currentRole !== targetRole) {
+                await db
+                  .update(userTable)
+                  .set({ role: targetRole, updatedAt: new Date() })
+                  .where(eq(userTable.id, userId));
+              }
+            } catch (err) {
+              console.error("[auth] Failed to sync admin role on sign-in:", err);
+            }
+          },
+        },
+      },
+    },
     user: {
       additionalFields: {
         role: {
