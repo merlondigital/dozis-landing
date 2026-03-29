@@ -22,7 +22,7 @@ export default function Events() {
           className="text-[clamp(0.7rem,1vw,0.85rem)] tracking-[0.3em] text-white/30 font-normal mb-12"
           style={{ fontFamily: "var(--font-body)", textTransform: "uppercase" }}
         >
-          Stilusok
+          Stílusok
         </h2>
 
         <div className="flex flex-col items-center gap-2 mb-20">
@@ -37,7 +37,7 @@ export default function Events() {
           </span>
           <span className="w-10 h-px bg-white/15" />
           <span
-            className="text-[0.8rem] tracking-[0.25em] text-white/40"
+            className="text-[0.8rem] tracking-[0.25em] text-white/60"
             style={{ fontFamily: "var(--font-body)" }}
           >
             DOPAMIN

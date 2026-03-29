@@ -13,17 +13,17 @@ export default function About() {
           ref={ref1 as React.RefObject<HTMLParagraphElement>}
           className="font-heading text-[clamp(1.4rem,3vw,2.2rem)] text-white leading-[1.4] mb-8"
         >
-          Budapesti elektronikus zenei kollektiva.
+          Budapesti elektronikus zenei kollektíva.
           <br />
-          Negy DJ. Egy kuldetes.
+          Négy DJ. Egy küldetés.
         </p>
         <p
           ref={ref2 as React.RefObject<HTMLParagraphElement>}
-          className="text-[clamp(0.9rem,1.2vw,1.05rem)] leading-[1.9] text-white/40 font-light"
+          className="text-[clamp(0.9rem,1.2vw,1.05rem)] leading-[1.9] text-white/60 font-light"
         >
-          A DOZIS. a budapesti underground elektronikus szinter szivebol szuletett.
-          Minden estunk egy adag tiszta energia — a zenetol a kozonsegig,
-          a hangoktol a rezgesekig.
+          A DÓZIS. a budapesti underground elektronikus színtér szívéből született.
+          Minden estünk egy adag tiszta energia — a zenétől a közönségig,
+          a hangoktól a rezgésekig.
         </p>
       </div>
     </section>

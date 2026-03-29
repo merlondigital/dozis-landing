@@ -23,7 +23,7 @@ export default function Footer() {
           </a>
 
           <span
-            className="text-[0.65rem] tracking-[0.25em] uppercase text-white/20"
+            className="text-[0.65rem] tracking-[0.25em] uppercase text-white/50"
             style={{ fontFamily: "var(--font-body)" }}
           >
             DOPAMIN, BUDAPEST
@@ -34,23 +34,23 @@ export default function Footer() {
         <div className="flex items-center gap-3" style={{ fontFamily: "var(--font-body)" }}>
           <Link
             href="/legal/privacy"
-            className="text-[0.65rem] tracking-[0.15em] uppercase text-white/20 hover:text-white/50 transition-colors"
+            className="text-[0.65rem] tracking-[0.15em] uppercase text-white/50 hover:text-white/50 transition-colors"
           >
-            Adatvedelem
+            Adatvédelem
           </Link>
           <span className="text-white/10 text-[0.5rem]">&bull;</span>
           <Link
             href="/legal/cookies"
-            className="text-[0.65rem] tracking-[0.15em] uppercase text-white/20 hover:text-white/50 transition-colors"
+            className="text-[0.65rem] tracking-[0.15em] uppercase text-white/50 hover:text-white/50 transition-colors"
           >
-            Sutik
+            Sütik
           </Link>
           <span className="text-white/10 text-[0.5rem]">&bull;</span>
           <Link
             href="/legal/terms"
-            className="text-[0.65rem] tracking-[0.15em] uppercase text-white/20 hover:text-white/50 transition-colors"
+            className="text-[0.65rem] tracking-[0.15em] uppercase text-white/50 hover:text-white/50 transition-colors"
           >
-            ASZF
+            ÁSZF
           </Link>
         </div>
       </div>
