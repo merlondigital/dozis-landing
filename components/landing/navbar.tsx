@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import Link from "next/link";
 
 const NAV_LINKS = [
   { href: "#about", label: "ABOUT" },
@@ -39,6 +40,45 @@ export default function Navbar() {
         <img src="/images/dozis-logo.svg" alt="DOZIS." className="h-[22px] w-auto opacity-90" />
       </a>
 
+      <ul
+        className={`flex gap-10 max-md:fixed max-md:inset-0 max-md:flex-col max-md:items-center max-md:justify-center max-md:gap-10 max-md:bg-[rgba(5,10,21,0.95)] max-md:backdrop-blur-[24px] max-md:transition-opacity max-md:duration-300 ${
+          menuOpen
+            ? "max-md:opacity-100 max-md:pointer-events-auto"
+            : "max-md:opacity-0 max-md:pointer-events-none"
+        }`}
+      >
+        {NAV_LINKS.map(({ href, label }) => (
+          <li key={href}>
+            <a
+              href={href}
+              onClick={() => setMenuOpen(false)}
+              className="text-xs font-normal tracking-[0.2em] uppercase text-white opacity-50 transition-opacity duration-300 hover:opacity-100 max-md:text-xl max-md:tracking-[0.3em] max-md:opacity-80"
+              style={{ fontFamily: "var(--font-body)" }}
+            >
+              {label}
+            </a>
+          </li>
+        ))}
+        <li className="md:hidden">
+          <Link
+            href="/login"
+            onClick={() => setMenuOpen(false)}
+            className="text-base font-medium tracking-[0.15em] uppercase border border-dozis-amber text-dozis-amber px-6 py-3 rounded mt-4 inline-block hover:bg-dozis-amber hover:text-black transition-all duration-300 min-h-[44px]"
+            style={{ fontFamily: "var(--font-body)" }}
+          >
+            Bejelentkezes
+          </Link>
+        </li>
+      </ul>
+
+      <Link
+        href="/login"
+        className="max-md:hidden text-xs font-medium tracking-[0.15em] uppercase border border-dozis-amber text-dozis-amber px-4 py-2 rounded transition-all duration-300 hover:bg-dozis-amber hover:text-black min-h-[44px] flex items-center"
+        style={{ fontFamily: "var(--font-body)" }}
+      >
+        Bejelentkezes
+      </Link>
+
       <button
         className={`hidden max-md:flex flex-col gap-[5px] bg-transparent border-none cursor-pointer p-1 z-[101] ${
           menuOpen ? "navbar-hamburger-open" : ""
@@ -63,27 +103,6 @@ export default function Navbar() {
           }`}
         />
       </button>
-
-      <ul
-        className={`flex gap-10 max-md:fixed max-md:inset-0 max-md:flex-col max-md:items-center max-md:justify-center max-md:gap-10 max-md:bg-[rgba(5,10,21,0.95)] max-md:backdrop-blur-[24px] max-md:transition-opacity max-md:duration-300 ${
-          menuOpen
-            ? "max-md:opacity-100 max-md:pointer-events-auto"
-            : "max-md:opacity-0 max-md:pointer-events-none"
-        }`}
-      >
-        {NAV_LINKS.map(({ href, label }) => (
-          <li key={href}>
-            <a
-              href={href}
-              onClick={() => setMenuOpen(false)}
-              className="text-xs font-normal tracking-[0.2em] uppercase text-white opacity-50 transition-opacity duration-300 hover:opacity-100 max-md:text-xl max-md:tracking-[0.3em] max-md:opacity-80"
-              style={{ fontFamily: "var(--font-body)" }}
-            >
-              {label}
-            </a>
-          </li>
-        ))}
-      </ul>
     </nav>
   );
 }
