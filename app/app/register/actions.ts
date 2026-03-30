@@ -5,7 +5,7 @@ import { createAuth } from "@/src/lib/auth";
 import { getDb } from "@/src/db";
 import { user } from "@/src/db/schema";
 import { eq } from "drizzle-orm";
-import { headers } from "next/headers";
+import { headers, cookies } from "next/headers";
 
 interface ProfileData {
   lastName: string;
@@ -51,6 +51,10 @@ export async function updateProfile(data: ProfileData) {
         updatedAt: new Date(),
       })
       .where(eq(user.id, session.user.id));
+
+    // Clear better-auth cookie cache so the next getSession() reads fresh DB data
+    const cookieStore = await cookies();
+    cookieStore.delete("better-auth.session_data");
 
     return { success: true };
   } catch {
