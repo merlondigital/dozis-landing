@@ -100,7 +100,7 @@ export function EventList({ events: initialEvents, counts = {} }: EventListProps
               isPast ? "opacity-60" : ""
             }`}
           >
-            <div className="flex items-start justify-between gap-4">
+            <div className="flex flex-col gap-3">
               <div className="flex-1 min-w-0">
                 <div className="flex items-center gap-2 mb-1">
                   <h3 className="font-body font-semibold text-white truncate">
@@ -143,21 +143,21 @@ export function EventList({ events: initialEvents, counts = {} }: EventListProps
               </div>
 
               {/* Quick links + actions */}
-              <div className="flex items-center gap-2 shrink-0 flex-wrap justify-end mt-3 md:mt-0">
+              <div className="grid grid-cols-2 sm:flex sm:items-center gap-2">
                 <Link href={`/app/admin/events/${event.id}/scan`}>
-                  <Button variant="outline" size="sm" className="gap-1.5">
+                  <Button variant="outline" size="sm" className="gap-1.5 w-full">
                     <ScanLine className="size-3.5" />
                     Szkenner
                   </Button>
                 </Link>
                 <Link href={`/app/admin/events/${event.id}/guests`}>
-                  <Button variant="outline" size="sm" className="gap-1.5">
+                  <Button variant="outline" size="sm" className="gap-1.5 w-full">
                     <Users className="size-3.5" />
-                    Vendéglista
+                    Vendégek
                   </Button>
                 </Link>
                 <Link href={`/app/admin/events/${event.id}/edit`}>
-                  <Button variant="outline" size="sm" className="gap-1.5">
+                  <Button variant="outline" size="sm" className="gap-1.5 w-full">
                     <Pencil className="size-3.5" />
                     Szerkesztés
                   </Button>
@@ -165,7 +165,7 @@ export function EventList({ events: initialEvents, counts = {} }: EventListProps
                 <Button
                   variant="destructive"
                   size="sm"
-                  className="gap-1.5"
+                  className="gap-1.5 w-full"
                   onClick={() => handleDelete(event.id, event.name)}
                   disabled={isPending && deletingId === event.id}
                 >

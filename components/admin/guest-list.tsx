@@ -178,82 +178,146 @@ export function GuestList({ guests: initialGuests, stats, eventId }: GuestListPr
           {search ? "Nincs találat." : "Még nincs regisztráció."}
         </p>
       ) : (
-        <div className="overflow-x-auto rounded-lg border border-zinc-800">
-          <table className="w-full min-w-[600px] text-sm">
-            <thead>
-              <tr className="border-b border-zinc-800 bg-zinc-900/50">
-                <th className="text-left p-3 text-muted-foreground font-medium">Név</th>
-                <th className="text-left p-3 text-muted-foreground font-medium">Email</th>
-                <th className="text-left p-3 text-muted-foreground font-medium">Regisztráció</th>
-                <th className="text-left p-3 text-muted-foreground font-medium">Státusz</th>
-                <th className="text-left p-3 text-muted-foreground font-medium">Becsekkolva</th>
-                <th className="text-left p-3 text-muted-foreground font-medium">Művelet</th>
-              </tr>
-            </thead>
-            <tbody>
-              {filtered.map((guest) => {
-                const isCheckedIn = guest.checkedInAt !== null;
+        <>
+          {/* Desktop table */}
+          <div className="hidden md:block overflow-x-auto rounded-lg border border-zinc-800">
+            <table className="w-full text-sm">
+              <thead>
+                <tr className="border-b border-zinc-800 bg-zinc-900/50">
+                  <th className="text-left p-3 text-muted-foreground font-medium">Név</th>
+                  <th className="text-left p-3 text-muted-foreground font-medium">Email</th>
+                  <th className="text-left p-3 text-muted-foreground font-medium">Regisztráció</th>
+                  <th className="text-left p-3 text-muted-foreground font-medium">Státusz</th>
+                  <th className="text-left p-3 text-muted-foreground font-medium">Becsekkolva</th>
+                  <th className="text-left p-3 text-muted-foreground font-medium">Művelet</th>
+                </tr>
+              </thead>
+              <tbody>
+                {filtered.map((guest) => {
+                  const isCheckedIn = guest.checkedInAt !== null;
 
-                return (
-                  <tr
-                    key={guest.registrationId}
-                    className="border-b border-zinc-800/50 even:bg-zinc-800/30"
-                  >
-                    <td className="p-3 text-white">
-                      {guestDisplayName(guest)}
-                    </td>
-                    <td className="p-3 text-zinc-400">{guest.email}</td>
-                    <td className="p-3 text-zinc-400">
-                      {format(new Date(guest.registeredAt), "yyyy. MM. dd. HH:mm", {
-                        locale: hu,
-                      })}
-                    </td>
-                    <td className="p-3">
-                      <div className="flex items-center gap-1.5 flex-wrap">
-                        {isCheckedIn ? (
-                          <span className="inline-flex items-center gap-1 rounded-full bg-green-500/20 text-green-400 px-2 py-0.5 text-xs font-medium">
-                            <CheckCircle className="size-3" />
-                            Becsekkolva
-                          </span>
-                        ) : (
-                          <span className="inline-flex items-center rounded-full bg-yellow-500/20 text-yellow-400 px-2 py-0.5 text-xs font-medium">
-                            Regisztrált
-                          </span>
+                  return (
+                    <tr
+                      key={guest.registrationId}
+                      className="border-b border-zinc-800/50 even:bg-zinc-800/30"
+                    >
+                      <td className="p-3 text-white">
+                        {guestDisplayName(guest)}
+                      </td>
+                      <td className="p-3 text-zinc-400">{guest.email}</td>
+                      <td className="p-3 text-zinc-400">
+                        {format(new Date(guest.registeredAt), "yyyy. MM. dd. HH:mm", {
+                          locale: hu,
+                        })}
+                      </td>
+                      <td className="p-3">
+                        <div className="flex items-center gap-1.5 flex-wrap">
+                          {isCheckedIn ? (
+                            <span className="inline-flex items-center gap-1 rounded-full bg-green-500/20 text-green-400 px-2 py-0.5 text-xs font-medium">
+                              <CheckCircle className="size-3" />
+                              Becsekkolva
+                            </span>
+                          ) : (
+                            <span className="inline-flex items-center rounded-full bg-yellow-500/20 text-yellow-400 px-2 py-0.5 text-xs font-medium">
+                              Regisztrált
+                            </span>
+                          )}
+                          {guest.isFree && (
+                            <span className="inline-flex items-center rounded-full bg-dozis-amber/20 text-dozis-amber px-2 py-0.5 text-xs font-medium">
+                              INGYENES
+                            </span>
+                          )}
+                        </div>
+                      </td>
+                      <td className="p-3 text-zinc-400">
+                        {isCheckedIn
+                          ? format(new Date(guest.checkedInAt!), "HH:mm", {
+                              locale: hu,
+                            })
+                          : "\u2014"}
+                      </td>
+                      <td className="p-3">
+                        {!isCheckedIn && (
+                          <Button
+                            variant="outline"
+                            size="sm"
+                            onClick={() => handleCheckIn(guest.registrationId)}
+                            disabled={isPending && checkingInId === guest.registrationId}
+                          >
+                            {isPending && checkingInId === guest.registrationId
+                              ? "..."
+                              : "Becsekkoltatás"}
+                          </Button>
                         )}
-                        {guest.isFree && (
-                          <span className="inline-flex items-center rounded-full bg-dozis-amber/20 text-dozis-amber px-2 py-0.5 text-xs font-medium">
-                            INGYENES
-                          </span>
-                        )}
-                      </div>
-                    </td>
-                    <td className="p-3 text-zinc-400">
-                      {isCheckedIn
-                        ? format(new Date(guest.checkedInAt!), "HH:mm", {
-                            locale: hu,
-                          })
-                        : "\u2014"}
-                    </td>
-                    <td className="p-3">
-                      {!isCheckedIn && (
-                        <Button
-                          variant="outline"
-                          size="sm"
-                          onClick={() => handleCheckIn(guest.registrationId)}
-                          disabled={isPending && checkingInId === guest.registrationId}
-                        >
-                          {isPending && checkingInId === guest.registrationId
-                            ? "..."
-                            : "Becsekkoltatás"}
-                        </Button>
+                      </td>
+                    </tr>
+                  );
+                })}
+              </tbody>
+            </table>
+          </div>
+
+          {/* Mobile cards */}
+          <div className="md:hidden space-y-3">
+            {filtered.map((guest) => {
+              const isCheckedIn = guest.checkedInAt !== null;
+
+              return (
+                <div
+                  key={guest.registrationId}
+                  className="rounded-lg border border-zinc-800 bg-dozis-navy p-4 space-y-2"
+                >
+                  <div className="flex items-start justify-between gap-2">
+                    <div>
+                      <p className="text-white font-medium">{guestDisplayName(guest)}</p>
+                      <p className="text-xs text-zinc-400 break-all">{guest.email}</p>
+                    </div>
+                    <div className="flex items-center gap-1.5 shrink-0">
+                      {isCheckedIn ? (
+                        <span className="inline-flex items-center gap-1 rounded-full bg-green-500/20 text-green-400 px-2 py-0.5 text-xs font-medium">
+                          <CheckCircle className="size-3" />
+                          OK
+                        </span>
+                      ) : (
+                        <span className="inline-flex items-center rounded-full bg-yellow-500/20 text-yellow-400 px-2 py-0.5 text-xs font-medium">
+                          Várakozik
+                        </span>
                       )}
-                    </td>
-                  </tr>
-                );
-              })}
-            </tbody>
-          </table>
-        </div>
+                      {guest.isFree && (
+                        <span className="inline-flex items-center rounded-full bg-dozis-amber/20 text-dozis-amber px-2 py-0.5 text-xs font-medium">
+                          FREE
+                        </span>
+                      )}
+                    </div>
+                  </div>
+                  <div className="flex items-center justify-between text-xs text-zinc-500">
+                    <span>
+                      {format(new Date(guest.registeredAt), "MM. dd. HH:mm", { locale: hu })}
+                    </span>
+                    {isCheckedIn && (
+                      <span>
+                        Becsekkolva: {format(new Date(guest.checkedInAt!), "HH:mm", { locale: hu })}
+                      </span>
+                    )}
+                  </div>
+                  {!isCheckedIn && (
+                    <Button
+                      variant="outline"
+                      size="sm"
+                      className="w-full"
+                      onClick={() => handleCheckIn(guest.registrationId)}
+                      disabled={isPending && checkingInId === guest.registrationId}
+                    >
+                      {isPending && checkingInId === guest.registrationId
+                        ? "..."
+                        : "Becsekkoltatás"}
+                    </Button>
+                  )}
+                </div>
+              );
+            })}
+          </div>
+        </>
       )}
     </div>
   );
