@@ -12,6 +12,7 @@ interface FormData {
   firstName: string;
   birthYear: string;
   address: string;
+  privacyAccepted: boolean;
 }
 
 interface FormErrors {
@@ -19,6 +20,7 @@ interface FormErrors {
   firstName?: string;
   birthYear?: string;
   address?: string;
+  privacyAccepted?: string;
 }
 
 function validate(data: FormData): FormErrors {
@@ -41,6 +43,10 @@ function validate(data: FormData): FormErrors {
     errors.birthYear = "A születési év 1940 és 2010 között legyen.";
   }
 
+  if (!data.privacyAccepted) {
+    errors.privacyAccepted = "Az adatvédelmi tájékoztató elfogadása kötelező.";
+  }
+
   return errors;
 }
 
@@ -50,6 +56,7 @@ export function RegisterForm() {
     firstName: "",
     birthYear: "",
     address: "",
+    privacyAccepted: false,
   });
   const [errors, setErrors] = useState<FormErrors>({});
   const [loading, setLoading] = useState(false);
@@ -175,6 +182,51 @@ export function RegisterForm() {
         />
         {errors.address && (
           <p className="text-xs text-red-400">{errors.address}</p>
+        )}
+      </div>
+
+      <div className="space-y-2">
+        <label className="flex items-start gap-3 cursor-pointer">
+          <input
+            type="checkbox"
+            checked={formData.privacyAccepted}
+            onChange={(e) => {
+              setFormData((prev) => ({ ...prev, privacyAccepted: e.target.checked }));
+              if (errors.privacyAccepted) {
+                setErrors((prev) => {
+                  const next = { ...prev };
+                  delete next.privacyAccepted;
+                  return next;
+                });
+              }
+            }}
+            disabled={loading}
+            className="mt-1 size-4 shrink-0 accent-dozis-amber"
+          />
+          <span className="text-sm text-zinc-300 leading-snug">
+            Elfogadom az{" "}
+            <a
+              href="/legal/privacy"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-dozis-amber hover:text-dozis-amber-light underline"
+            >
+              Adatvédelmi Tájékoztatót
+            </a>
+            {" "}és az{" "}
+            <a
+              href="/legal/terms"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-dozis-amber hover:text-dozis-amber-light underline"
+            >
+              ÁSZF-et
+            </a>
+            .
+          </span>
+        </label>
+        {errors.privacyAccepted && (
+          <p className="text-xs text-red-400">{errors.privacyAccepted}</p>
         )}
       </div>
 
