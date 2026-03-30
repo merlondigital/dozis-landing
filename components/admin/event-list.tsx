@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useTransition } from "react";
+import { useState, useTransition, useRef } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { format } from "date-fns";
@@ -51,6 +51,9 @@ export function EventList({ events: initialEvents, counts = {} }: EventListProps
 
     setDeletingId(eventId);
 
+    // Save current state for revert (not initial props which may be stale)
+    const snapshot = [...events];
+
     // Optimistic update: remove from list immediately
     setEvents((prev) => prev.filter((e) => e.id !== eventId));
 
@@ -59,14 +62,13 @@ export function EventList({ events: initialEvents, counts = {} }: EventListProps
         const result = await deleteEvent(eventId);
 
         if ("error" in result) {
-          // Revert optimistic update on error
-          setEvents(initialEvents);
+          setEvents(snapshot);
           alert(result.error);
         }
 
         router.refresh();
       } catch {
-        setEvents(initialEvents);
+        setEvents(snapshot);
         alert("Hiba történt a törlés során.");
       } finally {
         setDeletingId(null);

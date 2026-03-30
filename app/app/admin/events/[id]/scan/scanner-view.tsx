@@ -36,13 +36,22 @@ export function ScannerView({
   const [paused, setPaused] = useState(false);
   const [checkedInCount, setCheckedInCount] = useState(initialCheckedIn);
   const [showManual, setShowManual] = useState(false);
+  const [liveGuests, setLiveGuests] = useState(guests);
 
   const handleResult = useCallback((result: CheckInResult) => {
     setPaused(true);
 
     if ("success" in result && result.success) {
       playSuccessSound();
-      setCheckedInCount((prev) => prev + 1);
+      setCheckedInCount((prev) => Math.min(prev + 1, totalRegistered));
+      // Update guest list to reflect the check-in
+      setLiveGuests((prev) =>
+        prev.map((g) =>
+          g.name === result.guestName || [g.firstName, g.lastName].filter(Boolean).join(" ") === result.guestName
+            ? { ...g, checkedInAt: new Date() }
+            : g
+        )
+      );
       setFeedback({
         type: "success",
         message: "Sikeres becsekkolás!",
@@ -104,7 +113,7 @@ export function ScannerView({
           <div className="mt-4">
             <ManualEntry
               eventId={eventId}
-              guests={guests}
+              guests={liveGuests}
               onResult={handleResult}
             />
           </div>

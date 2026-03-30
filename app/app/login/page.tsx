@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { useSession } from "@/src/lib/auth-client";
-import { useRouter } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 import { LoginForm } from "@/components/auth/login-form";
 import { OtpForm } from "@/components/auth/otp-form";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
@@ -11,13 +11,15 @@ export default function LoginPage() {
   const [email, setEmail] = useState<string | null>(null);
   const { data: session, isPending } = useSession();
   const router = useRouter();
+  const searchParams = useSearchParams();
+  const callbackUrl = searchParams.get("callbackUrl") || undefined;
 
   // Redirect if already logged in
   useEffect(() => {
     if (session?.user && !isPending) {
-      window.location.href = "/app/events";
+      window.location.href = callbackUrl || "/app/events";
     }
-  }, [session, isPending, router]);
+  }, [session, isPending, router, callbackUrl]);
 
   if (isPending) {
     return (
@@ -65,7 +67,7 @@ export default function LoginPage() {
         </CardHeader>
         <CardContent>
           {email ? (
-            <OtpForm email={email} onBack={() => setEmail(null)} />
+            <OtpForm email={email} onBack={() => setEmail(null)} callbackUrl={callbackUrl} />
           ) : (
             <LoginForm onOtpSent={setEmail} />
           )}

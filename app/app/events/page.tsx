@@ -1,8 +1,11 @@
 export const dynamic = "force-dynamic";
 
 import { getUpcomingEvents, getPastEvents } from "@/src/lib/events/actions";
+import { getSession } from "@/src/lib/auth-utils";
+import { getUserLoyalty } from "@/src/lib/checkin/queries";
 import { EventCard } from "@/components/events/event-card";
 import { EventHeroCard } from "@/components/events/event-hero-card";
+import { LoyaltyCard } from "@/components/loyalty/loyalty-card";
 import type { EventData } from "@/components/events/event-card";
 
 function toEventData(row: {
@@ -26,10 +29,13 @@ function toEventData(row: {
 }
 
 export default async function EventsPage() {
-  const [upcoming, past] = await Promise.all([
+  const [upcoming, past, session] = await Promise.all([
     getUpcomingEvents(),
     getPastEvents(),
+    getSession(),
   ]);
+
+  const loyalty = session?.user ? await getUserLoyalty(session.user.id) : null;
 
   const heroEvent = upcoming[0] ? toEventData(upcoming[0]) : null;
   const restEvents = upcoming.slice(1).map(toEventData);
@@ -40,6 +46,11 @@ export default async function EventsPage() {
       <h1 className="font-heading text-3xl text-white tracking-wide">
         Események
       </h1>
+
+      {/* Loyalty progress */}
+      {loyalty && (
+        <LoyaltyCard attendanceCount={loyalty.attendanceCount} nextIsFree={loyalty.nextIsFree} />
+      )}
 
       {/* Upcoming events */}
       {heroEvent ? (

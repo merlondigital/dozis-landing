@@ -42,7 +42,7 @@ export function LoyaltyCard({ attendanceCount, nextIsFree }: LoyaltyCardProps) {
 
       {/* Progress text */}
       <p className="text-center text-zinc-400 text-sm mt-3">
-        {attendanceCount} / 5 esemény
+        {nextIsFree ? "5 / 5 esemény" : `${attendanceCount} / 5 esemény`}
       </p>
 
       {/* Next-free label or encouragement */}

@@ -1,14 +1,32 @@
 /**
  * QR token format: {registrationId}:{eventId}:{userId}:{hmacHex}
- * Uses BETTER_AUTH_SECRET as HMAC key (per D-14)
+ * Derives a dedicated HMAC key from BETTER_AUTH_SECRET using HKDF
+ * to avoid key reuse across cryptographic contexts (auth vs QR signing)
  * Web Crypto API works in both Workers and Node.js runtimes
  */
 
+const QR_KEY_CONTEXT = "dozis-qr-token-hmac-v1";
+
 async function getHmacKey(secret: string): Promise<CryptoKey> {
-  return crypto.subtle.importKey(
+  // Import the base secret as HKDF key material
+  const baseKey = await crypto.subtle.importKey(
     "raw",
     new TextEncoder().encode(secret),
-    { name: "HMAC", hash: "SHA-256" },
+    "HKDF",
+    false,
+    ["deriveKey"]
+  );
+
+  // Derive a domain-specific HMAC key using HKDF
+  return crypto.subtle.deriveKey(
+    {
+      name: "HKDF",
+      hash: "SHA-256",
+      salt: new TextEncoder().encode(QR_KEY_CONTEXT),
+      info: new TextEncoder().encode("qr-hmac"),
+    },
+    baseKey,
+    { name: "HMAC", hash: "SHA-256", length: 256 },
     false,
     ["sign", "verify"]
   );

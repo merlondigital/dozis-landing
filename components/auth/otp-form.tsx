@@ -8,6 +8,7 @@ import { Button } from "@/components/ui/button";
 interface OtpFormProps {
   email: string;
   onBack: () => void;
+  callbackUrl?: string;
 }
 
 function maskEmail(email: string): string {
@@ -17,7 +18,7 @@ function maskEmail(email: string): string {
   return `${local[0]}***${local[local.length - 1]}@${domain}`;
 }
 
-export function OtpForm({ email, onBack }: OtpFormProps) {
+export function OtpForm({ email, onBack, callbackUrl }: OtpFormProps) {
   const [otp, setOtp] = useState<string[]>(Array(6).fill(""));
   const [loading, setLoading] = useState(false);
   const [resending, setResending] = useState(false);
@@ -42,9 +43,15 @@ export function OtpForm({ email, onBack }: OtpFormProps) {
           return;
         }
 
-        // Successful verification - redirect to app
-        // Always go to register first — it redirects to events if profile complete
-        router.push("/app/register");
+        // Route based on profile completion status
+        const user = result.data?.user as { profileCompleted?: boolean } | undefined;
+        if (user?.profileCompleted) {
+          // Profile complete — go to callback URL or events
+          window.location.href = callbackUrl || "/app/events";
+        } else {
+          // New user or incomplete profile — go to registration
+          window.location.href = "/app/register";
+        }
       } catch {
         setError("Hiba történt. Próbáld újra.");
         setLoading(false);
@@ -86,7 +93,7 @@ export function OtpForm({ email, onBack }: OtpFormProps) {
     const pasted = e.clipboardData.getData("text").replace(/\D/g, "").slice(0, 6);
     if (!pasted) return;
 
-    const newOtp = [...otp];
+    const newOtp = Array(6).fill("");
     for (let i = 0; i < pasted.length; i++) {
       newOtp[i] = pasted[i];
     }

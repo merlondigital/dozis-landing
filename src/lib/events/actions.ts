@@ -137,15 +137,7 @@ export async function registerForEvent(eventId: string) {
     if (targetEvent.date <= new Date())
       return { error: "Erre az eseményre már nem lehet regisztrálni." };
 
-    // Check loyalty status: if attendanceCount >= 4, this registration is free (per D-20)
-    const [userData] = await db
-      .select({ attendanceCount: user.attendanceCount })
-      .from(user)
-      .where(eq(user.id, session.user.id))
-      .limit(1);
-    const isFree = (userData?.attendanceCount ?? 0) >= 4;
-
-    // Generate QR token
+    // Generate QR token (async crypto — must happen before transaction)
     const registrationId = crypto.randomUUID();
     const qrToken = await generateQrToken(
       registrationId,
@@ -154,14 +146,24 @@ export async function registerForEvent(eventId: string) {
       env.BETTER_AUTH_SECRET
     );
 
-    // Insert registration (isFree auto-set based on loyalty counter)
-    await db.insert(registration).values({
-      id: registrationId,
-      eventId,
-      userId: session.user.id,
-      qrToken,
-      status: "registered",
-      isFree,
+    // Transaction: read loyalty counter + insert registration atomically
+    // Prevents race where two concurrent registrations both get isFree=true
+    await db.transaction(async (tx) => {
+      const [userData] = await tx
+        .select({ attendanceCount: user.attendanceCount })
+        .from(user)
+        .where(eq(user.id, session.user.id))
+        .limit(1);
+      const isFree = (userData?.attendanceCount ?? 0) >= 4;
+
+      await tx.insert(registration).values({
+        id: registrationId,
+        eventId,
+        userId: session.user.id,
+        qrToken,
+        status: "registered",
+        isFree,
+      });
     });
 
     revalidatePath("/app/events");
