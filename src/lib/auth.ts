@@ -48,16 +48,6 @@ export function createAuth(env: CloudflareEnv) {
           max: 5,
         },
         sendVerificationOTP: async ({ email, otp }) => {
-          // Debug: save plain OTP to D1 for testing (remove in production)
-          try {
-            await env.DB.prepare(
-              "INSERT INTO otp_debug (email, otp, created_at) VALUES (?, ?, ?)"
-            ).bind(email, otp, new Date().toISOString()).run();
-          } catch {
-            // table might not exist yet, ignore
-            console.log(`[OTP DEBUG] ${email}: ${otp}`);
-          }
-
           await sendOtpEmail({
             email,
             otp,

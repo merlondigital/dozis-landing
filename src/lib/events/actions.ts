@@ -199,6 +199,8 @@ export async function cancelRegistration(registrationId: string) {
     if (!reg) return { error: "A regisztráció nem található." };
     if (reg.userId !== session.user.id)
       return { error: "Nincs jogosultságod." };
+    if (reg.checkedInAt !== null)
+      return { error: "Becsekkolás után nem lehet lemondani." };
 
     // Verify event is in the future
     const [targetEvent] = await db

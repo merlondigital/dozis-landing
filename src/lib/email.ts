@@ -7,12 +7,17 @@ export async function sendOtpEmail(params: {
 }) {
   const resend = new Resend(params.resendApiKey);
 
-  await resend.emails.send({
+  const { error } = await resend.emails.send({
     from: "DOZIS. <noreply@dozisbp.hu>",
     to: params.email,
     subject: "DOZIS. - Belépési kód",
     html: getOtpEmailHtml(params.otp),
   });
+
+  if (error) {
+    console.error("[email] Failed to send OTP:", error.message);
+    throw new Error("Email küldés sikertelen.");
+  }
 }
 
 function getOtpEmailHtml(otp: string): string {

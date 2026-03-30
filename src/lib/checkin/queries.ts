@@ -84,6 +84,8 @@ export async function getEventStats(eventId: string) {
 export async function getUserLoyalty(userId: string) {
   const session = await getSession();
   if (!session?.user) return null;
+  // Users can only query their own loyalty data
+  if (session.user.id !== userId) return null;
 
   const { env } = getCloudflareContext();
   const db = getDb(env.DB);
@@ -114,6 +116,9 @@ export async function getUserLoyalty(userId: string) {
 
 export async function getEventRegistrationCounts(eventIds: string[]) {
   if (eventIds.length === 0) return new Map<string, { registered: number; checkedIn: number }>();
+
+  const session = await requireAdmin();
+  if (!session) return new Map<string, { registered: number; checkedIn: number }>();
 
   const { env } = getCloudflareContext();
   const db = getDb(env.DB);

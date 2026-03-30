@@ -3,7 +3,7 @@
 import { getCloudflareContext } from "@opennextjs/cloudflare";
 import { getDb } from "@/src/db";
 import { registration, user } from "@/src/db/schema";
-import { eq, and } from "drizzle-orm";
+import { eq, and, sql } from "drizzle-orm";
 import { revalidatePath } from "next/cache";
 import { requireAdmin } from "@/src/lib/auth-utils";
 import { verifyQrToken } from "@/src/lib/events/qr";
@@ -63,15 +63,15 @@ async function performCheckIn(
     return { error: "A regisztráció törölve lett.", type: "cancelled" };
   }
 
-  // --- Perform check-in + loyalty update ---
+  // --- Perform check-in + loyalty update (atomic where possible) ---
 
   // 1. Update registration: set checkedInAt and checkedInBy
   await db
     .update(registration)
     .set({ checkedInAt: new Date(), checkedInBy: adminId })
-    .where(eq(registration.id, registrationId));
+    .where(and(eq(registration.id, registrationId), sql`${registration.checkedInAt} IS NULL`));
 
-  // 2. Look up user for attendance and name
+  // 2. Look up user for name display
   const [userData] = await db
     .select({
       id: user.id,
@@ -85,24 +85,23 @@ async function performCheckIn(
     .limit(1);
 
   if (!userData) {
-    // Edge case: user deleted between registration and check-in
     return { error: "Nincs regisztráció.", type: "not_found" };
   }
 
-  // 3. Loyalty logic (per D-19, D-21)
+  // 3. Loyalty logic — atomic increment/reset (per D-19, D-21)
   let newAttendanceCount: number;
   if (reg.isFree) {
-    // This was the free 5th event. Reset counter to 0 (per D-21)
+    // Free 5th event → reset counter to 0 (per D-21)
     newAttendanceCount = 0;
+    await db.update(user).set({ attendanceCount: 0 }).where(eq(user.id, userData.id));
   } else {
-    // Increment counter (per D-19)
+    // Atomic increment to avoid TOCTOU race (per D-19)
+    await db
+      .update(user)
+      .set({ attendanceCount: sql`${user.attendanceCount} + 1` })
+      .where(eq(user.id, userData.id));
     newAttendanceCount = userData.attendanceCount + 1;
   }
-
-  await db
-    .update(user)
-    .set({ attendanceCount: newAttendanceCount })
-    .where(eq(user.id, userData.id));
 
   const guestName = [userData.firstName, userData.lastName].filter(Boolean).join(" ") || userData.name;
 
