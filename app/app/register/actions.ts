@@ -53,8 +53,13 @@ export async function updateProfile(data: ProfileData) {
       .where(eq(user.id, session.user.id));
 
     // Clear better-auth cookie cache so the next getSession() reads fresh DB data
+    // Cookie name varies: "better-auth.session_data" (HTTP) or "__Secure-better-auth.session_data" (HTTPS)
     const cookieStore = await cookies();
-    cookieStore.delete("better-auth.session_data");
+    for (const cookie of cookieStore.getAll()) {
+      if (cookie.name.includes("session_data")) {
+        cookieStore.delete(cookie.name);
+      }
+    }
 
     return { success: true };
   } catch {
