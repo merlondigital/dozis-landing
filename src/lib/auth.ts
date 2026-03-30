@@ -30,10 +30,6 @@ export function createAuth(env: CloudflareEnv) {
     },
     session: {
       expiresIn: 60 * 60 * 24 * 30, // 30 days (D-16)
-      cookieCache: {
-        enabled: true,
-        maxAge: 60 * 5, // 5 min cache
-      },
     },
     // Global rate limit (per-IP, default for all endpoints)
     rateLimit: {
