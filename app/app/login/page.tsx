@@ -15,7 +15,7 @@ export default function LoginPage() {
   // Redirect if already logged in
   useEffect(() => {
     if (session?.user && !isPending) {
-      router.push("/app");
+      window.location.href = "/app/events";
     }
   }, [session, isPending, router]);
 
