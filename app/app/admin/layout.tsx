@@ -12,7 +12,7 @@ export default async function AdminLayout({
 
   if (!session) {
     // Regular user trying to access admin - redirect to dashboard
-    redirect("/app");
+    redirect("/app/events");
   }
 
   return (

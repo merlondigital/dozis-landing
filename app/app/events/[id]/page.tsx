@@ -1,7 +1,7 @@
 export const dynamic = "force-dynamic";
 
 import Link from "next/link";
-import { notFound } from "next/navigation";
+import { notFound, redirect } from "next/navigation";
 import { format } from "date-fns";
 import { hu } from "date-fns/locale";
 import { ArrowLeft, MapPin, Calendar } from "lucide-react";
@@ -23,7 +23,7 @@ export default async function EventDetailPage({
   ]);
 
   if (!eventData) notFound();
-  if (!session?.user) notFound();
+  if (!session?.user) redirect("/app/login");
 
   const reg = await getUserRegistration(id, session.user.id);
   const genres = parseGenreTags(eventData.genreTags);

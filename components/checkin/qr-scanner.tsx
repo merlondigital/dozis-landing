@@ -18,13 +18,19 @@ export function QrScanner({ eventId, onResult, paused }: QrScannerProps) {
   const scannerRef = useRef<any>(null);
   const pausedRef = useRef(paused);
   const processingRef = useRef(false);
+  const onResultRef = useRef(onResult);
   const [useFrontCamera, setUseFrontCamera] = useState(false);
   const [scannerReady, setScannerReady] = useState(false);
+  const [cameraError, setCameraError] = useState(false);
 
-  // Keep pausedRef in sync
+  // Keep refs in sync without triggering effect re-runs
   useEffect(() => {
     pausedRef.current = paused;
   }, [paused]);
+
+  useEffect(() => {
+    onResultRef.current = onResult;
+  }, [onResult]);
 
   const handleScanSuccess = useCallback(
     async (decodedText: string) => {
@@ -33,14 +39,14 @@ export function QrScanner({ eventId, onResult, paused }: QrScannerProps) {
 
       try {
         const result = await checkInByToken(decodedText, eventId);
-        onResult(result as CheckInResult);
+        onResultRef.current(result as CheckInResult);
       } catch {
-        onResult({ error: "Hálózati hiba. Próbáld újra.", type: "invalid" });
+        onResultRef.current({ error: "Hálózati hiba. Próbáld újra.", type: "invalid" });
       } finally {
         processingRef.current = false;
       }
     },
-    [eventId, onResult]
+    [eventId]
   );
 
   useEffect(() => {
@@ -67,8 +73,8 @@ export function QrScanner({ eventId, onResult, paused }: QrScannerProps) {
           }
         );
         if (mounted) setScannerReady(true);
-      } catch (err) {
-        console.error("[qr-scanner] Failed to start camera:", err);
+      } catch {
+        if (mounted) setCameraError(true);
       }
     }
 
@@ -96,7 +102,15 @@ export function QrScanner({ eventId, onResult, paused }: QrScannerProps) {
         className="w-full rounded-xl overflow-hidden bg-black"
         style={{ minHeight: "300px" }}
       />
-      {!scannerReady && (
+      {cameraError && (
+        <div className="absolute inset-0 flex items-center justify-center bg-black/70 rounded-xl">
+          <div className="text-center px-4">
+            <p className="text-red-400 text-sm font-medium mb-1">Kamera nem elérhető</p>
+            <p className="text-zinc-400 text-xs">Engedélyezd a kamera hozzáférést a böngésző beállításaiban.</p>
+          </div>
+        </div>
+      )}
+      {!scannerReady && !cameraError && (
         <div className="absolute inset-0 flex items-center justify-center bg-black/70 rounded-xl">
           <p className="text-white text-sm">Kamera indítása...</p>
         </div>

@@ -133,7 +133,7 @@ export async function getEventRegistrationCounts(eventIds: string[]) {
     .where(
       and(
         inArray(registration.eventId, eventIds),
-        eq(registration.status, sql`'registered'`)
+        eq(registration.status, "registered")
       )
     )
     .groupBy(registration.eventId);
