@@ -105,8 +105,14 @@ None yet.
 - D1 database must be created with --location=weur for Budapest proximity
 - Workers Paid plan ($5/mo) recommended for production CPU limits
 
+### Quick Tasks Completed
+
+| # | Description | Date | Commit | Directory |
+|---|-------------|------|--------|-----------|
+| 260330-gge | Update domain to dozisbp.hu + add login button to navbar | 2026-03-30 | 519b89e | [260330-gge-dozisbp-hu-domain-update-and-add-login-b](./quick/260330-gge-dozisbp-hu-domain-update-and-add-login-b/) |
+
 ## Session Continuity
 
-Last session: 2026-03-29T19:59:00.144Z
-Stopped at: Completed 04-03-PLAN.md
+Last activity: 2026-03-30 - Completed quick task 260330-gge: dozisbp.hu domain update and add login button
+Stopped at: Quick task 260330-gge complete
 Resume file: None
