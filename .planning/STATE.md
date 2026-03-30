@@ -101,7 +101,7 @@ None yet.
 
 ### Blockers/Concerns
 
-- Resend domain setup (SPF/DKIM/DMARC for dozis.hu) needed before auth email works
+- Resend domain setup (SPF/DKIM/DMARC for dozisbp.hu) needed before auth email works
 - D1 database must be created with --location=weur for Budapest proximity
 - Workers Paid plan ($5/mo) recommended for production CPU limits
 

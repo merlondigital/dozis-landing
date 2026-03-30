@@ -33,10 +33,10 @@ export default function PrivacyPolicyPage() {
           <p>
             <strong className="text-zinc-200">E-mail:</strong>{" "}
             <a
-              href="mailto:dozisdozis0@gmail.com"
+              href="mailto:info@dozisbp.hu"
               className="text-dozis-amber hover:text-dozis-amber-light underline"
             >
-              dozisdozis0@gmail.com
+              info@dozisbp.hu
             </a>
           </p>
           <p>
@@ -227,10 +227,10 @@ export default function PrivacyPolicyPage() {
           <p>
             <strong className="text-zinc-200">E-mail:</strong>{" "}
             <a
-              href="mailto:dozisdozis0@gmail.com"
+              href="mailto:info@dozisbp.hu"
               className="text-dozis-amber hover:text-dozis-amber-light underline"
             >
-              dozisdozis0@gmail.com
+              info@dozisbp.hu
             </a>
           </p>
           <p>

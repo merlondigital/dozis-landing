@@ -17,7 +17,7 @@ interface PassData {
  * - APPLE_PASS_SIGNERKEY  — PEM private key for the Pass Type ID certificate
  * - APPLE_PASS_SIGNERCERT — PEM certificate for the Pass Type ID
  * - APPLE_PASS_WWDR       — Apple WWDR intermediate certificate (PEM)
- * - APPLE_PASS_TYPE_ID    — e.g. "pass.hu.dozis.kupon"
+ * - APPLE_PASS_TYPE_ID    — e.g. "pass.hu.dozisbp.kupon"
  * - APPLE_TEAM_ID         — Apple Developer Team ID
  */
 export async function generateWalletPass(
