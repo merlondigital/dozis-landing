@@ -66,7 +66,7 @@ export default function Navbar() {
             className="text-base font-medium tracking-[0.15em] uppercase border border-dozis-amber text-dozis-amber px-6 py-3 rounded mt-4 inline-block hover:bg-dozis-amber hover:text-black transition-all duration-300 min-h-[44px]"
             style={{ fontFamily: "var(--font-body)" }}
           >
-            Bejelentkezes
+            Bejelentkezés
           </Link>
         </li>
       </ul>
@@ -76,7 +76,7 @@ export default function Navbar() {
         className="max-md:hidden text-xs font-medium tracking-[0.15em] uppercase border border-dozis-amber text-dozis-amber px-4 py-2 rounded transition-all duration-300 hover:bg-dozis-amber hover:text-black min-h-[44px] flex items-center"
         style={{ fontFamily: "var(--font-body)" }}
       >
-        Bejelentkezes
+        Bejelentkezés
       </Link>
 
       <button
