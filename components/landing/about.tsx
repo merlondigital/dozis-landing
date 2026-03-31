@@ -14,8 +14,6 @@ export default function About() {
           className="font-heading text-[clamp(1.4rem,3vw,2.2rem)] text-white leading-[1.4] mb-8"
         >
           Budapesti elektronikus zenei kollektíva.
-          <br />
-          Négy DJ. Egy küldetés.
         </p>
         <p
           ref={ref2 as React.RefObject<HTMLParagraphElement>}
