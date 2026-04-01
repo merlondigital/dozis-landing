@@ -1,4 +1,4 @@
-const CACHE_NAME = "dozis-v1";
+const CACHE_NAME = "dozis-v2";
 
 // Install: activate immediately
 self.addEventListener("install", () => {
@@ -39,9 +39,9 @@ self.addEventListener("fetch", (event) => {
     return;
   }
 
-  // Navigation (HTML pages): stale-while-revalidate with 3s timeout
+  // Navigation (HTML pages): network-first with 8s timeout (allows for cold starts)
   if (request.mode === "navigate") {
-    event.respondWith(networkFirstWithTimeout(request, 3000));
+    event.respondWith(networkFirstWithTimeout(request, 8000));
     return;
   }
 
